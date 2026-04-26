@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr.Huang's Belly-Healing Remedies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4ead5;
+    --paper-dark: #e8dcb8;
+    --paper-fold: #d6c590;
+    --ink: #221a0d;
+    --ink-soft: #443319;
+    --accent-red: #a82817;
+    --accent-orange: #c66524;
+    --accent-green: #5a6e2a;
+    --accent-yellow: #b8881d;
+    --accent-pink: #c47a85;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 500;
+    background:
+      radial-gradient(ellipse at top, rgba(180,140,80,0.15), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(120,80,40,0.10), transparent 60%),
+      #2b2218;
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 20px 0;
+    font-size: 17px;
+  }
+
+  /* Paper texture using SVG noise */
+  .paper-texture {
+    position: relative;
+  }
+  .paper-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3, 0 0 0 0 0.2, 0 0 0 0 0.1, 0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.4;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    border-radius: inherit;
+  }
+
+  .book {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(180,130,60,0.15), transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(160,100,40,0.12), transparent 50%);
+    box-shadow:
+      0 0 0 1px rgba(80,50,20,0.3),
+      0 25px 80px rgba(0,0,0,0.6),
+      0 50px 120px rgba(0,0,0,0.3),
+      inset 0 0 80px rgba(120,80,40,0.15);
+    border-radius: 4px;
+    padding: 60px 70px 80px;
+    position: relative;
+  }
+
+  /* Edge wear */
+  .book::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    box-shadow:
+      inset 0 0 0 2px rgba(80,50,20,0.12),
+      inset 0 0 30px rgba(80,50,20,0.18);
+    pointer-events: none;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 2px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 5px 16px;
+    font-family: 'Kalam', cursive;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    transform: rotate(-3deg);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 .accent {
+    color: var(--accent-red);
+    font-style: normal;
+    display: block;
+    font-size: 0.85em;
+    margin-top: 6px;
+  }
+
+  .subtitle {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink-soft);
+    margin-top: 10px;
+  }
+
+  .divider {
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--ink-soft);
+  }
+  .divider::before, .divider::after {
+    content: "";
+    height: 1px;
+    width: 80px;
+    background: var(--ink-soft);
+    opacity: 0.4;
+  }
+
+  /* INTRO */
+  .intro {
+    background: rgba(255,255,255,0.35);
+    border-left: 4px solid var(--accent-orange);
+    padding: 26px 30px;
+    margin: 30px 0 50px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: var(--ink);
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .intro p + p { margin-top: 14px; }
+
+  .intro::before {
+    content: "“";
+    position: absolute;
+    left: 14px;
+    top: -8px;
+    font-size: 4rem;
+    color: var(--accent-orange);
+    opacity: 0.5;
+    font-family: serif;
+  }
+
+  .signature {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--accent-red);
+    margin-top: 16px;
+    font-style: normal;
+  }
+
+  /* RECIPE CARD */
+  .recipe {
+    margin-bottom: 60px;
+    position: relative;
+    padding: 30px 0;
+    border-bottom: 1px dashed rgba(80,50,20,0.25);
+  }
+
+  .recipe:last-of-type {
+    border-bottom: none;
+  }
+
+  .recipe-number {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 2.4rem;
+    color: var(--accent-red);
+    line-height: 1;
+    display: inline-block;
+    margin-right: 14px;
+    transform: rotate(-2deg);
+  }
+
+  .recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--ink);
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.15;
+  }
+
+  .recipe-purpose {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--accent-green);
+    margin-top: 6px;
+    margin-left: 56px;
+    display: block;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    margin-top: 24px;
+    align-items: start;
+  }
+
+  .recipe-illustration {
+    width: 100%;
+    aspect-ratio: 1;
+    background: rgba(255,255,255,0.4);
+    border: 1.5px solid rgba(80,50,20,0.3);
+    border-radius: 6px;
+    padding: 14px;
+    box-shadow: 2px 3px 0 rgba(80,50,20,0.15);
+    transform: rotate(-1deg);
+  }
+
+  .recipe:nth-child(even) .recipe-illustration {
+    transform: rotate(1.5deg);
+  }
+
+  .recipe-illustration svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .recipe-content {
+    font-size: 1.08rem;
+    font-weight: 500;
+  }
+
+  .ingredients {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+
+  .ingredients li {
+    padding: 5px 0 5px 28px;
+    position: relative;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .ingredients li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: var(--accent-red);
+    font-size: 1.6rem;
+    line-height: 1;
+    top: 6px;
+    font-weight: 700;
+  }
+
+  .steps {
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  .when {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--accent-orange);
+    font-size: 1.35rem;
+    margin-top: 14px;
+    font-style: normal;
+  }
+
+  .note {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(184, 136, 29, 0.18);
+    border-left: 3px solid var(--accent-yellow);
+    font-style: normal;
+    line-height: 1.5;
+  }
+
+  /* RECIPE 7 - THE PIVOT */
+  .recipe-pivot {
+    background: linear-gradient(180deg, rgba(217, 122, 60, 0.08), rgba(217, 122, 60, 0.02));
+    border: 2px dashed var(--accent-orange);
+    border-radius: 8px;
+    padding: 40px 36px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .recipe-pivot::before {
+    content: "MOST IMPORTANT";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    background: var(--accent-red);
+    color: var(--paper);
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 5px 18px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+  }
+
+  .pivot-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 2.4rem;
+    color: var(--accent-red);
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+
+  .pivot-subtitle {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+
+  /* PIVOT IMAGE - responsive, framed, click-through */
+  .pivot-image-link {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 28px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .pivot-image-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .pivot-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1.5px solid rgba(80,50,20,0.3);
+    box-shadow:
+      3px 4px 0 rgba(80,50,20,0.15),
+      0 8px 24px rgba(0,0,0,0.18);
+    background: #fff;
+  }
+
+  .pivot-text {
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  .pivot-text strong {
+    background: linear-gradient(180deg, transparent 60%, rgba(184,136,29,0.45) 60%);
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* CTA BUTTON */
+  .cta-wrap {
+    text-align: center;
+    margin: 36px 0 16px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent-red);
+    color: #fef3d8;
+    padding: 22px 48px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow:
+      0 5px 0 #6e1a0d,
+      0 10px 24px rgba(0,0,0,0.3);
+    transition: all 0.15s ease;
+    letter-spacing: 0.01em;
+    border: 2px solid #6e1a0d;
+  }
+
+  .cta-button:hover {
+    transform: translateY(2px);
+    box-shadow:
+      0 3px 0 #6e1a0d,
+      0 6px 14px rgba(0,0,0,0.35);
+  }
+
+  .cta-arrow {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.2s;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .cta-note {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1.2rem;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* CLOSING */
+  .closing {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(80,50,20,0.2);
+  }
+
+  .closing p {
+    font-style: normal;
+    color: var(--ink);
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  .closing .signoff {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--accent-red);
+    margin-top: 12px;
+    font-style: normal;
+  }
+
+  /* Decorative corner ornaments */
+  .corner-ornament {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.4;
+  }
+  .corner-ornament.tl { top: 20px; left: 20px; }
+  .corner-ornament.tr { top: 20px; right: 20px; transform: scaleX(-1); }
+  .corner-ornament.bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
+  .corner-ornament.br { bottom: 20px; right: 20px; transform: scale(-1); }
+
+  /* Page number */
+  .page-num {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    color: var(--ink-soft);
+    margin-top: 30px;
+    font-size: 1.1rem;
+    opacity: 0.6;
+  }
+
+  /* Mobile */
+  @media (max-width: 720px) {
+    body { padding: 10px 0; }
+    .book { padding: 40px 28px 50px; }
+    .recipe-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .recipe-illustration {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    .recipe-pivot { padding: 36px 22px; }
+    .pivot-title { font-size: 1.8rem; }
+    .cta-button { padding: 18px 28px; font-size: 1.2rem; }
+    .recipe-purpose { margin-left: 0; margin-top: 8px; }
+    h1 { font-size: 2rem; }
+    .corner-ornament { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .recipe-pivot { padding: 30px 18px; }
+    .pivot-image-link { margin-bottom: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="book paper-texture">
+
+  <!-- Decorative corner ornaments -->
+  <svg class="corner-ornament tl" viewBox="0 0 50 50" fill="none" stroke="#3a2f1f" stroke-width="1.2">
+    <path d="M5 5 L20 5 M5 5 L5 20 M5 5 Q15 15 25 8 M5 5 Q15 15 8 25"/>
+    <circle cx="5" cy="5" r="1.5" fill="#3a2f1f"/>
+  </svg>
+  <svg class="corner-ornament tr" viewBox="0 0 50 50" fill="none" stroke="#3a2f1f" stroke-width="1.2">
+    <path d="M5 5 L20 5 M5 5 L5 20 M5 5 Q15 15 25 8 M5 5 Q15 15 8 25"/>
+    <circle cx="5" cy="5" r="1.5" fill="#3a2f1f"/>
+  </svg>
+  <svg class="corner-ornament bl" viewBox="0 0 50 50" fill="none" stroke="#3a2f1f" stroke-width="1.2">
+    <path d="M5 5 L20 5 M5 5 L5 20 M5 5 Q15 15 25 8 M5 5 Q15 15 8 25"/>
+    <circle cx="5" cy="5" r="1.5" fill="#3a2f1f"/>
+  </svg>
+  <svg class="corner-ornament br" viewBox="0 0 50 50" fill="none" stroke="#3a2f1f" stroke-width="1.2">
+    <path d="M5 5 L20 5 M5 5 L5 20 M5 5 Q15 15 25 8 M5 5 Q15 15 8 25"/>
+    <circle cx="5" cy="5" r="1.5" fill="#3a2f1f"/>
+  </svg>
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="stamp">Chinese Recipe Collection</span>
+    <h1>
+      Dr.Huang's
+      <span class="accent">Belly-Healing Remedies</span>
+    </h1>
+    <p class="subtitle">— seven recipes from chinese tradition —</p>
+    <div class="divider">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#5a4a32" stroke-width="1.5">
+        <path d="M16 4 L16 28 M4 16 L28 16 M9 9 L23 23 M23 9 L9 23"/>
+        <circle cx="16" cy="16" r="3" fill="#5a4a32"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <p>Hello. I am Dr. Huang. I put these together because so many of my patients have asked me to write them down. These are remedies I have used in my own practice and recommended to the women I treat for over thirty years, drawing from what my own grandmother taught me back home.</p>
+    <p>The ingredients are simple. You will already have most of them in your kitchen. But you must be patient, in Chinese medicine we say the body heals in seasons, not in days. These remedies work the old way, slowly and gently, from the inside.</p>
+    <p>Read all the way through. The last one is the one I want you to pay closest attention to.</p>
+    <p class="signature">— Dr.Huang</p>
+  </div>
+
+  <!-- RECIPE 1 - CINNAMON WATER -->
+  <article class="recipe">
+    <span class="recipe-number">№ 1</span>
+    <h2 class="recipe-title">Cinnamon Morning Water</h2>
+    <span class="recipe-purpose">for the belly that wakes up bloated</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="155" rx="55" ry="8" fill="none" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M50 60 Q50 155 100 158 Q150 155 150 60" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <ellipse cx="100" cy="60" rx="50" ry="6" fill="#c97a3c" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M75 30 Q72 22 78 18 Q84 14 80 6" fill="none" stroke="#5a4a32" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <path d="M100 28 Q97 20 103 16 Q109 12 105 4" fill="none" stroke="#5a4a32" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <path d="M125 30 Q122 22 128 18 Q134 14 130 6" fill="none" stroke="#5a4a32" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <g transform="translate(20 165) rotate(-15)">
+            <rect x="0" y="0" width="60" height="14" rx="3" fill="#a05a28" stroke="#3a2f1f" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="12" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="22" y1="2" x2="22" y2="12" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="34" y1="2" x2="34" y2="12" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="46" y1="2" x2="46" y2="12" stroke="#3a2f1f" stroke-width="1"/>
+          </g>
+          <g transform="translate(120 175) rotate(8)">
+            <rect x="0" y="0" width="55" height="12" rx="3" fill="#8c4a20" stroke="#3a2f1f" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="10" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="22" y1="2" x2="22" y2="10" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="34" y1="2" x2="34" y2="10" stroke="#3a2f1f" stroke-width="1"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>1 cinnamon stick (or 1 teaspoon ground)</li>
+          <li>2 cups warm water</li>
+          <li>1 teaspoon raw honey</li>
+          <li>A small squeeze of lemon</li>
+        </ul>
+        <p class="steps">Drop the cinnamon stick into a small pot of water. Let it simmer gently for ten minutes never boil it hard. Take it off the heat, stir in the honey and lemon, and pour it into your cup.</p>
+        <p class="when">Drink it slowly, first thing in the morning, before anything else.</p>
+        <p class="note">My mother used to say cinnamon "wakes the belly up gently." I never understood what she meant until I started doing this myself.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 2 - FENNEL & GINGER -->
+  <article class="recipe">
+    <span class="recipe-number">№ 2</span>
+    <h2 class="recipe-title">Fennel & Ginger Tea</h2>
+    <span class="recipe-purpose">for after-supper bloat and a heavy stomach</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="160" rx="65" ry="6" fill="none" stroke="#3a2f1f" stroke-width="1.5" opacity="0.4"/>
+          <path d="M50 100 Q50 155 100 158 Q150 155 150 100 Q150 90 145 88 L55 88 Q50 90 50 100 Z" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M148 110 Q175 105 180 130 Q175 125 165 130" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M52 105 Q30 110 32 135 Q30 142 50 145" fill="none" stroke="#3a2f1f" stroke-width="2.5"/>
+          <ellipse cx="100" cy="88" rx="40" ry="5" fill="#e8a850" stroke="#3a2f1f" stroke-width="2"/>
+          <circle cx="100" cy="78" r="6" fill="#a05a28" stroke="#3a2f1f" stroke-width="1.5"/>
+          <path d="M100 65 Q97 55 103 50 Q109 45 105 35" fill="none" stroke="#5a4a32" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <path d="M85 68 Q82 60 88 55 Q94 50 90 42" fill="none" stroke="#5a4a32" stroke-width="1.3" stroke-linecap="round" opacity="0.5"/>
+          <ellipse cx="35" cy="170" rx="3" ry="6" fill="#9b8b3a" stroke="#3a2f1f" stroke-width="1" transform="rotate(-20 35 170)"/>
+          <ellipse cx="42" cy="178" rx="3" ry="6" fill="#9b8b3a" stroke="#3a2f1f" stroke-width="1" transform="rotate(15 42 178)"/>
+          <ellipse cx="50" cy="172" rx="3" ry="6" fill="#9b8b3a" stroke="#3a2f1f" stroke-width="1" transform="rotate(-5 50 172)"/>
+          <g transform="translate(150 165)">
+            <ellipse cx="10" cy="10" rx="14" ry="9" fill="#e8b070" stroke="#3a2f1f" stroke-width="1.5"/>
+            <ellipse cx="22" cy="14" rx="9" ry="6" fill="#e8b070" stroke="#3a2f1f" stroke-width="1.5"/>
+            <line x1="3" y1="8" x2="8" y2="13" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="14" y1="6" x2="18" y2="11" stroke="#3a2f1f" stroke-width="0.8"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>1 teaspoon fennel seeds</li>
+          <li>A thumb of fresh ginger, sliced thin</li>
+          <li>2 cups water</li>
+          <li>1 teaspoon honey (optional)</li>
+        </ul>
+        <p class="steps">Put the fennel seeds and ginger slices into your kettle with the water. Bring it to a boil, then turn it down and let it simmer for eight minutes. Strain it into a mug.</p>
+        <p class="when">Drink it warm, half an hour after supper, when the heaviness sits in your stomach.</p>
+        <p class="note">Fennel breaks up trapped wind, and ginger pulls the heat out of inflammation. Together they're the gentlest digestion remedy I know.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 3 - APPLE CIDER VINEGAR -->
+  <article class="recipe">
+    <span class="recipe-number">№ 3</span>
+    <h2 class="recipe-title">Apple Cider & Lemon Reset</h2>
+    <span class="recipe-purpose">for swollen ankles and water you can't shake</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M75 50 L75 65 Q60 75 60 95 L60 165 Q60 175 70 175 L130 175 Q140 175 140 165 L140 95 Q140 75 125 65 L125 50 Z" fill="#c97a3c" stroke="#3a2f1f" stroke-width="2"/>
+          <rect x="80" y="40" width="40" height="14" rx="2" fill="#5a3a1a" stroke="#3a2f1f" stroke-width="2"/>
+          <rect x="65" y="105" width="70" height="50" fill="#fef3d8" stroke="#3a2f1f" stroke-width="1.5"/>
+          <text x="100" y="124" text-anchor="middle" font-family="Caveat, cursive" font-size="14" fill="#3a2f1f" font-weight="700">ACV</text>
+          <line x1="72" y1="135" x2="128" y2="135" stroke="#3a2f1f" stroke-width="0.8"/>
+          <line x1="76" y1="142" x2="124" y2="142" stroke="#3a2f1f" stroke-width="0.8" opacity="0.5"/>
+          <line x1="76" y1="148" x2="124" y2="148" stroke="#3a2f1f" stroke-width="0.8" opacity="0.5"/>
+          <g transform="translate(15 140)">
+            <ellipse cx="20" cy="20" rx="20" ry="16" fill="#f4d04a" stroke="#3a2f1f" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="14" ry="11" fill="#fef3d8" stroke="#3a2f1f" stroke-width="1"/>
+            <line x1="20" y1="9" x2="20" y2="31" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="9" y1="20" x2="31" y2="20" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="12" y1="12" x2="28" y2="28" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="12" y1="28" x2="28" y2="12" stroke="#3a2f1f" stroke-width="0.8"/>
+          </g>
+          <g transform="translate(150 155)">
+            <ellipse cx="20" cy="15" rx="22" ry="14" fill="#f4d04a" stroke="#3a2f1f" stroke-width="1.5"/>
+            <path d="M2 15 Q2 5 12 4 Q22 4 22 4" fill="none" stroke="#3a2f1f" stroke-width="0.8"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>1 tablespoon raw apple cider vinegar (with the "mother")</li>
+          <li>Juice of half a lemon</li>
+          <li>1 teaspoon raw honey</li>
+          <li>1 cup warm water</li>
+        </ul>
+        <p class="steps">Stir everything together in a glass until the honey dissolves. Drink it slowly through a straw if your teeth are sensitive the vinegar can be sharp.</p>
+        <p class="when">Every morning before anything else touches your lips. Don't skip the lemon it's what makes the vinegar gentle on your stomach.</p>
+        <p class="note">By the third morning, the marks your socks leave on your ankles by evening should start to disappear.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 4 - TURMERIC MILK -->
+  <article class="recipe">
+    <span class="recipe-number">№ 4</span>
+    <h2 class="recipe-title">Golden Turmeric Milk</h2>
+    <span class="recipe-purpose">for stiff joints and restless sleep</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55 70 Q55 165 100 168 Q145 165 145 70" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <ellipse cx="100" cy="70" rx="45" ry="6" fill="#e8a850" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M145 90 Q175 95 175 130 Q175 150 145 145" fill="none" stroke="#3a2f1f" stroke-width="2.5"/>
+          <g transform="translate(15 150)">
+            <ellipse cx="15" cy="20" rx="14" ry="8" fill="#e89028" stroke="#3a2f1f" stroke-width="1.5" transform="rotate(-15 15 20)"/>
+            <ellipse cx="28" cy="25" rx="11" ry="6" fill="#e89028" stroke="#3a2f1f" stroke-width="1.5" transform="rotate(20 28 25)"/>
+            <line x1="8" y1="18" x2="13" y2="22" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="18" y1="16" x2="22" y2="22" stroke="#3a2f1f" stroke-width="0.8"/>
+          </g>
+          <circle cx="155" cy="170" r="3" fill="#3a2f1f"/>
+          <circle cx="162" cy="178" r="2.5" fill="#3a2f1f"/>
+          <circle cx="170" cy="172" r="2.5" fill="#3a2f1f"/>
+          <circle cx="148" cy="182" r="2" fill="#3a2f1f"/>
+          <path d="M85 50 Q82 40 88 35 Q94 30 90 22" fill="none" stroke="#5a4a32" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+          <path d="M115 48 Q112 38 118 33 Q124 28 120 20" fill="none" stroke="#5a4a32" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>1 cup whole milk (or oat milk)</li>
+          <li>½ teaspoon ground turmeric</li>
+          <li>A pinch of black pepper</li>
+          <li>1 teaspoon raw honey</li>
+        </ul>
+        <p class="steps">Warm the milk in a small pan until you see steam rising never let it boil. Whisk in the turmeric and pepper. Pour it into your mug and stir in the honey at the end so the heat doesn't kill it.</p>
+        <p class="when">Drink it warm, an hour before bed.</p>
+        <p class="note">The black pepper is not optional. Without it, your body can't use the turmeric. Our grandmothers knew this long before doctors confirmed it.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 5 - BAY LEAF -->
+  <article class="recipe">
+    <span class="recipe-number">№ 5</span>
+    <h2 class="recipe-title">Bay Leaf Calming Tea</h2>
+    <span class="recipe-purpose">for stress that holds onto your belly</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(40 40)">
+            <ellipse cx="40" cy="50" rx="35" ry="14" fill="#5a8050" stroke="#3a2f1f" stroke-width="1.5" transform="rotate(-25 40 50)"/>
+            <line x1="10" y1="65" x2="65" y2="35" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="20" y1="58" x2="35" y2="50" stroke="#3a2f1f" stroke-width="0.6"/>
+            <line x1="30" y1="55" x2="40" y2="48" stroke="#3a2f1f" stroke-width="0.6"/>
+            <line x1="40" y1="52" x2="50" y2="42" stroke="#3a2f1f" stroke-width="0.6"/>
+          </g>
+          <g transform="translate(85 25)">
+            <ellipse cx="40" cy="50" rx="38" ry="15" fill="#6b8a55" stroke="#3a2f1f" stroke-width="1.5" transform="rotate(15 40 50)"/>
+            <line x1="8" y1="42" x2="72" y2="60" stroke="#3a2f1f" stroke-width="0.8"/>
+          </g>
+          <g transform="translate(40 100)">
+            <ellipse cx="40" cy="50" rx="34" ry="13" fill="#5a8050" stroke="#3a2f1f" stroke-width="1.5" transform="rotate(45 40 50)"/>
+          </g>
+          <ellipse cx="140" cy="155" rx="50" ry="8" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M105 110 Q110 150 140 153 Q170 150 175 110 Z" fill="#fef3d8" stroke="#3a2f1f" stroke-width="2"/>
+          <ellipse cx="140" cy="110" rx="35" ry="5" fill="#a05a28" stroke="#3a2f1f" stroke-width="2"/>
+          <path d="M125 95 Q123 88 127 84 Q131 80 129 73" fill="none" stroke="#5a4a32" stroke-width="1.3" opacity="0.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>3 dried bay leaves</li>
+          <li>2 cups water</li>
+          <li>A small piece of cinnamon stick</li>
+          <li>Honey to taste</li>
+        </ul>
+        <p class="steps">Bring the water to a soft boil. Drop in the bay leaves and the cinnamon stick. Cover the pot and let it steep on low heat for fifteen minutes. The steam holds the medicine don't lift the lid.</p>
+        <p class="when">Sip it slowly in the late afternoon, when the day's worries start sitting heavy on you.</p>
+        <p class="note">When stress builds up, your body holds onto fat the way it holds onto its breath. This tea teaches it to let go.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 6 - LEMON PARSLEY -->
+  <article class="recipe">
+    <span class="recipe-number">№ 6</span>
+    <h2 class="recipe-title">Lemon & Parsley Liver Flush</h2>
+    <span class="recipe-purpose">for the heaviness that sits behind your right ribs</span>
+
+    <div class="recipe-grid">
+      <div class="recipe-illustration">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55 60 L55 50 Q55 42 65 42 L135 42 Q145 42 145 50 L145 60 Q150 65 150 75 L150 165 Q150 175 140 175 L60 175 Q50 175 50 165 L50 75 Q50 65 55 60 Z" fill="#a8c465" stroke="#3a2f1f" stroke-width="2" opacity="0.85"/>
+          <ellipse cx="100" cy="50" rx="35" ry="5" fill="#5a3a1a" stroke="#3a2f1f" stroke-width="2"/>
+          <circle cx="80" cy="100" r="3" fill="#fef3d8" opacity="0.6"/>
+          <circle cx="115" cy="120" r="2" fill="#fef3d8" opacity="0.6"/>
+          <circle cx="95" cy="140" r="4" fill="#fef3d8" opacity="0.6"/>
+          <circle cx="125" cy="90" r="2.5" fill="#fef3d8" opacity="0.6"/>
+          <g transform="translate(20 130)">
+            <line x1="5" y1="35" x2="15" y2="10" stroke="#3a5a25" stroke-width="1.5"/>
+            <ellipse cx="10" cy="8" rx="5" ry="4" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+            <ellipse cx="16" cy="14" rx="4" ry="3" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+            <ellipse cx="6" cy="16" rx="4" ry="3" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+            <ellipse cx="14" cy="22" rx="3.5" ry="2.5" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+          </g>
+          <g transform="translate(165 145)">
+            <line x1="10" y1="30" x2="5" y2="5" stroke="#3a5a25" stroke-width="1.5"/>
+            <ellipse cx="5" cy="5" rx="5" ry="4" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+            <ellipse cx="12" cy="10" rx="4" ry="3" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+            <ellipse cx="0" cy="12" rx="3.5" ry="2.5" fill="#5a8030" stroke="#3a2f1f" stroke-width="1"/>
+          </g>
+          <g transform="translate(130 165)">
+            <ellipse cx="15" cy="10" rx="14" ry="10" fill="#f4d04a" stroke="#3a2f1f" stroke-width="1.5"/>
+            <ellipse cx="15" cy="10" rx="9" ry="6" fill="#fef3d8" stroke="#3a2f1f" stroke-width="0.8"/>
+            <line x1="15" y1="3" x2="15" y2="17" stroke="#3a2f1f" stroke-width="0.7"/>
+            <line x1="6" y1="10" x2="24" y2="10" stroke="#3a2f1f" stroke-width="0.7"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="recipe-content">
+        <ul class="ingredients">
+          <li>A small handful of fresh parsley</li>
+          <li>1 whole lemon, peel and all</li>
+          <li>1 cup of water</li>
+          <li>A pinch of sea salt</li>
+        </ul>
+        <p class="steps">Wash the parsley well. Cut the lemon into chunks and toss it all into a blender with the water and salt. Blend until smooth, then strain the pulp out through a cheesecloth or fine sieve.</p>
+        <p class="when">Drink it once a week, in the morning, on an empty stomach. Don't do it more often your liver needs gentleness, not punishment.</p>
+        <p class="note">If you've been carrying too many years of fried food and processed meat, this is the recipe that opens the gates again.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- RECIPE 7 - THE PIVOT -->
+  <article class="recipe-pivot">
+    <h2 class="pivot-title">The Spanish Orange Peel Method</h2>
+    <p class="pivot-subtitle">— the one I want you to pay closest attention to —</p>
+
+    <a href="https://citrusburn.com/science?affiliate=silkedroad&tid=huang&vendor=citrusburn" class="pivot-image-link">
+      <img src="image-14.jpg" alt="Spanish Orange Peel Method video">
+    </a>
+
+    <p class="pivot-text">When I first began recommending these six recipes to my patients, I saw the same pattern over and over. A small response from the body, one or two pounds, a little less bloating and then everything would stop. Many of them grew discouraged. They thought their body was simply finished changing.</p>
+
+    <p class="pivot-text">Then a colleague of mine sent me a short video explaining a 30-second ritual using <strong>Spanish orange peel.</strong> I watched it carefully, twice, in fact and began recommending it to my patients the following week. Within 2 days they were reporting their clothes fitting differently.</p>
+
+    <p class="pivot-text">One 54 year-old mother lost 41 pounds in just 12 weeks using this simple morning ritual.</p>
+
+    <p class="pivot-text">The reason it works when other things don't is something called <strong>thermogenic resistance</strong> when your metabolism stops responding and starts protecting fat instead of burning it, it happens to almost every woman after 40.</p>
+
+    <p class="pivot-text">I'm not going to try to explain the whole thing here in writing. The short video presentation does it better than I ever could, and it shows you the exact 30-second morning ritual step by step.</p>
+
+    <div class="cta-wrap">
+      <a href="https://citrusburn.com/science?affiliate=silkedroad&tid=huang&vendor=citrusburn" class="cta-button">
+        Watch the Orange Peel Method
+        <span class="cta-arrow">→</span>
+      </a>
+      <p class="cta-note">It's a short video about 30 seconds of preparation, that's all.</p>
+    </div>
+  </article>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <p>Use these recipes in good health. Be patient with your body it has been carrying you a long time, and it deserves gentleness.</p>
+    <p class="signoff">— Dr.Huang</p>
+    <p class="page-num">— page 7 of 7 —</p>
+  </div>
+
+</div>
+
+</body>
+</html>
