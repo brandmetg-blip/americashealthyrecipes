@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favico.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Very Easy & Simple 30-Second Routine for Faster Weight Loss</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f0f0f0;
+    color: #000;
+    line-height: 1.5;
+    padding: 30px 15px;
+  }
+
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 30px 28px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    color: #000;
+  }
+
+  h1 .blue {
+    color: #1f5fc4;
+  }
+
+  .byline {
+    text-align: center;
+    margin: -10px 0 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .byline-text {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #888;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .byline-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .byline-name span {
+    color: #c66524;
+    font-weight: 700;
+  }
+
+  .video-wrap {
+    position: relative;
+    margin: 0 auto 8px;
+    cursor: pointer;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: #ddd;
+  }
+
+  .video-wrap img,
+  .video-wrap .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thumb {
+    background: linear-gradient(135deg, #f5e8d0 0%, #d8c79a 50%, #c4b582 100%);
+    position: relative;
+  }
+
+  /* SVG thumbnail composition - left side: bowl with orange peels, right side: woman silhouette */
+  .thumb-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 56px;
+    background: #cc0000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+  }
+
+  .video-wrap:hover .play-button {
+    background: #e60000;
+  }
+
+  .play-button::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 22px solid #fff;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    margin-left: 5px;
+  }
+
+  .sound-warning {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #000;
+    font-weight: 700;
+    margin: 6px 0 16px;
+  }
+
+  .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    background: #1f5fc4;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .cta-button:hover {
+    background: #1a4fa3;
+  }
+
+  .arrow-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    letter-spacing: -2px;
+    color: #fff;
+  }
+
+  .body-copy {
+    font-size: 0.95rem;
+    color: #000;
+    margin-top: 4px;
+  }
+
+  .body-copy p {
+    margin-bottom: 12px;
+    line-height: 1.55;
+  }
+
+  .body-copy strong {
+    font-weight: 700;
+  }
+
+  .body-copy .last-paragraph {
+    margin-bottom: 28px;
+  }
+
+  .second-cta {
+    margin-top: 22px;
+    margin-bottom: 0;
+  }
+
+  .footer {
+    max-width: 540px;
+    margin: 28px auto 0;
+    padding: 22px 8px;
+    background: transparent;
+    border: none;
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: #666;
+    text-align: center;
+  }
+
+  .footer p {
+    margin-bottom: 10px;
+  }
+
+  .footer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer .copyright {
+    color: #333;
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
+  }
+
+  .footer .copyright a {
+    color: #1f5fc4;
+    text-decoration: none;
+  }
+
+  .footer .copyright a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 15px 10px; }
+    .container { padding: 22px 18px; }
+    h1 { font-size: 1.45rem; }
+    .cta-button { font-size: 1.15rem; padding: 16px 14px; }
+    .play-button { width: 68px; height: 48px; }
+    .play-button::after {
+      border-left: 18px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
+    .footer { padding: 18px 16px; font-size: 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>
+    Very Easy &amp; Simple <span class="blue">30-Second Routine</span> for Faster Weight Loss!
+  </h1>
+
+  <div class="byline">
+    <div class="byline-name">shared by <span>Naomi</span></div>
+  </div>
+
+  <a href="https://citrusburn.com/science?affiliate=silkedroad&tid=naomi&vendor=citrusburn" class="video-wrap">
+    <img src="image-14.jpg" alt="">
+  </a>
+
+  <p class="sound-warning">&gt;&gt; Make sure your sound is turned on. Please wait up to 10 seconds for the video to load &lt;&lt;</p>
+
+  <a href="https://citrusburn.com/science?affiliate=silkedroad&tid=naomi&vendor=citrusburn" class="cta-button">
+    Watch The Video Now
+    <span class="arrow-circle">&gt;&gt;</span>
+  </a>
+
+  <div class="body-copy">
+    <p>A clinical nutritionist just discovered that soaking THIS specific orange peel in hot water each morning can ERASE stubborn belly fat...</p>
+
+    <p>New studies from Harvard and Mayo Clinic show this "30-second routine" can even force your metabolism to burn fat 24/7...</p>
+
+    <p>Making you lose up to 76 pounds without changing your diet...</p>
+
+    <p>One 54 year-old mother lost 41 pounds in just 12 weeks using this simple morning ritual.</p>
+
+    <p>Many people have tried this and have been amazed by the results.</p>
+
+    <p class="last-paragraph"><strong>So tap the button below to watch the free video</strong> and learn this easy routine that you can begin today at home.</p>
+  </div>
+
+  <a href="https://citrusburn.com/science?affiliate=silkedroad&tid=naomi&vendor=citrusburn" class="cta-button second-cta">
+    Watch The Video Now
+    <span class="arrow-circle">&gt;&gt;</span>
+  </a>
+
+</div>
+
+<div class="footer">
+  <p class="copyright">© 2026 americashealthyrecipes.com | All Rights Reserved</p>
+  <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  <p>It's important to consult your doctor before making any dietary or lifestyle changes. Individual results may vary and results are not guaranteed.</p>
+</div>
+
+</body>
+</html>
