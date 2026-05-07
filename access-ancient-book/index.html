@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ancient Healing Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --parchment: #ede5d0;
+    --dark-brown: #2c1a0e;
+    --medium-brown: #5c3a1e;
+    --warm-red: #8b1a1a;
+    --rust: #a0522d;
+    --gold: #c8a96e;
+    --light-gold: #e8d5a3;
+    --ink: #1a120a;
+    --faded: #8a7560;
+    --divider: #c4a97a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2c1a0e 0%, #4a2c14 40%, #6b3a1f 70%, #8b5e3c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a96e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .cover-badge {
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 6px 20px;
+    margin-bottom: 40px;
+    opacity: 0.85;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 10vw, 100px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  }
+
+  .cover h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 42px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+
+  .cover-divider {
+    width: 200px;
+    height: 1px;
+    background: var(--gold);
+    margin: 30px auto;
+    opacity: 0.5;
+    position: relative;
+  }
+  .cover-divider::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    background: transparent;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .cover-sub {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--light-gold);
+    opacity: 0.7;
+    margin-bottom: 60px;
+  }
+
+  .cover-count {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .cover-count-item {
+    text-align: center;
+  }
+
+  .cover-count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cover-count-label {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    opacity: 0.7;
+    margin-top: 4px;
+  }
+
+  .cover-intro {
+    max-width: 540px;
+    font-size: 15px;
+    color: rgba(245,240,232,0.7);
+    font-style: italic;
+    line-height: 1.9;
+  }
+
+  /* ── INTRO LETTER ── */
+  .intro-section {
+    max-width: 760px;
+    margin: 80px auto;
+    padding: 0 30px;
+  }
+
+  .letter-box {
+    background: var(--parchment);
+    border-left: 4px solid var(--warm-red);
+    padding: 50px 55px;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(44,26,14,0.08);
+  }
+
+  .letter-box::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: var(--warm-red);
+    opacity: 0.15;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    line-height: 1;
+  }
+
+  .letter-box p {
+    margin-bottom: 18px;
+    font-size: 16px;
+    color: var(--dark-brown);
+  }
+
+  .letter-sig {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--warm-red);
+    margin-top: 30px;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    max-width: 760px;
+    margin: 0 auto 80px;
+    padding: 0 30px;
+  }
+
+  .section-label {
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+    opacity: 0.5;
+  }
+
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin-bottom: 40px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    background: var(--parchment);
+    border: 1px solid rgba(196,169,122,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .toc-item:hover {
+    background: #e8dfc8;
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+
+  .toc-emoji {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .toc-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--dark-brown);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .toc-text span {
+    font-size: 12px;
+    color: var(--faded);
+    font-style: italic;
+  }
+
+  /* ── CHAPTER HEADERS ── */
+  .chapter-header {
+    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%);
+    padding: 70px 30px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 80px 0 0;
+  }
+
+  .chapter-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8a96e' fill-opacity='0.06'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .chapter-number {
+    font-family: 'Special Elite', cursive;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  .chapter-emoji {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .chapter-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 58px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .chapter-header p {
+    font-size: 15px;
+    color: rgba(245,240,232,0.65);
+    font-style: italic;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── RECIPES ── */
+  .recipes-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 30px;
+  }
+
+  .recipe-card {
+    margin-bottom: 70px;
+    padding-bottom: 70px;
+    border-bottom: 1px solid rgba(196,169,122,0.3);
+  }
+
+  .recipe-card:last-child {
+    border-bottom: none;
+  }
+
+  .recipe-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--warm-red);
+    font-style: italic;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .recipe-number::before {
+    content: 'Nº';
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .recipe-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--dark-brown);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .recipe-tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--warm-red);
+    margin-bottom: 28px;
+  }
+
+  .recipe-body {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 35px;
+    align-items: start;
+  }
+
+  @media (max-width: 600px) {
+    .recipe-body { grid-template-columns: 1fr; }
+  }
+
+  .ingredients-box {
+    background: var(--parchment);
+    padding: 24px 26px;
+    border: 1px solid rgba(196,169,122,0.4);
+  }
+
+  .ingredients-box h4 {
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(196,169,122,0.4);
+  }
+
+  .ingredients-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ingredients-box li {
+    font-size: 14px;
+    color: var(--dark-brown);
+    padding: 5px 0;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .ingredients-box li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--warm-red);
+    font-size: 12px;
+  }
+
+  .instructions h4 {
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(196,169,122,0.3);
+  }
+
+  .instructions p {
+    font-size: 15px;
+    color: var(--dark-brown);
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+
+  .tip-box {
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: rgba(200, 169, 110, 0.12);
+    border-left: 3px solid var(--gold);
+    font-size: 13px;
+    color: var(--medium-brown);
+    font-style: italic;
+  }
+
+  .tip-box strong {
+    font-style: normal;
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark-brown);
+    color: var(--light-gold);
+    text-align: center;
+    padding: 60px 30px;
+    margin-top: 80px;
+  }
+
+  footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  footer p {
+    font-size: 13px;
+    opacity: 0.6;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  footer .footer-sig {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+    margin-top: 30px;
+  }
+
+  /* ── NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(44,26,14,0.97);
+    backdrop-filter: blur(10px);
+    padding: 12px 30px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sticky-nav::-webkit-scrollbar { display: none; }
+
+  .sticky-nav a {
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    text-decoration: none;
+    padding: 6px 14px;
+    white-space: nowrap;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .sticky-nav a:hover {
+    opacity: 1;
+    border-color: rgba(200,169,110,0.3);
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 20px;
+    opacity: 0.4;
+    margin: 20px 0;
+    letter-spacing: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Traditional Wisdom Collection</div>
+  <h1>Ancient</h1>
+  <h2>Healing Book</h2>
+  <div class="cover-divider"></div>
+  <p class="cover-sub">— nine chapters of forgotten remedies —</p>
+  <div class="cover-count">
+    <div class="cover-count-item"><div class="cover-count-num">50+</div><div class="cover-count-label">Remedies</div></div>
+    <div class="cover-count-item"><div class="cover-count-num">9</div><div class="cover-count-label">Categories</div></div>
+    <div class="cover-count-item"><div class="cover-count-num">40+</div><div class="cover-count-label">Years Tested</div></div>
+  </div>
+  <p class="cover-intro">Quiet remedies from a simple life. Ingredients you already have. Results that work the way the old ones always have — slow, from the inside.</p>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <a href="#belly">🫧 Belly</a>
+  <a href="#liver">💧 Liver</a>
+  <a href="#skin">✨ Skin</a>
+  <a href="#joints">🦴 Joints</a>
+  <a href="#sleep">😴 Sleep</a>
+  <a href="#lungs">🌬️ Lungs</a>
+  <a href="#energy">⚡ Energy</a>
+  <a href="#hormones">💪 Hormones</a>
+  <a href="#teeth">🦷 Teeth &amp; Hair</a>
+</nav>
+
+<!-- INTRO LETTER -->
+<div class="intro-section">
+  <div class="section-label">A note on these remedies</div>
+  <div class="letter-box">
+    <p>These remedies were not invented. They were remembered. Passed down through generations of people who had no pharmacies, no doctors on call, and no choice but to understand the plants and foods around them.</p>
+    <p>The ingredients are simple, and you most likely already have them in your kitchen. But you must be patient with them. They work the way the old ones always have — quiet and slow, from the inside.</p>
+    <p>Read all the way through. There is something in every chapter that will surprise you. And the last remedy in each section — pay closest attention to that one.</p>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="section-label">What is inside</div>
+  <h2>Nine Chapters</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#belly"><div class="toc-emoji">🫧</div><div class="toc-text"><h4>Belly &amp; Bloat</h4><span>15 remedies for stubborn belly fat &amp; bloat</span></div></a>
+    <a class="toc-item" href="#liver"><div class="toc-emoji">💧</div><div class="toc-text"><h4>Liver &amp; Kidney</h4><span>12 traditional flushes &amp; cleanses</span></div></a>
+    <a class="toc-item" href="#skin"><div class="toc-emoji">✨</div><div class="toc-text"><h4>Skin &amp; Beauty</h4><span>14 remedies for stretch marks &amp; aging</span></div></a>
+    <a class="toc-item" href="#joints"><div class="toc-emoji">🦴</div><div class="toc-text"><h4>Joints &amp; Pain</h4><span>10 anti-inflammatory recipes</span></div></a>
+    <a class="toc-item" href="#sleep"><div class="toc-emoji">😴</div><div class="toc-text"><h4>Sleep &amp; Stress</h4><span>9 nighttime tonics &amp; rituals</span></div></a>
+    <a class="toc-item" href="#lungs"><div class="toc-emoji">🌬️</div><div class="toc-text"><h4>Lungs &amp; Mucus</h4><span>8 recipes for cough &amp; sinus</span></div></a>
+    <a class="toc-item" href="#energy"><div class="toc-emoji">⚡</div><div class="toc-text"><h4>Energy &amp; Fatigue</h4><span>11 remedies for tiredness &amp; brain fog</span></div></a>
+    <a class="toc-item" href="#hormones"><div class="toc-emoji">💪</div><div class="toc-text"><h4>Hormones &amp; Cortisol</h4><span>10 recipes for hormone balance</span></div></a>
+    <a class="toc-item" href="#teeth"><div class="toc-emoji">🦷</div><div class="toc-text"><h4>Teeth, Hair &amp; Nails</h4><span>11 ancient mixes for visible aging</span></div></a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ CHAPTER 1: BELLY ════════════════════════════════ -->
+<section id="belly">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter One</div>
+  <span class="chapter-emoji">🫧</span>
+  <h2>Belly &amp; Bloat</h2>
+  <p>15 remedies for stubborn belly fat, bloat, and slow metabolism — including the morning fiber drink and the cinnamon water that flattens your stomach in days.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">1</div>
+    <h3>Cinnamon Morning Water</h3>
+    <p class="recipe-tagline">for the belly that wakes up bloated</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cinnamon stick (or 1 tsp ground)</li>
+          <li>2 cups warm water</li>
+          <li>1 teaspoon raw honey</li>
+          <li>A small squeeze of lemon</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Drop the cinnamon stick into a small pot of water. Let it simmer gently for ten minutes — never boil it hard. Take it off the heat, stir in the honey and lemon, and pour it into your cup.</p>
+        <p>Drink this first thing in the morning, before anything else touches your lips. Do this every day for two weeks and watch what happens to your waistline.</p>
+        <div class="tip-box"><strong>Why it works</strong>Cinnamon slows how fast sugar enters your blood. When your blood sugar stays steady, your body stops storing fat around your middle.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">2</div>
+    <h3>Morning Fiber Starter Drink</h3>
+    <p class="recipe-tagline">for the sluggish gut that never fully empties</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp psyllium husk</li>
+          <li>1 tsp ground flaxseed</li>
+          <li>8 oz warm water</li>
+          <li>Juice of half a lemon</li>
+          <li>Pinch of sea salt</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Stir everything together quickly — psyllium thickens fast. Drink it immediately, then follow with another full glass of plain water.</p>
+        <p>Take this every morning thirty minutes before breakfast. Within three days you will notice your digestion moving with a rhythm it may not have had in years.</p>
+        <div class="tip-box"><strong>Why it works</strong>The fiber sweeps your intestines clean. Old waste sitting in the gut is a hidden cause of belly bloat that no diet pill will fix.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">3</div>
+    <h3>Ginger &amp; Fennel Belly Tea</h3>
+    <p class="recipe-tagline">for gas, cramps, and that heavy feeling after eating</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tsp fennel seeds</li>
+          <li>1 tsp fresh grated ginger</li>
+          <li>1 tsp dried peppermint</li>
+          <li>2 cups boiling water</li>
+          <li>Raw honey to taste</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Crush the fennel seeds lightly in your palm to release their oils. Place everything in a cup and pour boiling water over it. Cover and steep for eight minutes.</p>
+        <p>Strain and sip slowly after your two largest meals of the day. Do not rush it — slow sipping is part of the remedy.</p>
+        <div class="tip-box"><strong>Why it works</strong>Fennel is one of the oldest remedies for trapped gas. Our grandmothers kept a jar of fennel seeds on the table for good reason.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">4</div>
+    <h3>Apple Cider Vinegar Tonic</h3>
+    <p class="recipe-tagline">for low stomach acid and poor digestion</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp raw apple cider vinegar</li>
+          <li>1 tsp raw honey</li>
+          <li>¼ tsp ground ginger</li>
+          <li>8 oz warm water</li>
+          <li>Pinch of cayenne (optional)</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix all ingredients in a glass until the honey dissolves. Drink this fifteen minutes before your main meal of the day — not after. The timing matters.</p>
+        <div class="tip-box"><strong>Why it works</strong>Most bloating after meals comes from too little stomach acid, not too much. This tonic brings acid back to where it belongs before food arrives.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">5</div>
+    <h3>Dandelion Root &amp; Lemon Flush</h3>
+    <p class="recipe-tagline">for water retention and a puffy middle</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp dried dandelion root</li>
+          <li>Juice of 1 full lemon</li>
+          <li>1 tsp raw honey</li>
+          <li>2 cups warm water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Simmer the dandelion root in water for twelve minutes. Strain it, then stir in the lemon and honey while still warm. Drink one cup in the morning and one in the evening.</p>
+        <div class="tip-box"><strong>Why it works</strong>Dandelion root is a natural diuretic. The water your body is holding onto around your belly — this will move it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">6</div>
+    <h3>Turmeric Flat-Belly Broth</h3>
+    <p class="recipe-tagline">for inflammation hiding behind the belly button</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tsp turmeric powder</li>
+          <li>¼ tsp black pepper</li>
+          <li>½ tsp coconut oil</li>
+          <li>1 cup warm bone broth</li>
+          <li>Pinch of sea salt</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Warm the broth, then whisk in all ingredients. Drink as a warm soup once per day, ideally in the early afternoon when digestion is at its strongest.</p>
+        <div class="tip-box"><strong>Why it works</strong>Black pepper multiplies the power of turmeric by twenty times. Never take one without the other.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">7</div>
+    <h3>Warm Lemon &amp; Cayenne Morning Shot</h3>
+    <p class="recipe-tagline">to fire up a slow metabolism first thing in the morning</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>Juice of 1 lemon</li>
+          <li>⅛ tsp cayenne pepper</li>
+          <li>1 tsp raw honey</li>
+          <li>4 oz warm (not hot) water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Combine everything and drink it in one slow pour — not in a hurry. Take this before your morning fiber drink. The order matters: cayenne first, fiber second.</p>
+        <div class="tip-box"><strong>Why it works</strong>Cayenne raises body temperature and forces the metabolism to work harder for the next three hours. Even a small amount does this.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 2: LIVER ════════════════════════════════ -->
+<section id="liver">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Two</div>
+  <span class="chapter-emoji">💧</span>
+  <h2>Liver &amp; Kidney</h2>
+  <p>12 traditional flushes for cleansing the liver, dissolving small kidney stones, and clearing the heaviness behind the right ribs.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">8</div>
+    <h3>Classic Liver Flush Tea</h3>
+    <p class="recipe-tagline">for the heaviness behind the right rib</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp milk thistle seeds (crushed)</li>
+          <li>1 tsp dandelion root</li>
+          <li>½ tsp turmeric</li>
+          <li>2 cups boiling water</li>
+          <li>Lemon slice to serve</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Steep all herbs in boiling water for fifteen minutes with a lid on so the steam does not escape. Strain carefully and sip warm with a slice of lemon. Drink this every morning for three weeks without missing a day.</p>
+        <div class="tip-box"><strong>Why it works</strong>Milk thistle is silymarin — the single most studied liver herb in the world. Our people have used it for generations, long before any study was done.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">9</div>
+    <h3>Kidney Stone Dissolving Water</h3>
+    <p class="recipe-tagline">for the sharp pain and gravel in the kidneys</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>Juice of 2 lemons</li>
+          <li>2 tbsp raw apple cider vinegar</li>
+          <li>1 tbsp raw honey</li>
+          <li>32 oz clean water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix everything together in a large jar. Sip this throughout the entire day — do not gulp it all at once. Refill and repeat for seven days straight.</p>
+        <div class="tip-box"><strong>Why it works</strong>The citric acid in lemon binds to calcium stones and slowly breaks them apart. The vinegar helps the kidneys flush what the lemon loosens.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">10</div>
+    <h3>Beet &amp; Ginger Liver Tonic</h3>
+    <p class="recipe-tagline">for sluggish bile flow and fatty liver</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 medium beet, juiced or grated</li>
+          <li>1 inch fresh ginger, juiced</li>
+          <li>Juice of 1 lemon</li>
+          <li>1 tsp olive oil</li>
+          <li>Pinch of black pepper</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>If you have a juicer, run the beet and ginger through it. If not, grate both finely and squeeze through a clean cloth. Mix with lemon, olive oil, and pepper. Drink once in the morning on an empty stomach.</p>
+        <div class="tip-box"><strong>Why it works</strong>Beets contain betaine, which forces the liver to release stored fat. The olive oil triggers bile flow. Do not skip either one.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">11</div>
+    <h3>Parsley &amp; Watermelon Kidney Flush</h3>
+    <p class="recipe-tagline">for puffiness, dark urine, and kidney heaviness</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>Large handful fresh parsley</li>
+          <li>2 cups watermelon (cubed)</li>
+          <li>Juice of 1 lemon</li>
+          <li>1 cup cold water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Blend everything together until smooth. Drink one glass in the morning and one in the afternoon. Continue for five days, then rest for two before repeating.</p>
+        <div class="tip-box"><strong>Why it works</strong>Parsley is one of the most powerful kidney herbs there is. It was the first thing my mother gave anyone who complained of pain in the lower back.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">12</div>
+    <h3>Olive Oil &amp; Lemon Liver Shot</h3>
+    <p class="recipe-tagline">for a deep liver cleanse done once per week</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 tbsp cold-pressed olive oil</li>
+          <li>2 tbsp fresh lemon juice</li>
+          <li>1 clove raw garlic (optional)</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix the oil and lemon thoroughly. Drink it in one go — do not sip. Do this every Sunday morning before eating. Lie on your right side for twenty minutes afterward.</p>
+        <div class="tip-box"><strong>Why it works</strong>This is an old remedy. The olive oil forces the gallbladder to contract and push out bile. Many people feel the difference within the first week.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 3: SKIN ════════════════════════════════ -->
+<section id="skin">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Three</div>
+  <span class="chapter-emoji">✨</span>
+  <h2>Skin &amp; Beauty</h2>
+  <p>14 remedies for stretch marks, dark spots, sagging skin, and visible aging — all using ingredients you already have at home.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">13</div>
+    <h3>Rosehip &amp; Vitamin E Night Oil</h3>
+    <p class="recipe-tagline">for stretch marks and deep skin repair while you sleep</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 tbsp rosehip seed oil</li>
+          <li>1 vitamin E capsule (pierced)</li>
+          <li>3 drops lavender essential oil</li>
+          <li>2 drops frankincense oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix all oils together in a small dark glass bottle. Before bed, warm a few drops between your palms and massage slowly into the affected areas using circular motions for two full minutes.</p>
+        <div class="tip-box"><strong>Why it works</strong>Rosehip oil was what the women in our community used after childbirth. It does not make stretch marks disappear overnight — but in ninety days, you will not recognize the skin you are in.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">14</div>
+    <h3>Raw Honey &amp; Turmeric Dark Spot Mask</h3>
+    <p class="recipe-tagline">for age spots, sun damage, and uneven skin tone</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp raw honey</li>
+          <li>½ tsp turmeric powder</li>
+          <li>1 tsp lemon juice</li>
+          <li>½ tsp milk or yogurt</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix into a paste and apply to the dark spots or your entire face. Leave for twenty minutes, then rinse with cool water. Use three times a week. Expect yellow staining on your fingernails — wear gloves.</p>
+        <div class="tip-box"><strong>Why it works</strong>Turmeric inhibits melanin production. Lemon is a natural bleach. Together they fade dark spots faster than anything you will find in a pharmacy.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">15</div>
+    <h3>Egg White Firming Mask</h3>
+    <p class="recipe-tagline">for sagging skin around the jaw and neck</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 egg whites</li>
+          <li>1 tsp lemon juice</li>
+          <li>1 tsp raw honey</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Whisk the egg whites until slightly foamy. Add the lemon and honey. Apply to your face and neck with your fingers, working from the chin upward. Let it dry completely — about fifteen minutes — then rinse with cold water.</p>
+        <div class="tip-box"><strong>Why it works</strong>The egg white tightens the skin as it dries. It is temporary, yes — but done every day over months, the skin begins to remember the shape you are asking it to hold.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">16</div>
+    <h3>Collagen-Boosting Morning Drink</h3>
+    <p class="recipe-tagline">for skin that has lost its plumpness and bounce</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp collagen powder (or gelatin)</li>
+          <li>Juice of 1 orange</li>
+          <li>1 cup warm water</li>
+          <li>1 tsp raw honey</li>
+          <li>Pinch of vitamin C powder (optional)</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Dissolve the collagen in warm water first, then add the orange juice and honey. The vitamin C from the orange helps your body actually absorb and use the collagen you are drinking.</p>
+        <div class="tip-box"><strong>Why it works</strong>Collagen without vitamin C is like seeds without water. The body cannot build collagen without it. Drink the orange. Do not skip it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">17</div>
+    <h3>Coffee Grounds Cellulite Scrub</h3>
+    <p class="recipe-tagline">for the dimpling on thighs and hips</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>½ cup used coffee grounds</li>
+          <li>3 tbsp coconut oil (melted)</li>
+          <li>1 tbsp brown sugar</li>
+          <li>Few drops of any citrus oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix everything together into a thick paste. In the shower, massage firmly onto the affected areas in circular motions for five minutes. Rinse well. Do this every shower for a month.</p>
+        <div class="tip-box"><strong>Why it works</strong>Caffeine in coffee draws fluid out of fat cells and temporarily tightens the skin above them. Consistent use over weeks produces lasting improvement in texture.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 4: JOINTS ════════════════════════════════ -->
+<section id="joints">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Four</div>
+  <span class="chapter-emoji">🦴</span>
+  <h2>Joints &amp; Pain</h2>
+  <p>10 anti-inflammatory recipes for stiff joints, sore knees, lower-back pain, and the morning aches that make you feel old before your time.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">18</div>
+    <h3>Golden Anti-Inflammatory Milk</h3>
+    <p class="recipe-tagline">for stiff knees and aching joints on cold mornings</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cup whole milk (or oat milk)</li>
+          <li>1 tsp turmeric</li>
+          <li>¼ tsp black pepper</li>
+          <li>½ tsp cinnamon</li>
+          <li>1 tsp raw honey</li>
+          <li>½ tsp coconut oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Warm the milk on low heat — never boil. Whisk in all spices and the oil. Pour into a mug, stir in the honey, and drink slowly before bed. Do this every single night for thirty days without stopping.</p>
+        <div class="tip-box"><strong>Why it works</strong>This is our golden milk. Many of our older members stopped needing their pain medicine after three weeks of this nightly. Give it the full thirty days.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">19</div>
+    <h3>Ginger Root &amp; Cayenne Joint Rub</h3>
+    <p class="recipe-tagline">for pain you can point to with your finger</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 tbsp fresh grated ginger</li>
+          <li>¼ tsp cayenne powder</li>
+          <li>3 tbsp coconut oil</li>
+          <li>Few drops eucalyptus oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Melt the coconut oil, stir in the ginger and cayenne, then add the eucalyptus. Let it cool slightly until it thickens again. Rub a small amount directly onto painful joints morning and night. Wash hands thoroughly afterward and keep away from eyes.</p>
+        <div class="tip-box"><strong>Why it works</strong>Capsaicin from cayenne blocks the pain signal before it reaches the brain. This is not a folk tale — it is how the body works.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">20</div>
+    <h3>Bone Broth &amp; Collagen Daily Soup</h3>
+    <p class="recipe-tagline">for rebuilding what the years have worn down</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 cups homemade bone broth</li>
+          <li>1 tsp turmeric</li>
+          <li>1 tsp apple cider vinegar</li>
+          <li>Sea salt to taste</li>
+          <li>Fresh parsley to serve</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Warm the broth, stir in the turmeric and vinegar, and season. Drink as a warm cup of soup once per day. Homemade broth from boiled bones is best — it contains the most natural collagen and gelatin.</p>
+        <div class="tip-box"><strong>Why it works</strong>The gelatin in bone broth is the same material your cartilage is made of. You are literally feeding your joints what they are made of.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">21</div>
+    <h3>Epsom Salt &amp; Ginger Soak</h3>
+    <p class="recipe-tagline">for deep joint pain, swollen ankles, and tired legs</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 cups Epsom salt</li>
+          <li>1 tbsp ground ginger</li>
+          <li>Few drops peppermint oil</li>
+          <li>Warm bath water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Add everything to a warm (not scalding) bath. Soak for at least twenty minutes. For knee pain specifically, soak a cloth in the solution and wrap around the knee for the same time.</p>
+        <div class="tip-box"><strong>Why it works</strong>Magnesium in Epsom salt absorbs through the skin and relaxes the muscles pulling on painful joints. Do this three times a week, not once.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 5: SLEEP ════════════════════════════════ -->
+<section id="sleep">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Five</div>
+  <span class="chapter-emoji">😴</span>
+  <h2>Sleep &amp; Stress</h2>
+  <p>9 nighttime tonics and bedtime rituals to lower cortisol, calm the nervous system, and finally sleep through the night.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">22</div>
+    <h3>Warm Honey &amp; Nutmeg Sleep Tonic</h3>
+    <p class="recipe-tagline">for the mind that will not slow down at night</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cup warm whole milk</li>
+          <li>1 tsp raw honey</li>
+          <li>⅛ tsp freshly grated nutmeg</li>
+          <li>Pinch of cardamom</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Warm the milk gently. Stir in the honey and spices. Drink this thirty minutes before you intend to be asleep — not in bed with a book, but actually thirty minutes before you want your eyes to close.</p>
+        <div class="tip-box"><strong>Why it works</strong>Nutmeg contains myristicin, a natural compound that acts on the same pathways as mild sedatives. Our grandmothers knew this. They just called it the bedtime cup.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">23</div>
+    <h3>Chamomile &amp; Passionflower Nightcap</h3>
+    <p class="recipe-tagline">for anxiety that turns into insomnia</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp dried chamomile</li>
+          <li>1 tsp dried passionflower</li>
+          <li>½ tsp dried lemon balm</li>
+          <li>2 cups boiling water</li>
+          <li>Raw honey to sweeten</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Steep all herbs for ten minutes, covered. Strain and sweeten. Drink at the same time each night — routine is part of the remedy. Your nervous system learns from repetition.</p>
+        <div class="tip-box"><strong>Why it works</strong>Passionflower raises GABA in the brain — the same chemical that sleep medicine tries to mimic. The plant does it gently and without side effects.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">24</div>
+    <h3>Tart Cherry &amp; Magnesium Evening Drink</h3>
+    <p class="recipe-tagline">for waking at 2 or 3 in the morning and not getting back</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>4 oz tart cherry juice (unsweetened)</li>
+          <li>200mg magnesium glycinate powder</li>
+          <li>4 oz warm water</li>
+          <li>Tiny pinch of sea salt</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix everything together. Drink with your evening meal, not at bedtime — this needs a couple of hours to work before sleep arrives.</p>
+        <div class="tip-box"><strong>Why it works</strong>Tart cherry is one of the only plant sources of natural melatonin. Combined with magnesium — which most people are deficient in — you have a sleep remedy that actually changes sleep architecture.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">25</div>
+    <h3>Ashwagandha Cortisol-Lowering Milk</h3>
+    <p class="recipe-tagline">for the stress that follows you to bed</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>½ tsp ashwagandha powder</li>
+          <li>1 cup warm milk</li>
+          <li>1 tsp honey</li>
+          <li>¼ tsp cinnamon</li>
+          <li>Pinch of black pepper</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Whisk all ingredients into warm milk. Drink nightly for at least eight weeks — ashwagandha is an adaptogen that works slowly by lowering your baseline cortisol, not by making you sleepy.</p>
+        <div class="tip-box"><strong>Why it works</strong>Cortisol is the hormone that wakes you up. If your cortisol is high at night, you cannot sleep well no matter what else you try. Ashwagandha lowers it. Give it time.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 6: LUNGS ════════════════════════════════ -->
+<section id="lungs">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Six</div>
+  <span class="chapter-emoji">🌬️</span>
+  <h2>Lungs &amp; Mucus</h2>
+  <p>8 recipes for thick morning mucus, lingering cough, sinus pressure, and reviving lungs that smoking, dust, or pollution have damaged.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">26</div>
+    <h3>Onion &amp; Honey Lung Syrup</h3>
+    <p class="recipe-tagline">for the deep cough that will not leave</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 large onion, thinly sliced</li>
+          <li>3 tbsp raw honey</li>
+          <li>Juice of 1 lemon</li>
+          <li>1 tsp grated ginger</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Layer the onion slices in a jar, alternating with honey. Add lemon and ginger. Close and let sit for eight hours or overnight. The onion will release its juice and mix with the honey into a thick syrup. Take one tablespoon three times a day.</p>
+        <div class="tip-box"><strong>Why it works</strong>My mother made this for every cough. I have never found anything in a pharmacy that works as quickly. The onion breaks up mucus from the inside.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">27</div>
+    <h3>Steam Tent with Eucalyptus &amp; Thyme</h3>
+    <p class="recipe-tagline">for blocked sinuses and pressure behind the face</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>Large bowl of very hot water</li>
+          <li>5 drops eucalyptus oil</li>
+          <li>3 drops peppermint oil</li>
+          <li>2 sprigs fresh thyme (or 1 tsp dried)</li>
+          <li>1 large towel</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Add everything to the hot water. Lean over the bowl with the towel draped over your head and the bowl to create a steam tent. Breathe deeply through your nose for ten minutes. Do this twice a day when you are congested.</p>
+        <div class="tip-box"><strong>Why it works</strong>Thyme contains thymol, which loosens mucus from the bronchial walls. This is not just steam — it is medicinal vapor. Do not rush it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">28</div>
+    <h3>Mullein &amp; Licorice Root Lung Tea</h3>
+    <p class="recipe-tagline">for smoker's lungs, dusty lungs, and morning phlegm</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp dried mullein leaf</li>
+          <li>1 tsp dried licorice root</li>
+          <li>½ tsp ginger powder</li>
+          <li>2 cups boiling water</li>
+          <li>Raw honey to taste</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Steep for fifteen minutes, covered. Strain through a fine cloth — mullein leaves have tiny hairs that must be removed. Drink two cups per day for three weeks. This is not a quick remedy. It works over time.</p>
+        <div class="tip-box"><strong>Why it works</strong>Mullein has been used for lung conditions for centuries. People who have smoked for decades have told me their morning cough changed after three weeks of this tea.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 7: ENERGY ════════════════════════════════ -->
+<section id="energy">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Seven</div>
+  <span class="chapter-emoji">⚡</span>
+  <h2>Energy &amp; Fatigue</h2>
+  <p>11 remedies for chronic tiredness, afternoon crashes, brain fog, and that running-on-empty feeling that no amount of coffee fixes.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">29</div>
+    <h3>Iron-Boosting Blackstrap Tonic</h3>
+    <p class="recipe-tagline">for the fatigue that no amount of sleep fixes</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp blackstrap molasses</li>
+          <li>1 tbsp raw apple cider vinegar</li>
+          <li>Juice of half a lemon</li>
+          <li>8 oz warm water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Stir all ingredients together and drink every morning. Blackstrap molasses is rich in iron, B6, and magnesium — three nutrients that most tired people are missing without knowing it.</p>
+        <div class="tip-box"><strong>Why it works</strong>Iron-deficiency fatigue feels different from regular tiredness. You feel heavy in the limbs, cold, and no matter how much you sleep, you wake up tired. This is the remedy for that.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">30</div>
+    <h3>Rhodiola &amp; Maca Energy Elixir</h3>
+    <p class="recipe-tagline">for the afternoon crash and brain fog at 2pm</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>½ tsp maca root powder</li>
+          <li>¼ tsp rhodiola powder</li>
+          <li>1 cup warm water or cacao</li>
+          <li>1 tsp raw honey</li>
+          <li>Pinch of cinnamon</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Dissolve the powders into warm liquid, add honey and cinnamon. Drink at noon, before the afternoon crash hits — not during it. Think of it as prevention, not rescue.</p>
+        <div class="tip-box"><strong>Why it works</strong>Rhodiola was used by Russian soldiers to prevent mental fatigue on long campaigns. It is one of the most powerful adaptogens known. Maca sustains the physical energy that rhodiola lifts.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">31</div>
+    <h3>B12 &amp; Spirulina Green Shot</h3>
+    <p class="recipe-tagline">for that empty, flat feeling that starts before you even get out of bed</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tsp spirulina powder</li>
+          <li>Juice of 1 orange</li>
+          <li>Juice of half a lemon</li>
+          <li>1 tsp raw honey</li>
+          <li>2 oz cold water</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Blend or shake everything together in a small bottle. Drink in one go first thing in the morning. The taste is strong — follow it with a glass of plain water and a bite of food.</p>
+        <div class="tip-box"><strong>Why it works</strong>Spirulina contains more protein by weight than beef, more iron than spinach, and more B12 than most animal products. It is what I give to the people who are too tired to cook properly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">32</div>
+    <h3>Coconut Oil &amp; MCT Brain Butter Coffee</h3>
+    <p class="recipe-tagline">for brain fog and slow thinking in the morning</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cup black coffee</li>
+          <li>1 tbsp coconut oil or MCT oil</li>
+          <li>1 tbsp grass-fed butter</li>
+          <li>Pinch of cinnamon</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Blend all ingredients together in a blender for twenty seconds until creamy and frothy. Drink in place of your usual breakfast on days when your mind needs to work well.</p>
+        <div class="tip-box"><strong>Why it works</strong>The brain runs on fat first, then sugar. Giving it clean fat in the morning burns brighter and longer than any sugary breakfast. This is not a new idea — it is how we ate before sugar was everywhere.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 8: HORMONES ════════════════════════════════ -->
+<section id="hormones">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Eight</div>
+  <span class="chapter-emoji">💪</span>
+  <h2>Hormones &amp; Cortisol</h2>
+  <p>10 recipes specifically targeted at the hormone imbalances that drive weight gain, mood swings, and stubborn fat after 40.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">33</div>
+    <h3>Spearmint &amp; Licorice Hormone Tea</h3>
+    <p class="recipe-tagline">for the hormonal weight gain after 40 that will not budge</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tsp dried spearmint</li>
+          <li>½ tsp licorice root</li>
+          <li>½ tsp chaste tree berry (vitex)</li>
+          <li>2 cups boiling water</li>
+          <li>Raw honey to taste</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Steep for twelve minutes, strain, and sweeten lightly. Drink one cup in the morning and one in the evening. Give this at least six weeks — hormones are slow to change, and patience is required.</p>
+        <div class="tip-box"><strong>Why it works</strong>Vitex is the most important herb I know for women going through hormonal changes after forty. It works on the pituitary gland — the master switch for all hormones.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">34</div>
+    <h3>Seed Cycling Daily Routine</h3>
+    <p class="recipe-tagline">for mood swings, irregular cycles, and hormonal imbalance</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>Days 1–14: 1 tbsp ground flax + 1 tbsp pumpkin seeds</li>
+          <li>Days 15–28: 1 tbsp sesame seeds + 1 tbsp sunflower seeds</li>
+          <li>Add to smoothies, oatmeal, or yogurt daily</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Grind the flax and sesame fresh each day — pre-ground seeds lose their potency quickly. Add your daily seeds to whatever you eat at breakfast. No mixing the two phases. Do this for a full three months before judging the results.</p>
+        <div class="tip-box"><strong>Why it works</strong>Different seeds contain different lignans and fatty acids that naturally support estrogen and progesterone in the right phases of the month. This is one of the most powerful things a woman can do for her hormones, and it costs almost nothing.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">35</div>
+    <h3>Cortisol Reset Evening Ritual</h3>
+    <p class="recipe-tagline">for stress-driven belly fat and the wired-but-tired feeling</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>½ tsp ashwagandha</li>
+          <li>½ tsp holy basil (tulsi)</li>
+          <li>¼ tsp reishi mushroom powder</li>
+          <li>1 cup warm oat milk</li>
+          <li>1 tsp raw honey</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Whisk all powders into warm oat milk. Drink ninety minutes before bed, every night. The combination of these three adaptogens works at the adrenal level to slowly lower the stress hormone that is making your body hold onto fat.</p>
+        <div class="tip-box"><strong>Why it works</strong>Cortisol is not just a stress hormone — it is a fat-storage hormone. When it is high, your body will not release fat no matter what you eat or how much you exercise. These herbs lower it over time.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">36</div>
+    <h3>Maca &amp; Cacao Hormone-Balancing Drink</h3>
+    <p class="recipe-tagline">for low libido, low energy, and the flatness after 45</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tsp maca root powder</li>
+          <li>1 tbsp raw cacao powder</li>
+          <li>1 cup warm almond milk</li>
+          <li>1 tsp honey</li>
+          <li>Pinch of cayenne</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Blend or whisk until smooth. Drink in the late morning. Maca is most effective taken consistently for at least ninety days — do not stop after two weeks and decide it is not working.</p>
+        <div class="tip-box"><strong>Why it works</strong>Maca does not contain hormones. It teaches the body to produce its own hormones in the right amounts. That is why it takes time and why the effects last.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════ CHAPTER 9: TEETH ════════════════════════════════ -->
+<section id="teeth">
+<div class="chapter-header">
+  <div class="chapter-number">Chapter Nine</div>
+  <span class="chapter-emoji">🦷</span>
+  <h2>Teeth, Hair &amp; Nails</h2>
+  <p>11 ancient mixes for whitening teeth, regrowing thinning hair, strengthening brittle nails, and reversing the visible signs of aging from the outside in.</p>
+</div>
+<div class="recipes-container">
+
+  <div class="recipe-card">
+    <div class="recipe-number">37</div>
+    <h3>Activated Charcoal &amp; Coconut Teeth Polish</h3>
+    <p class="recipe-tagline">for stained, yellowed teeth without harsh chemicals</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>½ tsp activated charcoal powder</li>
+          <li>1 tbsp coconut oil</li>
+          <li>2 drops peppermint oil</li>
+          <li>Tiny pinch of baking soda</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix into a paste. Dip your toothbrush and brush gently for two minutes. Rinse very thoroughly — charcoal stains sinks. Use twice a week only. Daily use can be too abrasive.</p>
+        <div class="tip-box"><strong>Why it works</strong>Charcoal lifts stains by adsorption — it binds to the pigment on your teeth and pulls it away when you rinse. It is messy. It works.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">38</div>
+    <h3>Oil Pulling with Sesame &amp; Clove</h3>
+    <p class="recipe-tagline">for gum disease, bad breath, and a dirty mouth that looks clean</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp sesame oil (or coconut oil)</li>
+          <li>2 drops clove essential oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>First thing in the morning, before water, before anything, put the oil in your mouth. Pull and swish it between your teeth for twenty minutes — set a timer, it is longer than you think. Spit into a trash can, never the sink. Rinse with salt water.</p>
+        <div class="tip-box"><strong>Why it works</strong>Twenty minutes seems like a long time until your gums stop bleeding and your dentist asks what you changed. I have heard that story many times.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">39</div>
+    <h3>Rosemary &amp; Castor Oil Hair Growth Serum</h3>
+    <p class="recipe-tagline">for thinning edges, bald spots, and hair that falls too easily</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>3 tbsp castor oil</li>
+          <li>1 tbsp rosemary oil (infused)</li>
+          <li>5 drops peppermint essential oil</li>
+          <li>2 drops lavender oil</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix all oils in a small bottle. Before bed, part your hair in sections and use your fingertips to massage the oil into the scalp firmly for five full minutes — the massage is as important as the oil. Wrap with a silk scarf and leave overnight. Wash out in the morning. Do this three nights per week.</p>
+        <div class="tip-box"><strong>Why it works</strong>Rosemary oil was recently shown in a medical study to be as effective as minoxidil — the pharmaceutical hair growth treatment — with no side effects. Our people have used it for a hundred years.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">40</div>
+    <h3>Biotin &amp; Silica Nail Strengthening Drink</h3>
+    <p class="recipe-tagline">for nails that crack, peel, and break before they can grow</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 tbsp horsetail herb tea (dried)</li>
+          <li>1 tsp blackstrap molasses</li>
+          <li>Juice of half a lemon</li>
+          <li>1 cup hot water</li>
+          <li>Raw honey to taste</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Brew the horsetail as a strong tea for ten minutes. Stir in the molasses, lemon, and honey. Drink once a day. Horsetail is the richest plant source of silica — the mineral that nails are partly built from.</p>
+        <div class="tip-box"><strong>Why it works</strong>Most nail problems are mineral problems, not cosmetic problems. Paint and gels hide the issue. This addresses what is underneath.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">41</div>
+    <h3>Apple Cider Vinegar Hair Rinse</h3>
+    <p class="recipe-tagline">for dull, frizzy hair and an itchy, flaking scalp</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 tbsp raw apple cider vinegar</li>
+          <li>1 cup cool water</li>
+          <li>3 drops rosemary oil (optional)</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Mix together. After shampooing, pour slowly over your hair and scalp. Do not rinse it out — leave it in. The vinegar smell fades completely as your hair dries. Do this once or twice a week.</p>
+        <div class="tip-box"><strong>Why it works</strong>Shampoo is alkaline and opens the hair cuticle. Vinegar is acidic and closes it back down. Closed cuticles are shiny cuticles. This is all a hair gloss product is — at a tiny fraction of the cost.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-number">42</div>
+    <h3>Onion Juice Scalp Treatment</h3>
+    <p class="recipe-tagline">for significant hair thinning and hairline recession</p>
+    <div class="recipe-body">
+      <div class="ingredients-box">
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 medium onion, juiced</li>
+          <li>1 tbsp raw honey</li>
+          <li>Few drops of lavender oil (to mask smell)</li>
+        </ul>
+      </div>
+      <div class="instructions">
+        <h4>Preparation</h4>
+        <p>Juice the onion using a juicer or grate and squeeze through cloth. Mix in honey and lavender. Apply to the scalp with a cotton ball. Leave for thirty minutes, then wash out thoroughly with shampoo. Do this three times a week for three months. The smell is real. So are the results.</p>
+        <div class="tip-box"><strong>Why it works</strong>This is the most potent hair remedy I know. It is also the most unpleasant to use. The people who complain about the smell for three months are the ones who end up with hair. The ones who give up after a week are not.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ornament">✦ ✦ ✦</div>
+  <h3>These remedies are older than any medicine.</h3>
+  <p>They ask only patience, consistency, and a willingness to trust what simple things can do when given enough time. Use them well. Share them freely.</p>
+  <br><br>
+  <p style="font-size:11px; opacity:0.35; letter-spacing:1px;">FAMILY RECIPE COLLECTION · FOR EDUCATIONAL PURPOSES ONLY · CONSULT YOUR PHYSICIAN FOR MEDICAL ADVICE</p>
+</footer>
+
+</body>
+</html>

@@ -188,128 +188,23 @@
     align-items: center;
   }
 
-  /* BOOK MOCKUP */
-  .book-mockup-wrap {
-    position: relative;
-    perspective: 1000px;
-  }
-
-  .book-mockup {
+  /* BOOK IMAGE PLACEHOLDER */
+  .book-image-wrap {
     width: 100%;
     max-width: 380px;
-    aspect-ratio: 0.72;
     margin: 0 auto;
-    background: linear-gradient(135deg, #c84830 0%, #8a2418 100%);
-    border-radius: 4px 14px 14px 4px;
-    box-shadow:
-      -3px 0 0 rgba(0,0,0,0.15) inset,
-      8px 12px 24px var(--shadow),
-      20px 30px 60px rgba(0,0,0,0.35);
-    transform: rotateY(-15deg);
-    position: relative;
-    padding: 36px 32px;
-    color: #f4d04a;
-    overflow: hidden;
-  }
-
-  .book-mockup::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 18px;
-    background: linear-gradient(90deg, rgba(0,0,0,0.4), transparent);
-  }
-
-  .book-mockup::after {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 2px solid rgba(244, 208, 74, 0.4);
-    border-radius: 2px;
-    pointer-events: none;
-  }
-
-  .book-stamp {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-align: center;
-    margin-bottom: 18px;
-    opacity: 0.85;
-  }
-
-  .book-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: clamp(1.5rem, 3.8vw, 2rem);
-    line-height: 1.05;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .book-subtitle {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: 1.3rem;
-    text-align: center;
-    margin-bottom: 30px;
-    opacity: 0.9;
-  }
-
-  .book-ornament {
-    text-align: center;
-    font-size: 1.6rem;
-    margin: 20px 0;
-    opacity: 0.7;
-  }
-
-  .book-bottom {
-    position: absolute;
-    bottom: 32px;
-    left: 32px;
-    right: 32px;
-    text-align: center;
-  }
-
-  .book-author {
-    font-family: 'Caveat', cursive;
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin-bottom: 4px;
-  }
-
-  .book-edition {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    opacity: 0.7;
-    text-transform: uppercase;
-  }
-
-  .badge-instant {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: var(--accent-gold);
-    color: var(--ink);
-    padding: 14px 16px;
-    border-radius: 50%;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 0.72rem;
-    line-height: 1.1;
-    text-align: center;
-    transform: rotate(12deg);
-    box-shadow: 0 4px 12px var(--shadow);
-    width: 88px;
-    height: 88px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 5;
+  }
+
+  .book-image {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 8px;
+    aspect-ratio: 0.72;
   }
 
   /* CTA BUTTONS */
@@ -1032,19 +927,10 @@
       gap: 36px;
     }
 
-    .book-mockup-wrap { order: -1; }
+    .book-image-wrap { order: -1; }
 
-    .book-mockup {
-      max-width: 280px;
-      transform: rotateY(-10deg);
-    }
-
-    .badge-instant {
-      width: 72px;
-      height: 72px;
-      font-size: 0.65rem;
-      top: -6px;
-      right: 0;
+    .book-image {
+      max-width: 260px;
     }
 
     .social-bar-grid {
@@ -1121,18 +1007,8 @@
         </div>
       </div>
 
-      <div class="book-mockup-wrap">
-        <div class="badge-instant">INSTANT<br>DOWNLOAD</div>
-        <div class="book-mockup">
-          <div class="book-stamp">★ TRADITIONAL HEALING ★</div>
-          <div class="book-title">The Ancient<br>Healing<br>Recipe Book</div>
-          <div class="book-subtitle"> 100 forgotten remedies </div>
-          <div class="book-ornament">❦ ❦ ❦</div>
-          <div class="book-bottom">
-            <div class="book-author">From the Old Ways</div>
-            <div class="book-edition">Worldwide Edition</div>
-          </div>
-        </div>
+      <div class="book-image-wrap">
+        <img src="book_cover.png" alt="The Ancient Healing Recipe Book" class="book-image">
       </div>
     </div>
   </div>
@@ -1269,7 +1145,7 @@
         <span>LIMITED TIME OFFER</span>
       </div>
 
-      <a href="#" class="offer-buy-button">Buy Now</a>
+      <a href="https://ancienthealingbook.gumroad.com/l/ancienthealingbook?wanted=true" class="offer-buy-button">Buy Now</a>
 
       <div class="offer-guarantee-row">
         <span class="guarantee-shield">🛡️</span>
@@ -1457,7 +1333,7 @@
       </div>
 
 
-      <a href="#" class="offer-buy-button">Buy Now</a>
+      <a href="https://ancienthealingbook.gumroad.com/l/ancienthealingbook?wanted=true" class="offer-buy-button">Buy Now</a>
 
       <div class="offer-guarantee-row">
         <span class="guarantee-shield">🛡️</span>
