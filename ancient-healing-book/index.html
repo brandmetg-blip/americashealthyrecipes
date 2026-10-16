@@ -3,26 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>(1) The Ancient Healing Recipe Book</title>
+<title>The Ancient Healing Recipe Book</title>
+<link rel="icon" href="../favico.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f7f9f3;
-    --paper-warm: #edf3e6;
+    --paper: #f8faf4;
+    --paper-alt: #eef4e7;
     --card: #ffffff;
     --ink: #1c2a20;
-    --ink-soft: #2f4135;
-    --ink-mute: #4d5f52;
+    --ink-soft: #33463a;
+    --ink-mute: #56685b;
     --accent: #2e6b3c;
-    --accent-dark: #1e4d2a;
+    --accent-dark: #1d4428;
+    --accent-deep: #142f1c;
     --accent-light: #7fa66a;
-    --accent-pale: #dfeccf;
-    --accent-gold: #c08a17;
-    --highlight: #f3d36b;
-    --border: rgba(30, 77, 42, 0.16);
-    --shadow: rgba(30, 60, 35, 0.12);
+    --accent-pale: #e1edd3;
+    --gold: #b8892b;
+    --gold-light: #e6c56f;
+    --star: #2e8b57;
+    --border: rgba(29, 68, 40, 0.15);
+    --shadow: rgba(25, 55, 32, 0.12);
+    --cta-grad: linear-gradient(180deg, #2b5f36 0%, #1a3d23 100%);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,1517 +37,1933 @@
     font-family: 'Lora', Georgia, serif;
     color: var(--ink);
     background: var(--paper);
-    line-height: 1.75;
-    font-size: 20px;
+    font-size: 19px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  strong { color: var(--ink); }
+  img { max-width: 100%; display: block; }
 
-  .container {
-    max-width: 780px;
+  .wrap {
+    max-width: 680px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
-  .container-wide {
-    max-width: 1120px;
+  .wrap-wide {
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
-  /* DISCOUNT BANNER */
-  .discount-banner {
-    background: var(--accent-dark);
-    color: #fff;
-    padding: 14px 16px;
+  .sans { font-family: 'Inter', sans-serif; }
+
+  /* ── TOP BARS ── */
+  .guarantee-bar {
+    background: var(--accent-pale);
+    color: var(--accent-dark);
     text-align: center;
+    padding: 11px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .guarantee-bar span { color: var(--gold); margin: 0 10px; }
+
+  .sale-bar {
+    background: var(--accent-deep);
+    color: #fff;
+    padding: 18px 20px;
+  }
+
+  .sale-bar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 28px;
+    flex-wrap: nowrap;
+  }
+
+  .sale-text { text-align: center; min-width: 0; }
+
+  .sale-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
+
+  .sale-sub {
     font-family: 'Inter', sans-serif;
     font-size: 1.05rem;
-    font-weight: 500;
-    border-bottom: 3px solid var(--accent-light);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-  }
-
-  .discount-banner-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px 26px;
-    max-width: 1120px;
-    margin: 0 auto;
-  }
-
-  .discount-text strong {
-    color: var(--highlight);
-    font-weight: 800;
-  }
-
-  .country-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.14);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 2px 12px;
-    border-radius: 20px;
-    margin-left: 4px;
-    font-weight: 700;
-  }
-
-  .country-pill .flag {
-    font-size: 1.1em;
-    line-height: 1;
-  }
-
-  .timer-block {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    color: rgba(255,255,255,0.88);
+    margin-top: 4px;
   }
 
   .timer {
-    background: var(--highlight);
-    color: var(--ink);
-    padding: 3px 12px;
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
-    min-width: 74px;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .timer-unit { text-align: center; }
+
+  .timer-num {
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--gold-light);
     font-variant-numeric: tabular-nums;
   }
 
-  /* HERO */
-  .hero {
-    background:
-      radial-gradient(ellipse at 85% 20%, rgba(127, 166, 106, 0.22), transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(223, 236, 207, 0.9), transparent 60%),
-      var(--paper);
-    padding: 64px 0 80px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .stamp {
-    display: inline-block;
-    background: var(--accent-pale);
-    color: var(--accent-dark);
-    padding: 8px 18px;
-    font-family: 'Inter', sans-serif;
+  .timer-label {
+    display: block;
     font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: 30px;
-    border: 1px solid var(--border);
-    margin-bottom: 24px;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.88);
   }
 
-  .stamp .country-stamp {
-    color: var(--accent);
+  .timer-dot {
+    font-size: 2rem;
+    line-height: 1;
+    color: #fff;
+    padding-top: 2px;
   }
 
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: clamp(2.4rem, 5.2vw, 3.7rem);
-    line-height: 1.12;
-    color: var(--accent-dark);
-    margin-bottom: 22px;
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    text-align: center;
   }
 
-  .hero-sub {
-    font-size: 1.2rem;
-    color: var(--ink-soft);
-    margin-bottom: 34px;
-    line-height: 1.7;
-    max-width: 620px;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 56px;
+  .logo {
+    display: inline-flex;
     align-items: center;
+    gap: 10px;
+    color: var(--accent-dark);
+    text-decoration: none;
   }
 
-  /* BOOK IMAGE */
-  .book-image-wrap {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    text-align: left;
+    line-height: 1.05;
+  }
+
+  .logo-text small {
+    display: block;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+  }
+
+  .logo-text strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+  }
+
+  /* ── PRODUCT ── */
+  .product {
+    padding: 28px 0 40px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  @media (min-width: 960px) {
+    .product-grid {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .gallery { position: sticky; top: 20px; }
+  }
+
+  /* gallery */
+  .gallery-main {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--accent-pale);
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
   }
 
-  .book-image-wrap::before {
-    content: "";
+  .slide.active { opacity: 1; visibility: visible; }
+
+  .slide-cover {
+    background:
+      radial-gradient(circle at 65% 40%, rgba(255,255,255,0.75), transparent 55%),
+      linear-gradient(160deg, #dfecd0 0%, #b6d09d 100%);
+  }
+
+  .slide-cover img {
     position: absolute;
-    inset: 8% 4%;
-    background: radial-gradient(circle, rgba(127, 166, 106, 0.35), transparent 70%);
-    z-index: 0;
+    right: 6%;
+    top: 7%;
+    height: 86%;
+    width: auto;
+    filter: drop-shadow(0 18px 26px rgba(20, 47, 28, 0.35));
+    transform: rotate(3deg);
   }
 
-  .book-image {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: auto;
-    max-height: 540px;
-    object-fit: contain;
-    border-radius: 8px;
-    aspect-ratio: 0.72;
-  }
-
-  /* CTA BUTTONS */
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .badges {
+    position: absolute;
+    left: 5%;
+    top: 7%;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
-    background: var(--accent);
+    z-index: 2;
+  }
+
+  .badge {
+    width: 132px;
+    padding: 14px 10px;
+    border-radius: 14px;
+    background: linear-gradient(160deg, #24502f, #142f1c);
+    border: 2px solid var(--gold-light);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(230, 197, 111, 0.18);
     color: #fff;
-    padding: 22px 40px;
+    text-align: center;
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 6px 18px rgba(30, 77, 42, 0.3);
-    transition: background 0.15s ease, transform 0.15s ease;
-    border: none;
-    cursor: pointer;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.15;
   }
 
-  .cta-button:hover,
-  .cta-button:focus-visible {
-    background: var(--accent-dark);
-    transform: translateY(-1px);
+  .badge-icon {
+    display: block;
+    font-size: 1.7rem;
+    margin-bottom: 4px;
   }
 
-  .cta-button:focus-visible,
-  .offer-buy-button:focus-visible,
-  .faq-q:focus-visible {
-    outline: 3px solid var(--highlight);
-    outline-offset: 3px;
+  .badge-big {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-light);
+    font-size: 1.9rem;
+    line-height: 1;
+    margin-bottom: 2px;
   }
 
-  .cta-arrow {
-    font-weight: 900;
+  .slide-panel {
+    background: linear-gradient(180deg, #fbfdf8, #eef4e7);
+    padding: 7% 8%;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .cta-meta {
-    margin-top: 18px;
+  .slide-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .slide-list {
+    list-style: none;
+    columns: 2;
+    column-gap: 22px;
+    text-align: left;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: var(--ink-soft);
+    color: var(--ink);
+  }
+
+  .slide-list li {
+    break-inside: avoid;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .slide-list li b { color: var(--accent); margin-right: 6px; }
+
+  .seal {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f6dc8f, #c8962e 55%, #8d6516);
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px 22px;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .cta-meta span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .check {
-    color: var(--accent);
-    font-weight: 800;
-  }
-
-  /* SOCIAL PROOF BAR */
-  .social-bar {
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    padding: 30px 0;
-  }
-
-  .social-bar-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 2.1rem;
-    color: var(--accent);
+    justify-content: center;
+    color: #3a2a06;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2), inset 0 0 0 7px rgba(255,255,255,0.35), inset 0 0 0 9px rgba(120, 85, 15, 0.5);
+    margin: 0 auto 18px;
     line-height: 1;
-    margin-bottom: 8px;
   }
 
-  .stat-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--ink-mute);
-  }
+  .seal-num { font-size: 3.4rem; font-family: 'Playfair Display', serif; }
+  .seal-txt { font-size: 0.78rem; letter-spacing: 0.08em; line-height: 1.2; margin-top: 4px; text-align: center; }
 
-  /* SECTIONS */
-  section {
-    padding: 84px 0;
-  }
-
-  section:nth-child(even):not(.offer-clean) {
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-
-  .section-eyebrow::before {
-    content: "🌿 ";
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: clamp(2rem, 4.2vw, 2.7rem);
-    line-height: 1.2;
-    color: var(--accent-dark);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .section-sub {
-    text-align: center;
-    color: var(--ink-soft);
-    font-size: 1.15rem;
-    max-width: 660px;
-    margin: 0 auto 50px;
-    line-height: 1.7;
-  }
-
-  /* INSIDE THE BOOK */
-  .inside-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  .inside-card {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 30px 26px;
-  }
-
-  .inside-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--accent-pale);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    margin-bottom: 18px;
-  }
-
-  .inside-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--accent-dark);
-  }
-
-  .inside-card p {
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-
-  /* RECIPE PREVIEW */
-  .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin-top: 40px;
-  }
-
-  .preview-card {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px var(--shadow);
-  }
-
-  .preview-img {
-    width: 100%;
-    aspect-ratio: 16/10;
-    background: linear-gradient(135deg, #e6f0da 0%, #b9d3a3 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .preview-img svg {
-    width: 70%;
-    height: 70%;
-  }
-
-  .preview-content {
-    padding: 26px;
-  }
-
-  .preview-tag {
-    display: inline-block;
-    background: var(--accent-pale);
-    color: var(--accent-dark);
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .preview-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.45rem;
-    line-height: 1.3;
-    margin-bottom: 10px;
-    color: var(--accent-dark);
-  }
-
-  .preview-content p {
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    line-height: 1.65;
-  }
-
-  /* STORY */
-  .story-quote {
-    background: var(--paper-warm);
-    border-left: 5px solid var(--accent-light);
-    padding: 36px 40px;
-    margin: 40px auto 0;
-    max-width: 740px;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: var(--ink-soft);
-    line-height: 1.8;
-    border-radius: 0 16px 16px 0;
-  }
-
-  .story-quote p + p { margin-top: 16px; }
-
-  .story-attribution {
-    margin-top: 20px;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--accent);
-  }
-
-  /* TESTIMONIALS */
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-  }
-
-  .testimonial {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 30px 26px;
-  }
-
-  .stars {
-    color: var(--accent-gold);
-    font-size: 1.3rem;
-    letter-spacing: 0.12em;
-    margin-bottom: 14px;
-  }
-
-  .testimonial-text {
+  .slide-panel p {
     font-size: 1.08rem;
-    color: var(--ink);
-    line-height: 1.7;
-    margin-bottom: 18px;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin: 0 auto;
   }
 
-  .testimonial-author {
+  .devices {
     display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .testimonial-avatar {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
+    gap: 16px;
+    margin: 6px 0 20px;
   }
 
-  .testimonial-name {
+  .device {
+    background: #1c2a20;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  }
+
+  .device-screen {
+    background: #fff;
+    border-radius: 7px;
+    height: 100%;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .device-screen i {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--accent-pale);
+  }
+
+  .device-screen i.h { background: var(--accent); width: 70%; height: 8px; }
+  .device-screen i.s { width: 60%; }
+
+  .tablet { width: 190px; height: 240px; }
+  .phone { width: 92px; height: 170px; border-radius: 16px; }
+
+  .slide-recipe {
+    background: linear-gradient(135deg, #e6f0da 0%, #b9d3a3 100%);
+    flex-direction: column;
+  }
+
+  .slide-recipe svg { width: 58%; height: auto; }
+
+  .slide-caption {
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    padding: 12px 18px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
-    color: var(--ink);
-  }
-
-  .testimonial-loc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.92rem;
-    color: var(--ink-mute);
-  }
-
-  /* OFFER / PRICING */
-  .offer-clean {
-    background:
-      radial-gradient(ellipse at top, rgba(127, 166, 106, 0.2), transparent 65%),
-      var(--paper-warm);
-    padding: 84px 0;
-  }
-
-  .offer-clean-card {
-    background: var(--card);
-    border-radius: 20px;
-    padding: 44px 40px;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0 10px 36px var(--shadow);
-    border: 2px solid var(--accent-pale);
-  }
-
-  .offer-quote {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 22px;
-    margin-bottom: 26px;
-  }
-
-  .offer-quote p {
-    font-style: italic;
-    color: var(--ink-soft);
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 10px;
-  }
-
-  .offer-quote-author {
-    font-family: 'Inter', sans-serif;
-    font-style: normal !important;
-    font-size: 0.98rem !important;
-    color: var(--ink-mute) !important;
-    font-weight: 600;
-    margin-bottom: 0 !important;
-  }
-
-  .offer-clean-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 2.1rem;
-    line-height: 1.2;
     color: var(--accent-dark);
-    text-align: left;
-    margin-bottom: 12px;
+    margin-top: 6px;
+    text-align: center;
   }
 
-  .offer-rating {
+  .gallery-main {
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab;
+  }
+
+  .thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: var(--accent-pale);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-align: center;
+    line-height: 1.15;
+    padding: 4px;
+  }
+
+  .thumb .t-icon { font-size: 1.5rem; }
+
+  .thumb img { width: 70%; height: auto; }
+
+  .thumb.active { border-color: var(--accent-dark); box-shadow: 0 0 0 2px var(--accent-pale); }
+
+  /* info */
+  .rating-line {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
-  }
-
-  .offer-stars {
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-  }
-
-  .offer-rating-num {
-    font-weight: 700;
-    color: var(--ink);
+    font-weight: 600;
     font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 10px;
   }
 
-  .offer-rating-count {
-    color: var(--ink-mute);
-    font-size: 1rem;
+  .stars-inline { color: var(--star); letter-spacing: 0.08em; font-size: 1.1rem; }
+
+  .product-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.6vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--accent-dark);
+    margin-bottom: 16px;
   }
 
-  .offer-price-row {
+  .check-list {
+    list-style: none;
+    margin-bottom: 22px;
+  }
+
+  .check-list li {
+    position: relative;
+    padding: 6px 0 6px 42px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 4px 0 20px;
+  }
+
+  .sale-notice {
     display: flex;
     align-items: center;
     gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 14px;
+    outline: 2px dashed rgba(255,255,255,0.45);
+    outline-offset: -6px;
+    padding: 14px 20px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 16px;
   }
 
-  .offer-price-now {
-    font-family: 'Inter', sans-serif;
+  .sale-notice-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .sale-notice strong {
+    display: block;
     font-weight: 800;
-    font-size: 2.6rem;
-    color: var(--accent);
-    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 1rem;
   }
 
-  .offer-price-old {
+  .sale-notice span { font-size: 1rem; }
+
+  .offer-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--paper-alt);
+    border: 2.5px solid var(--accent-dark);
+    border-radius: 16px;
+    padding: 22px 20px;
+    margin: 18px 0 16px;
+  }
+
+  .offer-tag {
+    position: absolute;
+    top: -15px;
+    right: 22px;
+    background: var(--accent-dark);
+    color: #fff;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1.35rem;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .offer-thumb {
+    width: 72px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+  }
+
+  .offer-info { flex: 1; min-width: 0; }
+
+  .offer-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .offer-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+
+  .offer-prices { text-align: right; flex-shrink: 0; font-family: 'Inter', sans-serif; }
+
+  .offer-now {
+    display: block;
+    font-weight: 900;
+    font-size: 1.85rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .offer-was {
+    display: block;
     color: var(--ink-mute);
     text-decoration: line-through;
+    font-size: 1.05rem;
+    margin-top: 4px;
   }
 
-  .offer-discount-tag {
-    background: var(--highlight);
-    color: var(--ink);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-  }
-
-  .offer-tagline {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--accent-dark);
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-
-  .offer-benefits {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 28px;
-  }
-
-  .offer-benefits li {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.08rem;
-    color: var(--ink);
-    padding: 8px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    line-height: 1.5;
-  }
-
-  .offer-check {
-    color: #fff;
+  .offer-save {
+    display: block;
+    color: var(--accent);
     font-weight: 800;
-    flex-shrink: 0;
-    background: var(--accent);
+    font-size: 1.02rem;
+  }
+
+  /* included box */
+  .included {
+    border: 1.5px solid var(--accent-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card);
+    margin-bottom: 22px;
+  }
+
+  .included-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--paper-alt);
+    border-bottom: 1.5px solid var(--accent-dark);
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .included-pill {
+    background: var(--accent-dark);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px 14px 14px;
+    text-align: center;
+  }
+
+  .gift-circle {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  .gift-circle::after {
+    content: "✓";
+    position: absolute;
+    top: -6px;
+    right: -6px;
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    margin-top: 1px;
-  }
-
-  .offer-divider {
-    text-align: center;
-    margin: 28px 0 20px;
-    position: relative;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--accent-dark);
-    letter-spacing: 0.1em;
-  }
-
-  .offer-divider::before,
-  .offer-divider::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: calc(50% - 110px);
-    height: 1px;
-    background: var(--border);
-  }
-
-  .offer-divider::before { left: 0; }
-  .offer-divider::after { right: 0; }
-
-  .offer-buy-button {
-    display: block;
-    width: 100%;
-    background: var(--accent);
-    color: #fff;
-    text-align: center;
-    padding: 22px 24px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.35rem;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.15s, transform 0.15s;
-    margin-bottom: 18px;
-    box-shadow: 0 6px 18px rgba(30, 77, 42, 0.3);
-  }
-
-  .offer-buy-button:hover {
     background: var(--accent-dark);
-    transform: translateY(-1px);
-  }
-
-  .offer-guarantee-row {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    background: var(--paper-warm);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 18px;
+    border: 2px solid #fff;
+  }
+
+  .gift-label {
     font-family: 'Inter', sans-serif;
-    font-size: 1.02rem;
+    font-weight: 800;
+    font-size: 0.92rem;
+    line-height: 1.25;
     color: var(--ink);
-    font-weight: 600;
   }
 
-  .guarantee-shield {
+  .included-foot {
+    border-top: 1px solid var(--border);
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  .included-foot b { color: var(--accent); }
+
+  /* main CTA */
+  .buy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 12px;
+    width: 100%;
+    background: var(--cta-grad);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 24px 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(20, 47, 28, 0.32);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .buy-button:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(20, 47, 28, 0.38); }
+
+  .buy-button:focus-visible,
+  .cta-secondary:focus-visible,
+  .acc-q:focus-visible,
+  .thumb:focus-visible {
+    outline: 3px solid var(--gold-light);
+    outline-offset: 3px;
+  }
+
+  .price-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 30px;
+    padding: 4px 14px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .price-chip s { opacity: 0.7; font-weight: 600; font-size: 1.05rem; }
+
+  .delivery-line {
+    border-top: 1.5px dashed var(--border);
+    border-bottom: 1.5px dashed var(--border);
+    margin-top: 14px;
+    padding: 12px 6px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+
+  .delivery-line strong { color: var(--accent-dark); }
+
+  .guarantee-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 6px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
     font-size: 1.2rem;
+    color: var(--ink);
   }
 
-  /* FAQ */
-  .faq-list {
-    max-width: 740px;
-    margin: 40px auto 0;
+  .seal-sm {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 35% 30%, #f6dc8f, #c8962e 55%, #8d6516);
+    color: #3a2a06;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 0 4px rgba(255,255,255,0.35);
   }
 
-  .faq-item {
-    background: var(--paper);
+  .seal-sm b { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+  .seal-sm small { font-size: 0.55rem; letter-spacing: 0.1em; font-weight: 900; }
+
+  /* featured review */
+  .feature-review {
+    background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 18px;
+    padding: 24px;
+    margin: 22px 0;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+
+  .tp-stars {
+    display: inline-flex;
+    gap: 3px;
+    margin-bottom: 12px;
+  }
+
+  .tp-stars span {
+    width: 28px;
+    height: 28px;
+    background: var(--star);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .review-text {
+    font-size: 1.12rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .reviewer-name { font-weight: 800; font-size: 1.08rem; }
+
+  .verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-pale);
+    border: 1px solid var(--border);
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* accordions */
+  .acc {
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: 0 3px 14px var(--shadow);
     margin-bottom: 14px;
     overflow: hidden;
   }
 
-  .faq-q {
-    padding: 22px 24px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.12rem;
-    color: var(--ink);
-    cursor: pointer;
+  .acc-q {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 16px;
-    user-select: none;
+    background: none;
+    border: none;
+    padding: 22px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
   }
 
-  .faq-q::after {
-    content: "+";
+  .acc-icon {
+    font-size: 1.4rem;
+    width: 30px;
     flex-shrink: 0;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: var(--accent-pale);
-    color: var(--accent-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    line-height: 1;
-    transition: transform 0.2s;
+    text-align: center;
   }
 
-  .faq-item.open .faq-q::after {
-    transform: rotate(45deg);
+  .acc-q .chev {
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    border-right: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    transform: rotate(45deg) translateY(-4px);
+    transition: transform 0.2s ease;
   }
 
-  .faq-a {
-    padding: 0 24px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+  .acc.open .chev { transform: rotate(-135deg) translateX(-4px); }
+
+  .acc-a {
+    display: none;
+    padding: 0 24px 22px 70px;
     color: var(--ink-soft);
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     line-height: 1.75;
   }
 
-  .faq-item.open .faq-a {
-    padding: 0 24px 24px;
-    max-height: 600px;
+  .acc.open .acc-a { display: block; }
+
+  /* FAQ variant */
+  .faq-card {
+    background: var(--card);
+    border: 1.5px solid var(--accent-light);
+    border-radius: 26px;
+    padding: 48px 22px 36px;
   }
 
-  /* FOOTER */
-  footer {
-    background: #15281b;
-    color: rgba(230, 240, 222, 0.75);
-    padding: 44px 0 34px;
+  .faq-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.6vw, 2.5rem);
     text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    color: var(--accent-dark);
+    line-height: 1.2;
   }
 
-  footer p { margin-bottom: 12px; }
+  .title-rule {
+    width: 180px;
+    height: 3px;
+    margin: 14px auto 32px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
 
-  footer .copyright {
-    color: #e6f0de;
-    font-weight: 600;
+  .faq-card .acc {
+    border-radius: 14px;
+    border-left: 4px solid var(--accent-light);
+    box-shadow: 0 6px 0 var(--accent-pale), 0 8px 16px var(--shadow);
+    margin-bottom: 20px;
+  }
+
+  .faq-card .acc-a { padding-left: 24px; }
+
+  /* ── CONTENT SECTIONS ── */
+  .section { padding: 56px 0; }
+
+  .section.alt { background: var(--paper-alt); }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    color: var(--gold);
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: "";
+    width: 120px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .ornament::after { transform: scaleX(-1); }
+
+  .feature-image {
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px var(--shadow);
+  }
+
+  .scene {
+    position: relative;
+    aspect-ratio: 4 / 3.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scene-1 {
+    background:
+      radial-gradient(circle at 50% 75%, rgba(29, 68, 40, 0.18), transparent 45%),
+      linear-gradient(180deg, #e8f0de 0%, #c7dbb2 62%, #9fbd84 62%, #8eaf73 100%);
+  }
+
+  .scene-1 img {
+    position: relative;
+    height: 74%;
+    width: auto;
+    transform: rotate(-4deg) translateY(4%);
+    filter: drop-shadow(0 20px 22px rgba(20, 47, 28, 0.4));
+    z-index: 2;
+  }
+
+  .scene svg.herbs {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scene-2 {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 50%),
+      linear-gradient(160deg, #f4ecd6 0%, #e3d3a8 100%);
+  }
+
+  .scene-2 svg.cup { width: 64%; height: auto; position: relative; z-index: 2; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
     font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--accent-dark);
     margin-bottom: 18px;
   }
 
-  footer a { color: var(--accent-light); text-decoration: none; }
+  .h2 .swoosh {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 Q 80 2 150 6 T 298 5' fill='none' stroke='%23b8892b' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 0.32em;
+    background-position: 0 100%;
+    padding-bottom: 0.12em;
+  }
+
+  .body-copy {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .check-list.gold-checks li::before {
+    background: var(--gold);
+  }
+
+  .check-list.gold-checks li {
+    font-family: 'Lora', serif;
+    font-size: 1.12rem;
+    color: var(--ink);
+  }
+
+  .cta-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: calc(100% - 40px);
+    margin: 30px auto 12px;
+    background: var(--cta-grad);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 24px 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 10px 22px rgba(20, 47, 28, 0.3);
+    transition: transform 0.15s ease;
+  }
+
+  .cta-secondary:hover { transform: translateY(-2px); }
+
+  .cta-note {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+  }
+
+  /* recipe carousel */
+  .carousel {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    margin: 34px 0 30px;
+    box-shadow: 0 6px 20px var(--shadow);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 3.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e6f0da 0%, #b9d3a3 100%);
+    padding: 20px;
+  }
+
+  .carousel-slide svg { width: 52%; height: auto; }
+
+  .swipe-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(28, 42, 32, 0.75);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 3;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+  }
+
+  .carousel-dots button {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.65);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .carousel-dots button.active { background: #fff; box-shadow: 0 0 0 2px var(--accent-dark); }
+
+  /* wave */
+  .wave { display: block; width: 100%; height: 70px; }
+
+  /* reviews */
+  .reviews {
+    background: #f1f4ee;
+    padding: 40px 0 56px;
+  }
+
+  .reviews-head { text-align: center; }
+
+  .reviews-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-size: 0.95rem;
+  }
+
+  .reviews-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 2.6rem;
+    color: var(--accent-dark);
+    line-height: 1.2;
+    margin: 4px 0 10px;
+  }
+
+  .reviews-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .reviews-score .tp-stars { margin: 0; }
+  .reviews-score .tp-stars span { width: 34px; height: 34px; font-size: 1.15rem; }
+
+  .reviews-hint {
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+  }
+
+  .review-scroller {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 26px 20px 10px;
+    max-width: 1140px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+  }
+
+  @media (min-width: 960px) {
+    .review-scroller {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: visible;
+    }
+    .reviews-hint { display: none; }
+  }
+
+  .review-card {
+    flex: 0 0 min(88%, 400px);
+    scroll-snap-align: start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .review-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .review-card .tp-stars span { width: 26px; height: 26px; font-size: 0.95rem; }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .review-meta .tp-stars { margin: 0; }
+
+  .review-card p {
+    font-size: 1.06rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .questions-cue {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.15rem;
+    color: var(--ink);
+    padding: 10px 0 0;
+  }
+
+  .questions-cue .chev-down {
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 10px auto 0;
+    border-right: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* disclosures + footer */
+  .disclosures {
+    background: #e3ead9;
+    padding: 50px 0 30px;
+  }
+
+  .disclosures h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .disclosures h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 26px 0 8px;
+  }
+
+  .disclosures p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    margin: 36px 0 26px;
+  }
+
+  .footer-logo .logo {
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px 22px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink-mute);
+  }
+
+  .footer-bottom .secure {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    * { transition: none !important; }
+    *, *::before, *::after { transition: none !important; }
   }
 
-  /* MOBILE */
-  @media (max-width: 760px) {
+  @media (max-width: 600px) {
     body { font-size: 18px; }
+    .guarantee-bar { font-size: 0.85rem; letter-spacing: 0.1em; }
+    .guarantee-bar span { margin: 0 6px; }
+    .sale-bar { padding: 12px 12px; }
+    .sale-bar-inner { justify-content: space-around; gap: 10px; }
+    .sale-title { font-size: 1.45rem; font-weight: 500; }
+    .sale-sub { font-size: 0.8rem; margin-top: 2px; }
+    .timer { gap: 8px; }
+    .timer-num { font-size: 1.7rem; font-weight: 400; }
+    .timer-label { font-size: 0.78rem; margin-top: 3px; }
+    .timer-dot { font-size: 1.6rem; }
+    .badge { width: 104px; padding: 10px 6px; font-size: 0.85rem; }
+    .badge-icon { font-size: 1.35rem; }
+    .badge-big { font-size: 1.55rem; }
+    .badges { gap: 8px; }
+    .slide-panel h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .slide-list { font-size: 0.86rem; column-gap: 14px; }
+    .slide-list li { padding: 3px 0; }
+    .seal { width: 130px; height: 130px; }
+    .seal-num { font-size: 2.6rem; }
+    .seal-txt { font-size: 0.62rem; }
+    .slide-panel p { font-size: 0.98rem; }
+    .tablet { width: 140px; height: 180px; }
+    .phone { width: 70px; height: 128px; }
+    .thumb { font-size: 0.66rem; border-radius: 10px; }
+    .thumb .t-icon { font-size: 1.2rem; }
+    .offer-option { gap: 12px; padding: 20px 14px; }
+    .offer-thumb { width: 54px; }
+    .offer-name { font-size: 1.12rem; }
+    .offer-desc { font-size: 0.92rem; }
+    .offer-now { font-size: 1.5rem; }
+    .included-head { padding: 10px 12px; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .included-pill { font-size: 0.72rem; padding: 3px 10px; }
+    .included-grid { gap: 4px; padding: 16px 6px 10px; }
+    .gift-circle { width: 50px; height: 50px; font-size: 1.3rem; border-width: 2px; margin-bottom: 6px; }
+    .gift-circle::after { width: 20px; height: 20px; font-size: 0.65rem; top: -5px; right: -5px; }
+    .gift-label { font-size: 0.74rem; }
+    .included-foot { font-size: 0.92rem; padding: 10px 12px; }
+    .buy-button { font-size: 1rem; padding: 20px 12px; gap: 8px; letter-spacing: 0.01em; }
+    .price-chip { padding: 3px 10px; gap: 6px; }
+    .price-chip s { font-size: 0.85rem; }
+  }
 
-    .discount-banner {
-      padding: 10px 12px;
-      font-size: 0.95rem;
-    }
-
-    .discount-banner-inner {
-      gap: 6px 14px;
-    }
-
-    .timer {
-      font-size: 1rem;
-      min-width: 66px;
-    }
-
-    .hero { padding: 40px 0 56px; }
-
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 36px;
-    }
-
-    .book-image-wrap { order: -1; }
-
-    .book-image {
-      max-width: 270px;
-    }
-
-    .social-bar-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
-    }
-
-    .stat-num { font-size: 1.75rem; }
-
-    section { padding: 60px 0; }
-
-    .inside-grid,
-    .preview-grid,
-    .testimonial-grid {
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .story-quote { padding: 28px 24px; font-size: 1.1rem; }
-
-    .offer-clean-card { padding: 32px 22px; }
-
-    .offer-clean-title { font-size: 1.8rem; }
-
-    h1 { font-size: 2.3rem; }
-
-    .cta-button { font-size: 1.15rem; padding: 20px 28px; width: 100%; }
-
-    .cta-meta { font-size: 0.98rem; gap: 8px 16px; }
+  @media (max-width: 400px) {
+    .buy-button { font-size: 0.9rem; padding: 18px 10px; gap: 6px; letter-spacing: 0; }
+    .price-chip { padding: 3px 8px; gap: 5px; }
+    .price-chip s { font-size: 0.78rem; }
+    .included-head { font-size: 0.72rem; letter-spacing: 0.03em; padding: 10px; }
+    .included-pill { font-size: 0.66rem; padding: 3px 8px; }
+    .acc-q { font-size: 1.05rem; padding: 20px 18px; gap: 12px; }
+    .acc-a { padding: 0 18px 20px 18px; }
+    .faq-card { padding: 38px 14px 26px; border-radius: 20px; }
+    .cta-secondary { width: 100%; font-size: 1.08rem; }
+    .reviews-title { font-size: 2.2rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- DISCOUNT BANNER WITH TIMER -->
-<div class="discount-banner">
-  <div class="discount-banner-inner">
-    <span class="discount-text">
-      🌿 Special <strong>45% OFF</strong> for readers from
-      <span class="country-pill"><span class="flag" id="banner-flag">🌍</span><span id="banner-country">your country</span></span>
-    </span>
-    <span class="timer-block">
-      ⏰ Offer expires in <span class="timer" id="countdown">28:00</span>
-    </span>
+<!-- GUARANTEE BAR -->
+<div class="guarantee-bar"><span>✦</span>60-Day Money Back Guarantee<span>✦</span></div>
+
+<!-- SALE BAR + COUNTDOWN -->
+<div class="sale-bar">
+  <div class="sale-bar-inner">
+    <div class="sale-text">
+      <div class="sale-title">FALL SALE</div>
+      <div class="sale-sub">Get It Today for 45% Off</div>
+    </div>
+    <div class="timer" aria-label="Sale countdown">
+      <div class="timer-unit"><span class="timer-num" id="t-h">01</span><span class="timer-label">Hrs</span></div>
+      <div class="timer-dot">.</div>
+      <div class="timer-unit"><span class="timer-num" id="t-m">59</span><span class="timer-label">Mins</span></div>
+      <div class="timer-dot">.</div>
+      <div class="timer-unit"><span class="timer-num" id="t-s">59</span><span class="timer-label">Secs</span></div>
+    </div>
   </div>
 </div>
 
+<!-- HEADER -->
+<header class="site-header">
+  <a class="logo" href="#top" aria-label="America's Healthy Recipes">
+    <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="19" fill="#e1edd3"/>
+      <path d="M20 32 C 20 22, 12 18, 9 10 C 18 11, 23 17, 20 32 Z" fill="#2e6b3c"/>
+      <path d="M20 32 C 21 22, 27 17, 32 13 C 32 22, 26 27, 20 32 Z" fill="#7fa66a"/>
+    </svg>
+    <span class="logo-text"><small>America's</small><strong>Healthy Recipes</strong></span>
+  </a>
+</header>
 
+<main id="top">
 
-<!-- HERO -->
-<section class="hero">  
-  <div class="container-wide">    
-    <div class="hero-grid">
+<!-- PRODUCT -->
+<section class="product">
+  <div class="wrap-wide">
+    <div class="product-grid">
 
-      <div>
-        <span class="stamp">📖 LIMITED EDITION · For <span class="country-stamp" id="stamp-country">Worldwide Readers</span></span>
-        <h1>
-          The Ancient Healing Recipe Book<br>
-        </h1>
-        <p class="hero-sub">
-          <strong id="sub-country">Readers in your area</strong> are quietly using these forgotten remedies to heal their bodies  using ingredients already in their kitchen. No prescriptions. No expensive supplements. Just real recipes passed down for generations.
-        </p>
-        <a href="#offer" class="cta-button">
-          Get Instant Access · $14.95
-          <span class="cta-arrow">→</span>
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="gallery-main" id="gallery">
+          <div class="slide slide-cover active">
+            <div class="badges">
+              <div class="badge"><span class="badge-big">100+</span>Healing Recipes</div>
+              <div class="badge"><span class="badge-icon">🌿</span>Kitchen Ingredients</div>
+              <div class="badge"><span class="badge-icon">📱</span>Instant Download</div>
+            </div>
+            <img src="book_cover.png" alt="The Ancient Healing Recipe Book cover">
+          </div>
+
+          <div class="slide slide-panel">
+            <h3>What's Inside the Book</h3>
+            <ul class="slide-list">
+              <li><b>15</b>Belly &amp; Bloat</li>
+              <li><b>12</b>Liver &amp; Kidney</li>
+              <li><b>14</b>Skin &amp; Beauty</li>
+              <li><b>10</b>Joints &amp; Pain</li>
+              <li><b>9</b>Sleep &amp; Stress</li>
+              <li><b>8</b>Lungs &amp; Mucus</li>
+              <li><b>11</b>Energy &amp; Fatigue</li>
+              <li><b>10</b>Hormones</li>
+              <li><b>11</b>Teeth, Hair &amp; Nails</li>
+            </ul>
+          </div>
+
+          <div class="slide slide-panel">
+            <div class="seal"><span class="seal-num">60</span><span class="seal-txt">DAY<br>GUARANTEE</span></div>
+            <h3>Try It Risk-Free</h3>
+            <p>If the recipes don't help you, email us within 60 days for a full refund. No questions asked.</p>
+          </div>
+
+          <div class="slide slide-panel">
+            <h3>Read It on Any Device</h3>
+            <div class="devices" aria-hidden="true">
+              <div class="device tablet"><div class="device-screen"><i class="h"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div></div>
+              <div class="device phone"><div class="device-screen"><i class="h"></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div></div>
+            </div>
+            <p>Phone, tablet or computer. Zoom the text as large as you like, or print the recipes you use most.</p>
+          </div>
+
+          <div class="slide slide-recipe">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="100" cy="160" rx="60" ry="8" fill="#1d4428" opacity="0.25"/>
+              <circle cx="100" cy="100" r="55" fill="#e89028" stroke="#3a2510" stroke-width="2.5"/>
+              <path d="M100 45 Q105 35 115 32 Q118 40 110 48" fill="#5a8030" stroke="#3a2510" stroke-width="1.5"/>
+              <circle cx="80" cy="80" r="1.5" fill="#3a2510"/><circle cx="115" cy="75" r="1.5" fill="#3a2510"/>
+              <circle cx="95" cy="105" r="1.5" fill="#3a2510"/><circle cx="120" cy="115" r="1.5" fill="#3a2510"/>
+              <circle cx="75" cy="120" r="1.5" fill="#3a2510"/>
+              <path d="M155 100 Q175 90 180 70 Q175 60 165 65 Q155 75 160 85 Q155 95 145 90" fill="#e89028" stroke="#3a2510" stroke-width="2"/>
+            </svg>
+            <div class="slide-caption">Inside: The 30-Second Orange Peel Ritual</div>
+          </div>
+        </div>
+
+        <div class="thumbs" id="thumbs">
+          <button class="thumb active" type="button" aria-label="Book cover"><img src="book_cover.png" alt=""></button>
+          <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
+          <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
+          <button class="thumb" type="button"><span class="t-icon">📱</span>Any Device</button>
+          <button class="thumb" type="button"><span class="t-icon">🍊</span>Recipe</button>
+        </div>
+      </div>
+
+      <!-- Buy box -->
+      <div class="buy-box" id="buy">
+        <div class="rating-line"><span class="stars-inline">★★★★★</span> Rated 4.9 · Loved by 15,000+ readers</div>
+        <h1 class="product-title">The Ancient Healing Recipe Book</h1>
+
+        <ul class="check-list">
+          <li>For anyone who feels modern life wearing their body down</li>
+          <li>100+ time-tested remedies from kitchens around the world</li>
+          <li>Simple ingredients you already have at home</li>
+          <li>Organized by body area, so you find what you need fast</li>
+          <li>Instant digital download, read on any device</li>
+        </ul>
+
+        <hr class="divider">
+
+        <div class="sale-notice">
+          <span class="sale-notice-icon">🌿</span>
+          <div><strong>Fall Sale Price</strong><span>Save 45% while the timer is running</span></div>
+        </div>
+
+        <div class="offer-option">
+          <span class="offer-tag">FALL SALE</span>
+          <img class="offer-thumb" src="book_cover.png" alt="">
+          <div class="offer-info">
+            <div class="offer-name">Complete Book</div>
+            <div class="offer-desc">100+ recipes · Digital</div>
+          </div>
+          <div class="offer-prices">
+            <span class="offer-now">$14.95</span>
+            <span class="offer-was">$27.00</span>
+            <span class="offer-save">You Save $12.05</span>
+          </div>
+        </div>
+
+        <div class="included">
+          <div class="included-head"><span>🎁 Included With Order</span><span class="included-pill">4 of 4 Included</span></div>
+          <div class="included-grid">
+            <div><div class="gift-circle">📖</div><div class="gift-label">Full 100+ Recipe Book</div></div>
+            <div><div class="gift-circle">🖨️</div><div class="gift-label">Printable PDF</div></div>
+            <div><div class="gift-circle">📱</div><div class="gift-label">Read on Any Device</div></div>
+            <div><div class="gift-circle">♾️</div><div class="gift-label">Lifetime Access</div></div>
+          </div>
+          <div class="included-foot">🌿 Everything unlocks <b>the moment you order</b></div>
+        </div>
+
+        <a class="buy-button" href="https://ancienthealingbook.gumroad.com/l/ancienthealingbook?wanted=true">
+          Get Instant Access
+          <span class="price-chip"><s>$27.00</s> $14.95</span>
+          <span aria-hidden="true">→</span>
         </a>
-        <div class="cta-meta">
-          <span><span class="check">✓</span> Instant download</span>
-          <span><span class="check">✓</span> 60-day guarantee</span>
-          <span><span class="check">✓</span> Lifetime access</span>
+
+        <div class="delivery-line">Order today and <strong>start reading in minutes</strong> · Sent to your email <span id="country-line"></span></div>
+
+        <div class="guarantee-row">
+          <div class="seal-sm"><b>60</b><small>DAYS</small></div>
+          60-Day Money-Back Guarantee
+        </div>
+
+        <div class="feature-review">
+          <div class="tp-stars" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="review-text">"I never thought a simple recipe book could change so much. Two weeks in and my body felt completely different: lighter, calmer, more like me again."</p>
+          <div class="reviewer"><span class="reviewer-name">Maria S.</span><span class="verified">✓ Verified Reader</span></div>
+        </div>
+
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">✅</span>Is This Right For Me?<span class="chev"></span></button>
+          <div class="acc-a">If you're tired of bloating, stiff joints, restless nights or low energy, and you'd rather try gentle, food-based remedies before reaching for another pill, this book was written for you. Every recipe uses common kitchen ingredients and takes just a few minutes to make.</div>
+        </div>
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">🏡</span>Why Order Directly From Us?<span class="chev"></span></button>
+          <div class="acc-a">Ordering here gets you the complete, official edition at the Fall Sale price, with instant delivery and our full 60-day money-back guarantee. You pay once and keep the book forever. No subscription, no hidden charges.</div>
+        </div>
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">📩</span>Delivery Information<span class="chev"></span></button>
+          <div class="acc-a">This is a digital book, so there's nothing to wait for. Right after your payment you'll get an email with your download link, and you can also open it straight away on the next page. It's a PDF that works on any phone, tablet or computer.</div>
         </div>
       </div>
 
-      <div class="book-image-wrap">
-        <img src="book_cover.png" alt="The Ancient Healing Recipe Book" class="book-image">
-      </div>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<div class="social-bar">
-  <div class="container-wide">
-    <div class="social-bar-grid">
-      <div>
-        <div class="stat-num">100+</div>
-        <div class="stat-label">Healing Recipes</div>
-      </div>
-      <div>
-        <div class="stat-num">15,000+</div>
-        <div class="stat-label">Readers Worldwide</div>
-      </div>
-      <div>
-        <div class="stat-num">4.9★</div>
-        <div class="stat-label">Average Rating</div>
-      </div>
-      <div>
-        <div class="stat-num" id="stat-country-count">Today</div>
-        <div class="stat-label" id="stat-country-label">Available in Your Country</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- WHY THIS EXISTS / STORY -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Why This Book Exists</p>
-    <h2>The Recipes Your Grandmother Knew, That Modern Medicine Forgot</h2>
-    <div class="story-quote">
-      <p>Every culture used to know these remedies. The herbs that ease swollen ankles. The drink that flushes the kidneys. The compress that fades stretch marks in 20 minutes. The leaf that calms an inflamed gut.</p>
-      <p>Then somewhere along the way, we traded them for prescriptions and pills. We forgot what was already in our kitchen.</p>
-      <p>I put 100 of these recipes into one book, drawn from Chinese, Amish, Japanese, African, and traditional Western healing, so you can rediscover what your grandmother already knew.</p>
-      <p class="story-attribution"> With love from the old ways</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT'S INSIDE -->
-<section>
-  <div class="container-wide">
-    <p class="section-eyebrow">What You'll Find Inside</p>
-    <h2>10 Categories. 100+ Recipes. One Complete Healing Book.</h2>
-    <p class="section-sub">Each section is built around a part of the body that modern life is silently breaking down  and the simple, traditional recipes that bring it back.</p>
-
-    <div class="inside-grid">
-      <div class="inside-card">
-        <div class="inside-icon">🌿</div>
-        <h3>Belly & Bloat</h3>
-        <p>15 recipes for stubborn belly fat, bloat, and slow metabolism  including the morning fiber drink and the cinnamon water that flattens your stomach in days.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">💧</div>
-        <h3>Liver & Kidney</h3>
-        <p>12 traditional flushes for cleansing the liver, dissolving small kidney stones, and clearing the heaviness behind the right ribs.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">✨</div>
-        <h3>Skin & Beauty</h3>
-        <p>14 remedies for stretch marks, dark spots, sagging skin, and visible aging  all using ingredients you already have at home.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">🦴</div>
-        <h3>Joints & Pain</h3>
-        <p>10 anti-inflammatory recipes for stiff joints, sore knees, lower-back pain, and the morning aches that make you feel old before your time.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">😴</div>
-        <h3>Sleep & Stress</h3>
-        <p>9 nighttime tonics and bedtime rituals to lower cortisol, calm the nervous system, and finally sleep through the night.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">🌬️</div>
-        <h3>Lungs & Mucus</h3>
-        <p>8 recipes for thick morning mucus, lingering cough, sinus pressure, and reviving lungs that smoking, dust, or pollution have damaged.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">⚡</div>
-        <h3>Energy & Fatigue</h3>
-        <p>11 remedies for chronic tiredness, afternoon crashes, brain fog, and that "running on empty" feeling that no amount of coffee fixes.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">💪</div>
-        <h3>Hormones & Cortisol</h3>
-        <p>10 recipes specifically targeted at the hormone imbalances that drive weight gain, mood swings, and stubborn fat after 40.</p>
-      </div>
-      <div class="inside-card">
-        <div class="inside-icon">🦷</div>
-        <h3>Teeth, Hair & Nails</h3>
-        <p>11 ancient mixes for whitening teeth, regrowing thinning hair, strengthening brittle nails, and reversing the visible signs of aging from the outside in.</p>
+<!-- WHY THESE RECIPES WERE FORGOTTEN -->
+<section class="section">
+  <div class="wrap">
+    <div class="ornament">◆</div>
+    <div class="feature-image">
+      <div class="scene scene-1">
+        <svg class="herbs" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g opacity="0.95">
+            <path d="M40 250 C 60 180, 30 120, 70 70" stroke="#3d6b3a" stroke-width="4" fill="none"/>
+            <ellipse cx="58" cy="120" rx="22" ry="9" fill="#5f8f4e" transform="rotate(-40 58 120)"/>
+            <ellipse cx="72" cy="160" rx="24" ry="9" fill="#4f7d42" transform="rotate(30 72 160)"/>
+            <ellipse cx="50" cy="200" rx="22" ry="8" fill="#6b9a57" transform="rotate(-30 50 200)"/>
+            <ellipse cx="74" cy="78" rx="18" ry="7" fill="#7fa66a" transform="rotate(-60 74 78)"/>
+          </g>
+          <g opacity="0.95">
+            <path d="M360 260 C 345 200, 375 150, 340 95" stroke="#3d6b3a" stroke-width="4" fill="none"/>
+            <ellipse cx="350" cy="140" rx="22" ry="9" fill="#5f8f4e" transform="rotate(40 350 140)"/>
+            <ellipse cx="336" cy="185" rx="24" ry="9" fill="#4f7d42" transform="rotate(-30 336 185)"/>
+            <ellipse cx="358" cy="225" rx="20" ry="8" fill="#6b9a57" transform="rotate(30 358 225)"/>
+          </g>
+          <circle cx="90" cy="285" r="22" fill="#f2c94c" stroke="#b08a1e" stroke-width="2"/>
+          <circle cx="90" cy="285" r="16" fill="#fbe7a1"/><path d="M90 285 L90 269 M90 285 L104 277 M90 285 L104 293 M90 285 L90 301 M90 285 L76 293 M90 285 L76 277" stroke="#e0b53a" stroke-width="1.6"/>
+          <circle cx="318" cy="292" r="18" fill="#e89028" stroke="#9c5a14" stroke-width="2"/>
+          <path d="M318 274 q4 -8 12 -9" stroke="#4f7d42" stroke-width="3" fill="none"/>
+        </svg>
+        <img src="book_cover.png" alt="The Ancient Healing Recipe Book">
       </div>
     </div>
-  </div>
-</section>
 
-<section class="offer-clean" id="offer">
-  <div class="container">
-    <div class="offer-clean-card">
+    <p class="eyebrow">Passed Down. Never Prescribed.</p>
+    <h2 class="h2">The Recipes Your Grandmother Knew, <span class="swoosh">That Modern Life Forgot</span></h2>
+    <p class="body-copy">Every culture used to know these remedies. The herbs that ease swollen ankles. The drink that flushes the kidneys. The tea that calms an inflamed gut. Then somewhere along the way we traded them for prescriptions and pills, and forgot what was already in our kitchen. This book gathers 100 of them, drawn from Chinese, Amish, Japanese, African and traditional Western healing, so you can rediscover what your grandmother already knew.</p>
 
-      <div class="offer-quote">
-        <p>"I never thought a simple recipe book could change so much. Two weeks in and my body felt completely different  lighter, calmer, more like me again."</p>
-        <p class="offer-quote-author">Maria S. | Verified Reader</p>
-      </div>
+    <ul class="check-list gold-checks">
+      <li>Drawn from five healing traditions around the world</li>
+      <li>Used and passed down in family kitchens for generations</li>
+      <li>Made with lemons, ginger, turmeric, honey, garlic and other everyday staples</li>
+    </ul>
 
-      <h2 class="offer-clean-title">The Ancient Healing Recipe Book</h2>
-
-      <div class="offer-rating">
-        <span class="offer-stars">★★★★★</span>
-        <span class="offer-rating-num">4.9</span>
-        <span class="offer-rating-count">(486 reviews)</span>
-      </div>
-
-      <div class="offer-price-row">
-        <span class="offer-price-now">$14.95</span>
-        <span class="offer-price-old">$27</span>
-        <span class="offer-discount-tag">Save 45%</span>
-      </div>
-
-      <p class="offer-tagline">100+ forgotten remedies that heal the body  using ingredients already in your kitchen.</p>
-
-      <ul class="offer-benefits">
-        <li><span class="offer-check">✓</span> Real recipes used for generations across cultures</li>
-        <li><span class="offer-check">✓</span> Simple ingredients you already have at home</li>
-        <li><span class="offer-check">✓</span> Organized by body area  easy to find what you need</li>
-        <li><span class="offer-check">✓</span> Instant digital download  read on any device</li>
-      </ul>
-
-      <div class="offer-divider">
-        <span>LIMITED TIME OFFER</span>
-      </div>
-
-      <a href="https://ancienthealingbook.gumroad.com/l/ancienthealingbook?wanted=true" class="offer-buy-button">Buy Now</a>
-
-      <div class="offer-guarantee-row">
-        <span class="guarantee-shield">🛡️</span>
-        <span>60-day money-back guarantee</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SAMPLE RECIPES -->
-<section>
-  <div class="container-wide">
-    <p class="section-eyebrow">A Look Inside</p>
-    <h2>Four Recipes You'll Get Today</h2>
-    <p class="section-sub">A small taste of what's waiting for you in the full book, these are the kind of remedies people have been quietly transforming their bodies with.</p>
-
-    <div class="preview-grid">
-      <div class="preview-card">
-        <div class="preview-img">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="160" rx="60" ry="8" fill="#3a2510" opacity="0.3"/>
-            <circle cx="100" cy="100" r="55" fill="#e89028" stroke="#3a2510" stroke-width="2.5"/>
-            <path d="M100 45 Q105 35 115 32 Q118 40 110 48" fill="#5a8030" stroke="#3a2510" stroke-width="1.5"/>
-            <circle cx="80" cy="80" r="1.5" fill="#3a2510"/>
-            <circle cx="115" cy="75" r="1.5" fill="#3a2510"/>
-            <circle cx="95" cy="105" r="1.5" fill="#3a2510"/>
-            <circle cx="120" cy="115" r="1.5" fill="#3a2510"/>
-            <circle cx="75" cy="120" r="1.5" fill="#3a2510"/>
-            <path d="M155 100 Q175 90 180 70 Q175 60 165 65 Q155 75 160 85 Q155 95 145 90" fill="#e89028" stroke="#3a2510" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="preview-content">
-          <span class="preview-tag">Belly & Bloat</span>
-          <h3>The 30-Second Spanish Orange Peel Ritual</h3>
-          <p>The morning ritual women have been using for generations to flatten the belly and break through stalled metabolism after 40.</p>
-        </div>
-      </div>
-
-      <div class="preview-card">
-        <div class="preview-img">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="160" rx="65" ry="6" fill="#3a2510" opacity="0.25"/>
+    <!-- Recipe carousel -->
+    <div class="carousel" id="carousel">
+      <span class="swipe-pill">SWIPE</span>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="100" cy="160" rx="65" ry="6" fill="#1d4428" opacity="0.22"/>
             <path d="M50 100 Q50 155 100 158 Q150 155 150 100 Q150 90 145 88 L55 88 Q50 90 50 100 Z" fill="#fef3d8" stroke="#3a2510" stroke-width="2.5"/>
             <path d="M148 110 Q175 105 180 130 Q175 125 165 130" fill="#fef3d8" stroke="#3a2510" stroke-width="2"/>
-            <path d="M52 105 Q30 110 32 135 Q30 142 50 145" fill="none" stroke="#3a2510" stroke-width="2.5"/>
-            <ellipse cx="100" cy="88" rx="40" ry="5" fill="#a05a28" stroke="#3a2510" stroke-width="2"/>
+            <ellipse cx="100" cy="88" rx="40" ry="5" fill="#e0a43a" stroke="#3a2510" stroke-width="2"/>
             <path d="M100 65 Q97 55 103 50 Q109 45 105 35" fill="none" stroke="#5a4a32" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
             <path d="M85 68 Q82 60 88 55 Q94 50 90 42" fill="none" stroke="#5a4a32" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
           </svg>
+          <div class="slide-caption">Golden Turmeric Milk for Stiff Joints</div>
         </div>
-        <div class="preview-content">
-          <span class="preview-tag">Joints & Pain</span>
-          <h3>Golden Turmeric Milk for Stiff Joints</h3>
-          <p>The traditional bedtime tonic that calms inflammation overnight  works only when you add the one ingredient most people forget.</p>
-        </div>
-      </div>
-
-      <div class="preview-card">
-        <div class="preview-img">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="170" rx="60" ry="6" fill="#3a2510" opacity="0.25"/>
-            <g transform="translate(40 30)">
-              <ellipse cx="40" cy="50" rx="40" ry="14" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(-25 40 50)"/>
-            </g>
-            <g transform="translate(85 20)">
-              <ellipse cx="40" cy="50" rx="42" ry="15" fill="#6b8a55" stroke="#3a2510" stroke-width="1.8" transform="rotate(15 40 50)"/>
-            </g>
-            <g transform="translate(40 90)">
-              <ellipse cx="40" cy="50" rx="38" ry="13" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(45 40 50)"/>
-            </g>
+        <div class="carousel-slide">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="100" cy="170" rx="60" ry="6" fill="#1d4428" opacity="0.22"/>
+            <ellipse cx="80" cy="80" rx="40" ry="14" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(-25 80 80)"/>
+            <ellipse cx="125" cy="70" rx="42" ry="15" fill="#6b8a55" stroke="#3a2510" stroke-width="1.8" transform="rotate(15 125 70)"/>
+            <ellipse cx="80" cy="140" rx="38" ry="13" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(45 80 140)"/>
           </svg>
+          <div class="slide-caption">Bay Leaf Calming Tea</div>
         </div>
-        <div class="preview-content">
-          <span class="preview-tag">Sleep & Stress</span>
-          <h3>Bay Leaf Calming Tea</h3>
-          <p>The afternoon tea that lowers cortisol naturally  so the stress of the day stops sitting on your belly overnight.</p>
-        </div>
-      </div>
-
-      <div class="preview-card">
-        <div class="preview-img">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="170" rx="55" ry="6" fill="#3a2510" opacity="0.25"/>
+        <div class="carousel-slide">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="100" cy="170" rx="55" ry="6" fill="#1d4428" opacity="0.22"/>
             <path d="M75 50 L75 65 Q60 75 60 95 L60 165 Q60 175 70 175 L130 175 Q140 175 140 165 L140 95 Q140 75 125 65 L125 50 Z" fill="#c97a3c" stroke="#3a2510" stroke-width="2.5"/>
             <rect x="80" y="40" width="40" height="14" rx="2" fill="#5a3a1a" stroke="#3a2510" stroke-width="2"/>
             <rect x="65" y="105" width="70" height="50" fill="#fef3d8" stroke="#3a2510" stroke-width="1.5"/>
-            <text x="100" y="125" text-anchor="middle" font-family="Lora" font-size="13" fill="#3a2510" font-weight="700">ACV</text>
+            <text x="100" y="125" text-anchor="middle" font-family="Georgia" font-size="13" fill="#3a2510" font-weight="700">ACV</text>
             <line x1="72" y1="138" x2="128" y2="138" stroke="#3a2510" stroke-width="0.8"/>
-            <line x1="76" y1="145" x2="124" y2="145" stroke="#3a2510" stroke-width="0.8" opacity="0.5"/>
           </svg>
-        </div>
-        <div class="preview-content">
-          <span class="preview-tag">Liver & Kidney</span>
-          <h3>The ACV & Lemon Morning Reset</h3>
-          <p>The original three-ingredient flush that pulls fluid out of swollen ankles and softens the belly in just three mornings.</p>
+          <div class="slide-caption">The ACV &amp; Lemon Morning Reset</div>
         </div>
       </div>
+      <div class="carousel-dots"></div>
     </div>
+
+    <p class="eyebrow">Used Every Day by 15,000+ Readers</p>
+    <h2 class="h2"><span class="swoosh">Why This Book?</span></h2>
+    <p class="body-copy">These recipes shouldn't be locked behind a $200 wellness program. The whole point of traditional healing is that it was shared freely, passed from one kitchen to the next. We gathered them into one organized, easy-to-follow book so you can start using them tonight.</p>
+
+    <ul class="check-list gold-checks">
+      <li>100+ recipes, each with a short ingredient list and simple steps</li>
+      <li>Organized into chapters by body area, from belly to joints to sleep</li>
+      <li>Nothing rare, nothing expensive: everything is at your local market</li>
+      <li>Read on any screen, zoom as large as you like, or print it out</li>
+    </ul>
+
+    <a class="cta-secondary" href="#buy">Get the Complete Book <span aria-hidden="true">↑</span></a>
+    <p class="cta-note">60-day money-back guarantee</p>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section>
-  <div class="container-wide">
-    <p class="section-eyebrow">What Readers Are Saying</p>
-    <h2>Real Results From Real Readers</h2>
-    <p class="section-sub">Women across the world are quietly transforming their bodies with these recipes  and writing in to tell us about it.</p>
-
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I started with the bay leaf tea and the cinnamon morning water. By the second week, my pants were looser and my bloat was completely gone. I've recommended this to my whole family."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">M</div>
-          <div>
-            <div class="testimonial-name">Maria S.</div>
-            <div class="testimonial-loc" id="t1-loc">Verified Reader</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I was skeptical at first because I'd tried so many things. But the turmeric milk for joint pain genuinely worked for me. I sleep through the night now for the first time in years."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">J</div>
-          <div>
-            <div class="testimonial-name">Jennifer L.</div>
-            <div class="testimonial-loc" id="t2-loc">Verified Reader</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"My grandmother used to make some of these recipes when I was a child. I had completely forgotten about them until I read this book. It's like a love letter to traditional healing."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">A</div>
-          <div>
-            <div class="testimonial-name">Anna P.</div>
-            <div class="testimonial-loc" id="t3-loc">Verified Reader</div>
-          </div>
-        </div>
-      </div>
+<!-- REVIEWS -->
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:var(--paper)">
+  <path d="M0 30 C 240 0, 480 0, 720 26 S 1200 60, 1440 22 L1440 70 L0 70 Z" fill="#cfe2c2"/>
+  <path d="M0 44 C 260 14, 500 16, 740 40 S 1200 68, 1440 38 L1440 70 L0 70 Z" fill="#f1f4ee"/>
+</svg>
+<section class="reviews">
+  <div class="reviews-head wrap">
+    <p class="reviews-eyebrow">Don't Take Our Word For It</p>
+    <p class="reviews-title">Excellent</p>
+    <div class="reviews-score">
+      <div class="tp-stars" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      Rated <strong>4.9</strong> / 5 by our readers
     </div>
+    <p class="reviews-hint">Swipe or drag to read more →</p>
+  </div>
+
+  <div class="review-scroller">
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#2e6b3c">MS</div><strong>Maria S.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"I started with the bay leaf tea and the cinnamon morning water. By the second week, my pants were looser and my bloat was completely gone. I've recommended this to my whole family."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#8a6a2e">JL</div><strong>Jennifer L.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"I was skeptical at first because I'd tried so many things. But the turmeric milk for joint pain genuinely worked for me. I sleep through the night now for the first time in years."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#4a6b8a">AP</div><strong>Anna P.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"My grandmother used to make some of these recipes when I was a child. I had completely forgotten about them until I read this book. It's like a love letter to traditional healing."</p>
+    </article>
   </div>
 </section>
 
-<!-- OFFER / PRICING -->
-<section class="offer-clean" id="offer">
-  <div class="container">
-    <div class="offer-clean-card">
-
-      <div class="offer-quote">
-        <p>"I never thought a simple recipe book could change so much. Two weeks in and my body felt completely different  lighter, calmer, more like me again."</p>
-        <p class="offer-quote-author">Maria S. | Verified Reader</p>
+<!-- BEFORE YOU DECIDE -->
+<section class="section">
+  <div class="wrap">
+    <div class="feature-image">
+      <div class="scene scene-2">
+        <svg class="cup" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="100" cy="150" rx="78" ry="10" fill="#6b4d1a" opacity="0.22"/>
+          <ellipse cx="100" cy="146" rx="70" ry="9" fill="#fffaf0" stroke="#3a2510" stroke-width="2"/>
+          <path d="M45 70 Q45 140 100 143 Q155 140 155 70 Z" fill="#fffaf0" stroke="#3a2510" stroke-width="2.5"/>
+          <path d="M153 85 Q182 82 184 105 Q182 126 150 120" fill="none" stroke="#3a2510" stroke-width="3"/>
+          <ellipse cx="100" cy="70" rx="55" ry="9" fill="#e7a93a" stroke="#3a2510" stroke-width="2"/>
+          <path d="M88 52 Q83 40 92 32 Q100 24 93 12" fill="none" stroke="#6b5a3a" stroke-width="2.2" stroke-linecap="round" opacity="0.6"/>
+          <path d="M112 50 Q107 40 115 33 Q122 26 116 16" fill="none" stroke="#6b5a3a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          <ellipse cx="30" cy="150" rx="12" ry="6" fill="#c97a3c"/>
+          <ellipse cx="174" cy="152" rx="10" ry="5" fill="#5f8f4e" transform="rotate(-20 174 152)"/>
+        </svg>
       </div>
-
-      <h2 class="offer-clean-title">The Ancient Healing Recipe Book</h2>
-
-      <div class="offer-rating">
-        <span class="offer-stars">★★★★★</span>
-        <span class="offer-rating-num">4.9</span>
-        <span class="offer-rating-count">(486 reviews)</span>
-      </div>
-
-      <div class="offer-price-row">
-        <span class="offer-price-now">$14.95</span>
-        <span class="offer-price-old">$27</span>
-        <span class="offer-discount-tag">Save 45%</span>
-      </div>
-
-      <p class="offer-tagline">100+ forgotten remedies that heal the body  using ingredients already in your kitchen.</p>
-
-      <ul class="offer-benefits">
-        <li><span class="offer-check">✓</span> Real recipes used for generations across cultures</li>
-        <li><span class="offer-check">✓</span> Simple ingredients you already have at home</li>
-        <li><span class="offer-check">✓</span> Organized by body area  easy to find what you need</li>
-        <li><span class="offer-check">✓</span> Instant digital download  read on any device</li>
-      </ul>
-
-      <div class="offer-divider">
-        <span>LIMITED TIME OFFER</span>
-      </div>
-
-
-      <a href="https://ancienthealingbook.gumroad.com/l/ancienthealingbook?wanted=true" class="offer-buy-button">Buy Now</a>
-
-      <div class="offer-guarantee-row">
-        <span class="guarantee-shield">🛡️</span>
-        <span>60-day money-back guarantee</span>
-      </div>
-
     </div>
+
+    <p class="eyebrow">Before You Decide</p>
+    <h2 class="h2">You Have Read Enough. <span class="swoosh">The Only Question Left Is When You Start.</span></h2>
+    <p class="body-copy">You already know what is in these pages. The only thing left is whether you try them. Think about the mornings you wake up stiff, the afternoons you run out of energy, the nights you lie awake. You don't need another expensive program to fix them. You need the simple recipes people relied on for generations, written down in one place. And at $14.95, the whole book costs less than a single bottle of supplements.</p>
+
+    <ul class="check-list gold-checks">
+      <li>Start tonight: the book arrives in your inbox within minutes</li>
+      <li>Print the recipes you use most and keep them in the kitchen</li>
+      <li>One payment of $14.95, no subscription, yours forever</li>
+      <li>60-day money-back guarantee, so the only risk is never trying them</li>
+    </ul>
+
+    <a class="cta-secondary" href="#buy">Yes, Send Me the Book <span aria-hidden="true">↑</span></a>
+    <p class="cta-note">Pay once. Keep it forever.</p>
+
+    <div class="questions-cue" style="margin-top:60px">Still have questions?<span class="chev-down"></span></div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section>
-  <div class="container">
-    <p class="section-eyebrow">Frequently Asked Questions</p>
-    <h2>Common Questions From Readers</h2>
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <div class="faq-card">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="title-rule"></div>
 
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">How do I get the book after I pay?</div>
-        <div class="faq-a">Right after your payment goes through, you'll receive an email with a download link. You can also access it directly on the next page. The book is delivered as a PDF you can read on phone, tablet, or computer  and print if you want a physical copy.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">Will these recipes work for me?</div>
-        <div class="faq-a">These remedies have been used across cultures for generations. Most readers feel a real difference within the first 1-2 weeks. That said, every body is different  that's why we offer a 60-day full money-back guarantee. If they don't work for you, you pay nothing.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">Are the ingredients hard to find in my country?</div>
-        <div class="faq-a">No. Almost everything in the book uses ingredients you already have at home or can buy at any local market  lemons, ginger, turmeric, honey, garlic, cinnamon, bay leaves, apple cider vinegar. Nothing rare. Nothing expensive.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">Is this safe to use alongside medications?</div>
-        <div class="faq-a">These are food-based recipes using common kitchen ingredients. However, if you're on prescription medication or have a medical condition, please consult your doctor before starting any new dietary protocol. The book is informational, not medical advice.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">Do I need to buy more after this?</div>
-        <div class="faq-a">No. This is a one-time payment for the complete book. No subscriptions, no upsells, no hidden charges. Pay $14.95 once, keep the book forever.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" role="button" tabindex="0">Why is it priced so low?</div>
-        <div class="faq-a">Because these recipes shouldn't be locked behind a $200 wellness program. The whole point of traditional healing is that it was free  every culture passed it down. We just want to cover the cost of putting it into one organized book and getting it to people who need it.</div>
-      </div>
+      <div class="acc"><button class="acc-q" type="button">How do I get the book after I pay?<span class="chev"></span></button>
+        <div class="acc-a">Right after your payment goes through, you'll receive an email with a download link. You can also open it directly on the next page. The book is a PDF you can read on your phone, tablet or computer, and print if you'd like a paper copy.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Is it easy to read?<span class="chev"></span></button>
+        <div class="acc-a">Yes. Each recipe has a short ingredient list and simple step-by-step instructions. Because it's a digital book, you can zoom the text as large as you like on any screen, or print the pages you use most.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Will these recipes work for me?<span class="chev"></span></button>
+        <div class="acc-a">These remedies have been used across cultures for generations. Most readers feel a real difference within the first 1–2 weeks. That said, every body is different, which is why we offer a 60-day full money-back guarantee.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Are the ingredients hard to find?<span class="chev"></span></button>
+        <div class="acc-a">No. Almost everything in the book uses ingredients you already have at home or can buy at any local market: lemons, ginger, turmeric, honey, garlic, cinnamon, bay leaves, apple cider vinegar. Nothing rare. Nothing expensive.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Is this safe to use alongside medications?<span class="chev"></span></button>
+        <div class="acc-a">These are food-based recipes using common kitchen ingredients. However, if you're on prescription medication or have a medical condition, please consult your doctor before starting any new dietary routine. The book is informational, not medical advice.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Do I need to buy anything else after this?<span class="chev"></span></button>
+        <div class="acc-a">No. This is a one-time payment for the complete book. No subscriptions, no upsells, no hidden charges. Pay $14.95 once, keep the book forever.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">60-Day Money-Back Guarantee<span class="chev"></span></button>
+        <div class="acc-a">Try the recipes for a full 60 days. If you're not happy for any reason, just reply to your order email and we'll refund every cent.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Why is it priced so low?<span class="chev"></span></button>
+        <div class="acc-a">Because these recipes shouldn't be locked behind a $200 wellness program. Traditional healing was always shared freely. We just want to cover the cost of putting it into one organized book and getting it to the people who need it.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">I can't afford it<span class="chev"></span></button>
+        <div class="acc-a">We understand. That's exactly why the book is $14.95 instead of the price of a wellness program or a month of supplements. And with the 60-day guarantee, if it doesn't earn its place in your kitchen, you get your money back.</div></div>
     </div>
   </div>
 </section>
 
+</main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <p class="copyright">© 2026 americashealthyrecipes.com · All Rights Reserved</p>
+<!-- DISCLOSURES + FOOTER -->
+<footer class="disclosures">
+  <div class="wrap">
+    <h3>Health &amp; Product Disclosures</h3>
+    <p>The Ancient Healing Recipe Book is a digital collection of traditional, food-based recipes offered for educational and personal use. It is not medical advice and is not intended to diagnose, treat, cure or prevent any disease. Please consult your doctor before making any dietary or lifestyle changes, especially if you are pregnant, nursing, taking medication or have a medical condition.</p>
+    <p>Individual results may vary and results are not guaranteed. Testimonials reflect the experiences of individual readers.</p>
+
+    <h4>Platform Disclaimers</h4>
     <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
     <p>This site is not a part of Google™ website or network of sites such as Youtube™ or any company owned by Google™ or Youtube™. Additionally this website is not endorsed by Google™ Youtube™ Inc. in any way. Google™ is a trademark for all their respective companies.</p>
-    <p>It's important to consult your doctor before making any dietary or lifestyle changes. Individual results may vary and results are not guaranteed.</p>
+
+    <div class="footer-logo">
+      <a class="logo" href="#top" aria-label="Back to top">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#e1edd3"/>
+          <path d="M20 32 C 20 22, 12 18, 9 10 C 18 11, 23 17, 20 32 Z" fill="#2e6b3c"/>
+          <path d="M20 32 C 21 22, 27 17, 32 13 C 32 22, 26 27, 20 32 Z" fill="#7fa66a"/>
+        </svg>
+        <span class="logo-text"><small>America's</small><strong>Healthy Recipes</strong></span>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="secure">🔒 Secure checkout via Gumroad</span>
+      <p>© 2026 americashealthyrecipes.com · All Rights Reserved</p>
+    </div>
   </div>
 </footer>
 
 <script>
   // ===========================================================
-  // COUNTRY PERSONALIZATION
+  // COUNTDOWN (2 hours per visit, survives a page refresh)
   // ===========================================================
-  // Detects visitor's country and personalizes the page text.
-  //
-  // PRIORITY ORDER:
-  //   1. URL parameter (?country=Philippines)  for testing
-  //   2. Cloudflare CF-IPCountry header (if served through Cloudflare)
-  //   3. ipapi.co fallback (free public API, no key needed)
-  //   4. Generic fallback ("your country")
+  (function () {
+    const KEY = 'ahr_sale_end';
+    const DURATION = 2 * 60 * 60 * 1000;
+    let end;
+    try { end = parseInt(sessionStorage.getItem(KEY), 10); } catch (e) {}
+    if (!end || end < Date.now()) {
+      end = Date.now() + DURATION;
+      try { sessionStorage.setItem(KEY, end); } catch (e) {}
+    }
+    const h = document.getElementById('t-h');
+    const m = document.getElementById('t-m');
+    const s = document.getElementById('t-s');
+    const pad = n => String(n).padStart(2, '0');
+
+    function tick() {
+      let left = Math.max(0, Math.floor((end - Date.now()) / 1000));
+      if (left === 0) {
+        end = Date.now() + DURATION;
+        try { sessionStorage.setItem(KEY, end); } catch (e) {}
+        left = DURATION / 1000;
+      }
+      h.textContent = pad(Math.floor(left / 3600));
+      m.textContent = pad(Math.floor((left % 3600) / 60));
+      s.textContent = pad(left % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
   // ===========================================================
+  // PRODUCT GALLERY
+  // ===========================================================
+  (function () {
+    const gallery = document.getElementById('gallery');
+    const slides = gallery.querySelectorAll('.slide');
+    const thumbs = document.querySelectorAll('#thumbs .thumb');
+    let current = 0;
 
-  const COUNTRY_DATA = {
-    'PH': { name: 'the Philippines', flag: '🇵🇭' },
-    'PG': { name: 'Papua New Guinea', flag: '🇵🇬' },
-    'IN': { name: 'India', flag: '🇮🇳' },
-    'ZA': { name: 'South Africa', flag: '🇿🇦' },
-    'NG': { name: 'Nigeria', flag: '🇳🇬' },
-    'ID': { name: 'Indonesia', flag: '🇮🇩' },
-    'BR': { name: 'Brazil', flag: '🇧🇷' },
-    'MX': { name: 'Mexico', flag: '🇲🇽' },
-    'PK': { name: 'Pakistan', flag: '🇵🇰' },
-    'EG': { name: 'Egypt', flag: '🇪🇬' },
-    'VN': { name: 'Vietnam', flag: '🇻🇳' },
-    'TH': { name: 'Thailand', flag: '🇹🇭' },
-    'KE': { name: 'Kenya', flag: '🇰🇪' },
-    'GH': { name: 'Ghana', flag: '🇬🇭' },
-    'BD': { name: 'Bangladesh', flag: '🇧🇩' },
-    'CO': { name: 'Colombia', flag: '🇨🇴' },
-    'AR': { name: 'Argentina', flag: '🇦🇷' },
-    'PE': { name: 'Peru', flag: '🇵🇪' },
-    'MY': { name: 'Malaysia', flag: '🇲🇾' },
-    'TR': { name: 'Turkey', flag: '🇹🇷' },
-    'PL': { name: 'Poland', flag: '🇵🇱' },
-    'RO': { name: 'Romania', flag: '🇷🇴' },
-    'UA': { name: 'Ukraine', flag: '🇺🇦' },
-    'AE': { name: 'the UAE', flag: '🇦🇪' },
-    'SA': { name: 'Saudi Arabia', flag: '🇸🇦' },
-    'US': { name: 'the United States', flag: '🇺🇸' },
-    'CA': { name: 'Canada', flag: '🇨🇦' },
-    'GB': { name: 'the UK', flag: '🇬🇧' },
-    'AU': { name: 'Australia', flag: '🇦🇺' },
-    'NZ': { name: 'New Zealand', flag: '🇳🇿' },
-    'IE': { name: 'Ireland', flag: '🇮🇪' },
-    'DE': { name: 'Germany', flag: '🇩🇪' },
-    'FR': { name: 'France', flag: '🇫🇷' },
-    'IT': { name: 'Italy', flag: '🇮🇹' },
-    'ES': { name: 'Spain', flag: '🇪🇸' },
-    'NL': { name: 'the Netherlands', flag: '🇳🇱' },
-    'BE': { name: 'Belgium', flag: '🇧🇪' },
-    'PT': { name: 'Portugal', flag: '🇵🇹' },
-    'CH': { name: 'Switzerland', flag: '🇨🇭' },
-    'AT': { name: 'Austria', flag: '🇦🇹' },
-    'SE': { name: 'Sweden', flag: '🇸🇪' },
-    'NO': { name: 'Norway', flag: '🇳🇴' },
-    'DK': { name: 'Denmark', flag: '🇩🇰' },
-    'FI': { name: 'Finland', flag: '🇫🇮' },
-    'JP': { name: 'Japan', flag: '🇯🇵' },
-    'KR': { name: 'South Korea', flag: '🇰🇷' },
-    'SG': { name: 'Singapore', flag: '🇸🇬' },
-    'HK': { name: 'Hong Kong', flag: '🇭🇰' }
-  };
-
-  function lookupCountryByName(input) {
-    if (!input) return null;
-    const upper = input.toUpperCase();
-    if (COUNTRY_DATA[upper]) return COUNTRY_DATA[upper];
-    const lower = input.toLowerCase().replace(/^the\s+/, '');
-    for (const code in COUNTRY_DATA) {
-      const name = COUNTRY_DATA[code].name.toLowerCase().replace(/^the\s+/, '');
-      if (name === lower) return COUNTRY_DATA[code];
-    }
-    return { name: input, flag: '🌍' };
-  }
-
-  function getCountryFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('country');
-  }
-
-  function applyCountry(countryObj) {
-    const country = countryObj || { name: 'your country', flag: '🌍' };
-    const isDefault = country.name === 'your country';
-
-    // H1 headline
-    const h1 = document.getElementById('h1-country');
-    const h1Flag = document.getElementById('h1-flag');
-    if (h1) h1.textContent = country.name;
-    if (h1Flag) h1Flag.textContent = country.flag;
-
-    // Stamp
-    const stamp = document.getElementById('stamp-country');
-    if (stamp) stamp.textContent = isDefault ? 'Worldwide Readers' : country.flag + ' Readers in ' + country.name;
-
-    // Subtitle
-    const sub = document.getElementById('sub-country');
-    if (sub) sub.textContent = isDefault ? 'Readers in your area' : 'Readers across ' + country.name;
-
-    // Top discount banner
-    const bannerCountry = document.getElementById('banner-country');
-    const bannerFlag = document.getElementById('banner-flag');
-    if (bannerCountry) bannerCountry.textContent = country.name;
-    if (bannerFlag) bannerFlag.textContent = country.flag;
-
-    // Stat
-    const statLabel = document.getElementById('stat-country-label');
-    const statNum = document.getElementById('stat-country-count');
-    if (statLabel && statNum && !isDefault) {
-      statLabel.textContent = 'Available in ' + country.name;
-      statNum.textContent = 'Live';
+    function show(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach((el, n) => el.classList.toggle('active', n === current));
+      thumbs.forEach((el, n) => el.classList.toggle('active', n === current));
     }
 
-    // Testimonials
-    if (!isDefault) {
-      const t1 = document.getElementById('t1-loc');
-      const t2 = document.getElementById('t2-loc');
-      const t3 = document.getElementById('t3-loc');
-      if (t1) t1.textContent = country.flag + ' ' + country.name + ' · Verified Reader';
-      if (t2) t2.textContent = country.flag + ' ' + country.name + ' · Verified Reader';
-      if (t3) t3.textContent = country.flag + ' ' + country.name + ' · Verified Reader';
-    }
-  }
+    thumbs.forEach((t, n) => t.addEventListener('click', () => show(n)));
 
-  async function detectCountry() {
-    // 1. URL param wins (for testing)
-    const urlCountry = getCountryFromURL();
-    if (urlCountry) {
-      applyCountry(lookupCountryByName(urlCountry));
-      return;
+    // Swipe on touch screens, drag with the mouse on desktop
+    let startX = null;
+    gallery.addEventListener('pointerdown', e => { startX = e.clientX; });
+    gallery.addEventListener('pointerup', e => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    gallery.addEventListener('pointercancel', () => { startX = null; });
+    gallery.addEventListener('dragstart', e => e.preventDefault());
+  })();
+
+  // ===========================================================
+  // RECIPE CAROUSEL
+  // ===========================================================
+  (function () {
+    const root = document.getElementById('carousel');
+    const track = root.querySelector('.carousel-track');
+    const slides = track.children;
+    const dotsWrap = root.querySelector('.carousel-dots');
+    let current = 0;
+
+    for (let i = 0; i < slides.length; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show recipe ' + (i + 1));
+      b.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(b);
     }
 
-    // 2. Try ipapi.co (free, no key required)
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsWrap.querySelectorAll('button').forEach((d, n) => d.classList.toggle('active', n === current));
+    }
+
+    let startX = null;
+    root.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+    setInterval(() => go(current + 1), 5000);
+  })();
+
+  // ===========================================================
+  // ACCORDIONS
+  // ===========================================================
+  document.querySelectorAll('.acc').forEach(acc => {
+    const btn = acc.querySelector('.acc-q');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const open = acc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  // ===========================================================
+  // COUNTRY (delivery line) — ?country=US to test
+  // ===========================================================
+  (async function () {
+    const el = document.getElementById('country-line');
+    const set = name => { if (name) el.textContent = '· Available in ' + name; };
+
+    const param = new URLSearchParams(location.search).get('country');
+    if (param) { set(param); return; }
+
     try {
       const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
       if (res.ok) {
-        const data = await res.json();
-        const code = data.country_code;
-        if (code && COUNTRY_DATA[code]) {
-          applyCountry(COUNTRY_DATA[code]);
-          return;
-        }
-        // Fallback: country name from API even if code not in our list
-        if (data.country_name) {
-          applyCountry({ name: data.country_name, flag: '🌍' });
-          return;
-        }
+        const d = await res.json();
+        if (d.country_name) set(d.country_name);
       }
-    } catch (e) {
-      // Silent fail
-    }
-
-    // 3. Try ipwho.is as a backup (also free, no key)
-    try {
-      const res = await fetch('https://ipwho.is/', { cache: 'no-store' });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.success && data.country_code) {
-          if (COUNTRY_DATA[data.country_code]) {
-            applyCountry(COUNTRY_DATA[data.country_code]);
-            return;
-          }
-          applyCountry({ name: data.country, flag: data.flag?.emoji || '🌍' });
-          return;
-        }
-      }
-    } catch (e) {
-      // Silent fail
-    }
-
-    // 4. Final fallback
-    applyCountry({ name: 'your country', flag: '🌍' });
-  }
-
-  detectCountry();
-
-  // ===========================================================
-  // COUNTDOWN TIMER (28:00 → 00:00, then resets)
-  // ===========================================================
-  function startCountdown() {
-    const el = document.getElementById('countdown');
-    if (!el) return;
-
-    const TOTAL_SECONDS = 28 * 60; // 28 minutes
-    let remaining = TOTAL_SECONDS;
-
-    function format(secs) {
-      const m = Math.floor(secs / 60);
-      const s = secs % 60;
-      return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-    }
-
-    function tick() {
-      el.textContent = format(remaining);
-      if (remaining <= 0) {
-        remaining = TOTAL_SECONDS;
-      } else {
-        remaining--;
-      }
-    }
-
-    tick();
-    setInterval(tick, 1000);
-  }
-
-  startCountdown();
-
-  // ===========================================================
-  // FAQ ACCORDION
-  // ===========================================================
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    const toggle = () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    };
-    q.addEventListener('click', toggle);
-    q.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-  });
+    } catch (e) { /* silent */ }
+  })();
 </script>
 
 </body>
