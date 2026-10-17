@@ -3,1666 +3,1604 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ancient Healing Book</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow">
+<title>The Ancient Healing Recipe Book · Your Copy</title>
+<link rel="icon" href="../favico.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #f5f0e8;
-    --parchment: #ede5d0;
-    --dark-brown: #2c1a0e;
-    --medium-brown: #5c3a1e;
-    --warm-red: #8b1a1a;
-    --rust: #a0522d;
-    --gold: #c8a96e;
-    --light-gold: #e8d5a3;
-    --ink: #1a120a;
-    --faded: #8a7560;
-    --divider: #c4a97a;
+    --paper: #f8f6ef;
+    --paper-2: #f1eee3;
+    --card: #ffffff;
+    --ink: #1f2a22;
+    --ink-soft: #3a4a3e;
+    --ink-mute: #5d6b60;
+    --green: #2e6b3c;
+    --green-dark: #1d4428;
+    --green-deep: #13301c;
+    --green-pale: #e1edd3;
+    --gold: #b8892b;
+    --gold-light: #e6c56f;
+    --rose: #a8463a;
+    --border: rgba(31, 42, 34, 0.12);
+    --shadow: 0 6px 24px rgba(25, 45, 30, 0.10);
+    --radius: 18px;
+    --ch: #2e6b3c;
+    --ch-tint: #e1edd3;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 100%; }
+  html[data-size="1"] { font-size: 112.5%; }
+  html[data-size="2"] { font-size: 125%; }
+  html[data-size="3"] { font-size: 137.5%; }
 
   body {
-    background-color: var(--cream);
-    color: var(--ink);
     font-family: 'Lora', Georgia, serif;
-    font-size: 16px;
+    font-size: 1.15rem;
     line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  /* ── COVER ── */
-  .cover {
-    min-height: 100vh;
-    background: linear-gradient(160deg, #2c1a0e 0%, #4a2c14 40%, #6b3a1f 70%, #8b5e3c 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 30px;
-    position: relative;
-    overflow: hidden;
+  body.reader-open { overflow: hidden; }
+
+  button { font: inherit; color: inherit; cursor: pointer; }
+  a { color: var(--green); }
+  img { max-width: 100%; display: block; }
+  .sans { font-family: 'Inter', sans-serif; }
+
+  :focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  .wrap-narrow { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+  /* ───────── TOP BAR ───────── */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(19, 48, 28, 0.97);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    border-bottom: 3px solid var(--gold);
   }
 
-  .cover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a96e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
-  }
-
-  .cover-badge {
-    font-family: 'Special Elite', cursive;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-    padding: 6px 20px;
-    margin-bottom: 40px;
-    opacity: 0.85;
-  }
-
-  .cover h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(52px, 10vw, 100px);
-    font-weight: 900;
-    color: var(--cream);
-    line-height: 1.05;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
-  }
-
-  .cover h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(22px, 4vw, 42px);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--gold);
-    margin-bottom: 30px;
-    line-height: 1.3;
-  }
-
-  .cover-divider {
-    width: 200px;
-    height: 1px;
-    background: var(--gold);
-    margin: 30px auto;
-    opacity: 0.5;
-    position: relative;
-  }
-  .cover-divider::after {
-    content: '✦';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--gold);
-    background: transparent;
-    font-size: 14px;
-    padding: 0 10px;
-  }
-
-  .cover-sub {
-    font-family: 'Special Elite', cursive;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--light-gold);
-    opacity: 0.7;
-    margin-bottom: 60px;
-  }
-
-  .cover-count {
-    display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-
-  .cover-count-item {
-    text-align: center;
-  }
-
-  .cover-count-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 900;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .cover-count-label {
-    font-family: 'Lora', serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--light-gold);
-    opacity: 0.7;
-    margin-top: 4px;
-  }
-
-  .cover-intro {
-    max-width: 540px;
-    font-size: 15px;
-    color: rgba(245,240,232,0.7);
-    font-style: italic;
-    line-height: 1.9;
-  }
-
-  /* ── INTRO LETTER ── */
-  .intro-section {
-    max-width: 760px;
-    margin: 80px auto;
-    padding: 0 30px;
-  }
-
-  .letter-box {
-    background: var(--parchment);
-    border-left: 4px solid var(--warm-red);
-    padding: 50px 55px;
-    position: relative;
-    box-shadow: 0 4px 30px rgba(44,26,14,0.08);
-  }
-
-  .letter-box::before {
-    content: '\201C';
-    font-family: 'Playfair Display', serif;
-    font-size: 120px;
-    color: var(--warm-red);
-    opacity: 0.15;
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    line-height: 1;
-  }
-
-  .letter-box p {
-    margin-bottom: 18px;
-    font-size: 16px;
-    color: var(--dark-brown);
-  }
-
-  .letter-sig {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--warm-red);
-    margin-top: 30px;
-  }
-
-  /* ── TABLE OF CONTENTS ── */
-  .toc {
-    max-width: 760px;
-    margin: 0 auto 80px;
-    padding: 0 30px;
-  }
-
-  .section-label {
-    font-family: 'Special Elite', cursive;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--faded);
-    margin-bottom: 30px;
+  .topbar-inner {
     display: flex;
     align-items: center;
-    gap: 15px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--divider);
-    opacity: 0.5;
-  }
-
-  .toc h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--dark-brown);
-    margin-bottom: 40px;
-  }
-
-  .toc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
-  }
-
-  .toc-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 22px;
-    background: var(--parchment);
-    border: 1px solid rgba(196,169,122,0.3);
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .toc-item:hover {
-    background: #e8dfc8;
-    border-color: var(--gold);
-    transform: translateX(4px);
-  }
-
-  .toc-emoji {
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-
-  .toc-text h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    color: var(--dark-brown);
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .toc-text span {
-    font-size: 12px;
-    color: var(--faded);
-    font-style: italic;
-  }
-
-  /* ── CHAPTER HEADERS ── */
-  .chapter-header {
-    background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%);
-    padding: 70px 30px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin: 80px 0 0;
-  }
-
-  .chapter-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c8a96e' fill-opacity='0.06'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .chapter-number {
-    font-family: 'Special Elite', cursive;
-    font-size: 12px;
-    letter-spacing: 5px;
-    color: var(--gold);
-    opacity: 0.7;
-    margin-bottom: 16px;
-  }
-
-  .chapter-emoji {
-    font-size: 48px;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .chapter-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 58px);
-    font-weight: 900;
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-
-  .chapter-header p {
-    font-size: 15px;
-    color: rgba(245,240,232,0.65);
-    font-style: italic;
-    max-width: 500px;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 20px;
+    max-width: 1180px;
     margin: 0 auto;
-    line-height: 1.7;
   }
 
-  /* ── RECIPES ── */
-  .recipes-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 30px;
-  }
-
-  .recipe-card {
-    margin-bottom: 70px;
-    padding-bottom: 70px;
-    border-bottom: 1px solid rgba(196,169,122,0.3);
-  }
-
-  .recipe-card:last-child {
-    border-bottom: none;
-  }
-
-  .recipe-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    color: var(--warm-red);
-    font-style: italic;
-    margin-bottom: 8px;
+  .brand {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .recipe-number::before {
-    content: 'Nº';
-    font-style: normal;
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-
-  .recipe-card h3 {
+    color: #fff;
+    text-decoration: none;
     font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 700;
-    color: var(--dark-brown);
-    line-height: 1.2;
-    margin-bottom: 8px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    line-height: 1.1;
   }
 
-  .recipe-tagline {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--warm-red);
+  .brand small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tools { display: flex; align-items: center; gap: 8px; }
+
+  .tool {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .tool:hover { background: rgba(255,255,255,0.2); }
+
+  .size-group { display: inline-flex; border-radius: 30px; overflow: hidden; border: 1px solid rgba(255,255,255,0.22); }
+  .size-group button { background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 8px 12px; font-family: 'Inter', sans-serif; font-weight: 800; }
+  .size-group button + button { border-left: 1px solid rgba(255,255,255,0.22); }
+  .size-group button:hover { background: rgba(255,255,255,0.2); }
+  .size-group .lbl { font-size: 0.8rem; }
+  .size-group .big { font-size: 1.05rem; }
+
+  .count-pill {
+    background: var(--gold-light);
+    color: var(--green-deep);
+    border-radius: 20px;
+    padding: 0 8px;
+    font-size: 0.8rem;
+    min-width: 22px;
+    text-align: center;
+  }
+
+  /* ───────── HERO ───────── */
+  .hero {
+    position: relative;
+    background:
+      radial-gradient(ellipse at 80% 0%, rgba(230, 197, 111, 0.18), transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(127, 166, 106, 0.25), transparent 55%),
+      linear-gradient(160deg, #1d4428 0%, #13301c 100%);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 20 C 70 40, 70 50, 60 70 C 50 50, 50 40, 60 20 Z' fill='%23ffffff' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+    padding: 64px 0 72px;
+  }
+
+  .hero-cover {
+    position: relative;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .hero-cover img {
+    width: 100%;
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45));
+    transform: rotate(-3deg);
+  }
+
+  .hero-cover::before {
+    content: "";
+    position: absolute;
+    inset: 10% -10%;
+    background: radial-gradient(circle, rgba(230, 197, 111, 0.3), transparent 65%);
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+
+  .hero-lead {
+    font-size: 1.22rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 600px;
     margin-bottom: 28px;
   }
 
-  .recipe-body {
-    display: grid;
-    grid-template-columns: 1fr 1.8fr;
-    gap: 35px;
-    align-items: start;
-  }
-
-  @media (max-width: 600px) {
-    .recipe-body { grid-template-columns: 1fr; }
-  }
-
-  .ingredients-box {
-    background: var(--parchment);
-    padding: 24px 26px;
-    border: 1px solid rgba(196,169,122,0.4);
-  }
-
-  .ingredients-box h4 {
-    font-family: 'Special Elite', cursive;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--faded);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(196,169,122,0.4);
-  }
-
-  .ingredients-box ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .ingredients-box li {
-    font-size: 14px;
-    color: var(--dark-brown);
-    padding: 5px 0;
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .ingredients-box li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--warm-red);
-    font-size: 12px;
-  }
-
-  .instructions h4 {
-    font-family: 'Special Elite', cursive;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--faded);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(196,169,122,0.3);
-  }
-
-  .instructions p {
-    font-size: 15px;
-    color: var(--dark-brown);
-    line-height: 1.85;
-    margin-bottom: 14px;
-  }
-
-  .tip-box {
-    margin-top: 18px;
-    padding: 16px 20px;
-    background: rgba(200, 169, 110, 0.12);
-    border-left: 3px solid var(--gold);
-    font-size: 13px;
-    color: var(--medium-brown);
-    font-style: italic;
-  }
-
-  .tip-box strong {
-    font-style: normal;
-    font-family: 'Special Elite', cursive;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--rust);
-    display: block;
-    margin-bottom: 5px;
-    font-weight: normal;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark-brown);
-    color: var(--light-gold);
-    text-align: center;
-    padding: 60px 30px;
-    margin-top: 80px;
-  }
-
-  footer h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--cream);
-    margin-bottom: 16px;
-  }
-
-  footer p {
-    font-size: 13px;
-    opacity: 0.6;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-
-  footer .footer-sig {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--gold);
-    margin-top: 30px;
-  }
-
-  /* ── NAV ── */
-  .sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(44,26,14,0.97);
-    backdrop-filter: blur(10px);
-    padding: 12px 30px;
+  .stats {
     display: flex;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    min-width: 120px;
+  }
+
+  .stat b {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--gold-light);
+  }
+
+  .stat span { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    padding: 16px 28px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold-light); color: var(--green-deep); }
+  .btn-ghost { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .btn-green { background: var(--green); color: #fff; }
+
+  /* ───────── SECTIONS ───────── */
+  .section { padding: 72px 0; }
+  .section-alt { background: var(--paper-2); }
+
+  .section-head { text-align: center; margin-bottom: 40px; }
+
+  .section-head .eyebrow { color: var(--gold); }
+
+  .h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.2vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--green-dark);
+  }
+
+  .section-head p {
+    max-width: 640px;
+    margin: 14px auto 0;
+    color: var(--ink-soft);
+  }
+
+  /* letter */
+  .letter {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 44px 48px;
+    box-shadow: var(--shadow);
+    position: relative;
+    border: 1px solid var(--border);
+  }
+
+  .letter::before {
+    content: "❝";
+    position: absolute;
+    top: -26px;
+    left: 40px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    color: var(--green-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-family: Georgia, serif;
+  }
+
+  .letter p { font-size: 1.2rem; color: var(--ink-soft); }
+  .letter p + p { margin-top: 16px; }
+  .letter .sign { font-family: 'Playfair Display', serif; font-style: italic; color: var(--green); font-size: 1.3rem; margin-top: 22px; }
+
+  /* how to use */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .how {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 26px 22px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .how-num {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .how h3 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 6px; color: var(--ink); }
+  .how p { font-size: 1rem; color: var(--ink-mute); line-height: 1.6; }
+
+  .safety {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: #fff8ec;
+    border: 1.5px solid #ecd3a0;
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-top: 28px;
+  }
+
+  .safety-icon { font-size: 1.8rem; line-height: 1; }
+  .safety h3 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
+  .safety p { font-size: 1rem; color: var(--ink-soft); line-height: 1.65; }
+
+  /* chapters */
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+  }
+
+  .chapter-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 6px solid var(--c);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .chapter-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  .chapter-card .cc-top { display: flex; align-items: center; justify-content: space-between; }
+
+  .cc-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--t);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .cc-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+  .cc-name { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.4rem; line-height: 1.2; color: var(--ink); }
+  .cc-count { font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--ink-mute); }
+  .cc-icons { display: flex; gap: 4px; margin-top: 4px; }
+  .cc-icons svg { width: 34px; height: 34px; }
+
+  /* plan */
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+  }
+
+  .plan-day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .plan-day h3 { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.3rem; color: var(--green-dark); line-height: 1; }
+  .plan-day .theme { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--ink-mute); line-height: 1.35; min-height: 2.3em; }
+
+  .plan-slot {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .plan-slot:hover { border-color: var(--green); background: var(--green-pale); }
+  .plan-slot small { display: block; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+
+  /* pantry staples */
+  .staples {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+  }
+
+  .staple {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 8px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .staple:hover { border-color: var(--green); }
+  .staple svg { width: 58px; height: 58px; margin: 0 auto 4px; display: block; }
+  .staple b { display: block; font-size: 0.92rem; color: var(--ink); line-height: 1.25; }
+  .staple span { font-size: 0.78rem; color: var(--ink-mute); }
+
+  /* ───────── LIBRARY ───────── */
+  .filters {
+    position: sticky;
+    top: 62px;
+    z-index: 30;
+    background: rgba(248, 246, 239, 0.97);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+
+  .search-row { display: flex; gap: 10px; align-items: center; }
+
+  .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 4px 6px 4px 18px;
+  }
+
+  .search:focus-within { border-color: var(--green); }
+
+  .search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    padding: 10px 0;
+    min-width: 0;
+    color: var(--ink);
+  }
+
+  .search .clear {
+    border: none;
+    background: var(--paper-2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-weight: 800;
+    display: none;
+  }
+
+  .search.has-text .clear { display: block; }
+
+  .fav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 12px 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .fav-toggle[aria-pressed="true"] { background: #fbe9e6; border-color: var(--rose); color: var(--rose); }
+
+  .chips {
+    display: flex;
+    gap: 8px;
     overflow-x: auto;
+    padding: 12px 2px 2px;
     scrollbar-width: none;
   }
 
-  .sticky-nav::-webkit-scrollbar { display: none; }
+  .chips::-webkit-scrollbar { display: none; }
 
-  .sticky-nav a {
-    font-family: 'Special Elite', cursive;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--light-gold);
-    text-decoration: none;
-    padding: 6px 14px;
+  .chip {
+    flex-shrink: 0;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
     white-space: nowrap;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    border: 1px solid transparent;
   }
 
-  .sticky-nav a:hover {
-    opacity: 1;
-    border-color: rgba(200,169,110,0.3);
+  .chip[aria-pressed="true"] { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+  .chip.when[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); }
+
+  .result-line {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    padding: 24px 0 4px;
   }
 
-  .ornament {
+  .chapter-block { padding: 34px 0 10px; }
+
+  .chapter-banner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: center;
+    background: var(--ch-tint);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border-left: 8px solid var(--ch);
+  }
+
+  .banner-icon {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .banner-num { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ch); }
+  .banner-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(1.8rem, 3.6vw, 2.4rem); line-height: 1.15; color: var(--ink); margin: 2px 0 8px; }
+  .banner-intro { color: var(--ink-soft); font-size: 1.08rem; max-width: 820px; }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 22px;
+  }
+
+  .rcard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .rcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  .rcard-art {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background:
+      radial-gradient(circle at 50% 75%, rgba(255,255,255,0.75), transparent 60%),
+      var(--t);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px 0;
+  }
+
+  .rcard-art svg { width: 100%; height: 100%; }
+
+  .rnum {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255,255,255,0.92);
+    color: var(--ink);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+  }
+
+  .made-badge {
+    position: absolute;
+    top: 12px;
+    right: 64px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+  }
+
+  .heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.92);
+    font-size: 1.3rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    color: #c0b8b0;
+  }
+
+  .heart[aria-pressed="true"] { color: #d0453a; }
+
+  .rcard-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+  .rcard-ch { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c); }
+  .rcard-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 1.35rem; line-height: 1.22; color: var(--ink); }
+  .rcard-tag { font-size: 1rem; color: var(--ink-mute); font-style: italic; line-height: 1.5; }
+
+  .rcard-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .empty {
     text-align: center;
-    color: var(--gold);
-    font-size: 20px;
-    opacity: 0.4;
-    margin: 20px 0;
-    letter-spacing: 12px;
+    padding: 60px 20px;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink-mute);
+  }
+
+  .empty b { display: block; font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: 6px; }
+
+  /* ───────── READER (recipe view) ───────── */
+  .reader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(15, 30, 20, 0.6);
+    display: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reader.open { display: block; }
+
+  .sheet {
+    position: relative;
+    max-width: 860px;
+    margin: 28px auto;
+    background: var(--paper);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  }
+
+  .sheet-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(248, 246, 239, 0.97);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sheet-bar .grp { display: flex; gap: 8px; }
+
+  .sbtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    padding: 9px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .sbtn:hover { border-color: var(--green); }
+  .sbtn.close { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+  .sbtn[aria-pressed="true"] { color: #d0453a; border-color: #e8b4ae; background: #fdf0ee; }
+  .sbtn.made[aria-pressed="true"] { color: #fff; background: var(--green); border-color: var(--green); }
+
+  .sheet-art {
+    position: relative;
+    background:
+      radial-gradient(circle at 50% 80%, rgba(255,255,255,0.8), transparent 60%),
+      var(--t);
+    padding: 22px 30px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sheet-art svg { width: 100%; max-width: 560px; height: auto; }
+
+  .sheet-body { padding: 30px 40px 44px; }
+
+  .sheet-ch { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c); }
+  .sheet-title { font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(2rem, 4.6vw, 2.8rem); line-height: 1.12; color: var(--ink); margin: 6px 0 8px; }
+  .sheet-tag { font-size: 1.25rem; font-style: italic; color: var(--ink-soft); margin-bottom: 24px; }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 34px;
+  }
+
+  .fact {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .fact small { display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 2px; }
+  .fact b { font-size: 1rem; color: var(--ink); line-height: 1.3; display: block; }
+
+  .sheet h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+  }
+
+  .sheet h3::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, var(--gold-light), transparent); }
+
+  .hint { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--ink-mute); margin-bottom: 14px; }
+
+  .ing-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 38px;
+  }
+
+  .ing {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 10px 14px 10px 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+
+  .ing-pic {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: var(--t);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ing-pic svg { width: 50px; height: 50px; }
+
+  .ing-text { flex: 1; font-size: 1.05rem; line-height: 1.4; }
+  .ing-text small { display: block; font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .tick {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: transparent;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ing.done { background: var(--green-pale); border-color: #b9d3a3; }
+  .ing.done .tick { background: var(--green); border-color: var(--green); color: #fff; }
+  .ing.done .ing-text { color: var(--ink-mute); }
+
+  .steps { list-style: none; counter-reset: step; margin-bottom: 34px; }
+
+  .step {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border);
+    cursor: pointer;
+  }
+
+  .step::before {
+    content: counter(step);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--ch);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step p { font-size: 1.15rem; line-height: 1.7; padding-top: 6px; }
+  .step.done::before { content: "✓"; background: var(--green-pale); color: var(--green); }
+  .step.done p { color: var(--ink-mute); text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.25); }
+
+  .note {
+    display: flex;
+    gap: 16px;
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+
+  .note-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: #fff;
+  }
+
+  .note h4 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+  .note p { font-size: 1.08rem; line-height: 1.7; color: var(--ink-soft); }
+
+  .note.why { background: var(--green-pale); }
+  .note.why h4 { color: var(--green-dark); }
+  .note.tip { background: #fbf1d6; }
+  .note.tip h4 { color: #8a6414; }
+  .note.caution { background: #fbeae6; }
+  .note.caution h4 { color: var(--rose); }
+
+  .sheet-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .nav-card {
+    text-align: left;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-card:hover { border-color: var(--green); }
+  .nav-card small { display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); }
+  .nav-card b { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); line-height: 1.3; }
+  .nav-card.next { text-align: right; }
+
+  /* ───────── FOOTER ───────── */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.78);
+    padding: 50px 0 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  footer h3 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+  footer p + p { margin-top: 10px; }
+  footer .copy { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); font-size: 0.88rem; }
+
+  .to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 40;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    background: var(--green-dark);
+    color: #fff;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .to-top.show { opacity: 1; pointer-events: auto; }
+
+  /* ───────── RESPONSIVE ───────── */
+  @media (max-width: 1000px) {
+    .plan-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 800px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 30px; padding: 40px 0 52px; text-align: center; }
+    .hero-cover { max-width: 230px; }
+    .hero-lead { margin-left: auto; margin-right: auto; }
+    .stats, .btn-row { justify-content: center; }
+    .ing-list { grid-template-columns: 1fr; }
+    .sheet { margin: 0; border-radius: 0; min-height: 100%; }
+    .sheet-body { padding: 24px 20px 36px; }
+    .sheet-art { padding: 16px 12px 0; }
+    .chapter-banner { grid-template-columns: 1fr; padding: 22px; text-align: left; }
+    .banner-icon { width: 64px; height: 64px; font-size: 1.9rem; }
+    .filters { top: 58px; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 1.08rem; }
+    .brand { font-size: 1rem; }
+    .brand small { display: none; }
+    .tool .t-label { display: none; }
+    .tool { padding: 8px 12px; }
+    .section { padding: 52px 0; }
+    .letter { padding: 36px 22px 26px; }
+    .letter p { font-size: 1.1rem; }
+    .how-grid { grid-template-columns: 1fr; }
+    .recipe-grid { grid-template-columns: 1fr; }
+    .fav-toggle .t-label { display: none; }
+    .sbtn .t-label { display: none; }
+    .sbtn { padding: 9px 13px; }
+    .sheet-nav { grid-template-columns: 1fr; }
+    .nav-card.next { text-align: left; }
+    .step { grid-template-columns: 44px 1fr; gap: 12px; }
+    .step::before { width: 40px; height: 40px; font-size: 1.15rem; }
+    .stat { min-width: 0; flex: 1; padding: 10px 12px; }
+    .stat b { font-size: 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+
+  /* ───────── PRINT (one recipe) ───────── */
+  @media print {
+    body.printing > *:not(.reader) { display: none !important; }
+    body.printing .reader { position: static; display: block; background: none; overflow: visible; }
+    body.printing .sheet { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
+    body.printing .sheet-bar, body.printing .sheet-nav, body.printing .hint, body.printing .tick { display: none !important; }
+    body.printing .sheet-art { padding-top: 0; }
+    body.printing .sheet-art svg { max-width: 360px; }
+    .ing, .note, .step { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
-<!-- COVER -->
-<div class="cover">
-  <div class="cover-badge">Traditional Wisdom Collection</div>
-  <h1>Ancient</h1>
-  <h2>Healing Book</h2>
-  <div class="cover-divider"></div>
-  <p class="cover-sub">— nine chapters of forgotten remedies —</p>
-  <div class="cover-count">
-    <div class="cover-count-item"><div class="cover-count-num">50+</div><div class="cover-count-label">Remedies</div></div>
-    <div class="cover-count-item"><div class="cover-count-num">9</div><div class="cover-count-label">Categories</div></div>
-    <div class="cover-count-item"><div class="cover-count-num">40+</div><div class="cover-count-label">Years Tested</div></div>
-  </div>
-  <p class="cover-intro">Quiet remedies from a simple life. Ingredients you already have. Results that work the way the old ones always have — slow, from the inside.</p>
-</div>
-
-<!-- STICKY NAV -->
-<nav class="sticky-nav">
-  <a href="#belly">🫧 Belly</a>
-  <a href="#liver">💧 Liver</a>
-  <a href="#skin">✨ Skin</a>
-  <a href="#joints">🦴 Joints</a>
-  <a href="#sleep">😴 Sleep</a>
-  <a href="#lungs">🌬️ Lungs</a>
-  <a href="#energy">⚡ Energy</a>
-  <a href="#hormones">💪 Hormones</a>
-  <a href="#teeth">🦷 Teeth &amp; Hair</a>
-</nav>
-
-<!-- INTRO LETTER -->
-<div class="intro-section">
-  <div class="section-label">A note on these remedies</div>
-  <div class="letter-box">
-    <p>These remedies were not invented. They were remembered. Passed down through generations of people who had no pharmacies, no doctors on call, and no choice but to understand the plants and foods around them.</p>
-    <p>The ingredients are simple, and you most likely already have them in your kitchen. But you must be patient with them. They work the way the old ones always have — quiet and slow, from the inside.</p>
-    <p>Read all the way through. There is something in every chapter that will surprise you. And the last remedy in each section — pay closest attention to that one.</p>
-  </div>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-<div class="toc">
-  <div class="section-label">What is inside</div>
-  <h2>Nine Chapters</h2>
-  <div class="toc-grid">
-    <a class="toc-item" href="#belly"><div class="toc-emoji">🫧</div><div class="toc-text"><h4>Belly &amp; Bloat</h4><span>15 remedies for stubborn belly fat &amp; bloat</span></div></a>
-    <a class="toc-item" href="#liver"><div class="toc-emoji">💧</div><div class="toc-text"><h4>Liver &amp; Kidney</h4><span>12 traditional flushes &amp; cleanses</span></div></a>
-    <a class="toc-item" href="#skin"><div class="toc-emoji">✨</div><div class="toc-text"><h4>Skin &amp; Beauty</h4><span>14 remedies for stretch marks &amp; aging</span></div></a>
-    <a class="toc-item" href="#joints"><div class="toc-emoji">🦴</div><div class="toc-text"><h4>Joints &amp; Pain</h4><span>10 anti-inflammatory recipes</span></div></a>
-    <a class="toc-item" href="#sleep"><div class="toc-emoji">😴</div><div class="toc-text"><h4>Sleep &amp; Stress</h4><span>9 nighttime tonics &amp; rituals</span></div></a>
-    <a class="toc-item" href="#lungs"><div class="toc-emoji">🌬️</div><div class="toc-text"><h4>Lungs &amp; Mucus</h4><span>8 recipes for cough &amp; sinus</span></div></a>
-    <a class="toc-item" href="#energy"><div class="toc-emoji">⚡</div><div class="toc-text"><h4>Energy &amp; Fatigue</h4><span>11 remedies for tiredness &amp; brain fog</span></div></a>
-    <a class="toc-item" href="#hormones"><div class="toc-emoji">💪</div><div class="toc-text"><h4>Hormones &amp; Cortisol</h4><span>10 recipes for hormone balance</span></div></a>
-    <a class="toc-item" href="#teeth"><div class="toc-emoji">🦷</div><div class="toc-text"><h4>Teeth, Hair &amp; Nails</h4><span>11 ancient mixes for visible aging</span></div></a>
-  </div>
-</div>
-
-<!-- ════════════════════════════════ CHAPTER 1: BELLY ════════════════════════════════ -->
-<section id="belly">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter One</div>
-  <span class="chapter-emoji">🫧</span>
-  <h2>Belly &amp; Bloat</h2>
-  <p>15 remedies for stubborn belly fat, bloat, and slow metabolism — including the morning fiber drink and the cinnamon water that flattens your stomach in days.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">1</div>
-    <h3>Cinnamon Morning Water</h3>
-    <p class="recipe-tagline">for the belly that wakes up bloated</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 cinnamon stick (or 1 tsp ground)</li>
-          <li>2 cups warm water</li>
-          <li>1 teaspoon raw honey</li>
-          <li>A small squeeze of lemon</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Drop the cinnamon stick into a small pot of water. Let it simmer gently for ten minutes — never boil it hard. Take it off the heat, stir in the honey and lemon, and pour it into your cup.</p>
-        <p>Drink this first thing in the morning, before anything else touches your lips. Do this every day for two weeks and watch what happens to your waistline.</p>
-        <div class="tip-box"><strong>Why it works</strong>Cinnamon slows how fast sugar enters your blood. When your blood sugar stays steady, your body stops storing fat around your middle.</div>
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true">
+          <path d="M20 33 C 20 23, 12 19, 9 11 C 18 12, 23 18, 20 33 Z" fill="#2e6b3c"/>
+          <path d="M20 33 C 21 23, 27 18, 32 14 C 32 23, 26 28, 20 33 Z" fill="#7fa66a"/>
+        </svg>
+      </span>
+      <span><small>Your personal copy</small>Ancient Healing Book</span>
+    </a>
+    <div class="tools">
+      <a class="tool" href="#library"><span aria-hidden="true">📖</span><span class="t-label">All Recipes</span></a>
+      <button class="tool" type="button" id="saved-btn"><span aria-hidden="true">♥</span><span class="t-label">Saved</span><span class="count-pill" id="saved-count">0</span></button>
+      <div class="size-group" role="group" aria-label="Text size">
+        <button type="button" id="size-down" aria-label="Smaller text"><span class="lbl">A−</span></button>
+        <button type="button" id="size-up" aria-label="Larger text"><span class="big">A+</span></button>
       </div>
     </div>
   </div>
+</header>
 
-  <div class="recipe-card">
-    <div class="recipe-number">2</div>
-    <h3>Morning Fiber Starter Drink</h3>
-    <p class="recipe-tagline">for the sluggish gut that never fully empties</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp psyllium husk</li>
-          <li>1 tsp ground flaxseed</li>
-          <li>8 oz warm water</li>
-          <li>Juice of half a lemon</li>
-          <li>Pinch of sea salt</li>
-        </ul>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-cover">
+        <img src="../ancient-healing-book/book_cover.png" alt="The Ancient Healing Recipe Book cover">
       </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Stir everything together quickly — psyllium thickens fast. Drink it immediately, then follow with another full glass of plain water.</p>
-        <p>Take this every morning thirty minutes before breakfast. Within three days you will notice your digestion moving with a rhythm it may not have had in years.</p>
-        <div class="tip-box"><strong>Why it works</strong>The fiber sweeps your intestines clean. Old waste sitting in the gut is a hidden cause of belly bloat that no diet pill will fix.</div>
+      <div>
+        <p class="eyebrow">Welcome to your book</p>
+        <h1>The Ancient Healing <em>Recipe Book</em></h1>
+        <p class="hero-lead">Forgotten remedies from kitchens around the world, made with ingredients you already have. Every recipe is illustrated, explained step by step, and easy to follow.</p>
+        <div class="stats">
+          <div class="stat"><b id="stat-recipes">106</b><span>Remedies</span></div>
+          <div class="stat"><b>10</b><span>Chapters</span></div>
+          <div class="stat"><b id="stat-ings">100+</b><span>Ingredients</span></div>
+          <div class="stat"><b>7</b><span>Day Plan</span></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="#chapters">Start Reading <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#plan">Your 7-Day Plan</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="recipe-card">
-    <div class="recipe-number">3</div>
-    <h3>Ginger &amp; Fennel Belly Tea</h3>
-    <p class="recipe-tagline">for gas, cramps, and that heavy feeling after eating</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tsp fennel seeds</li>
-          <li>1 tsp fresh grated ginger</li>
-          <li>1 tsp dried peppermint</li>
-          <li>2 cups boiling water</li>
-          <li>Raw honey to taste</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Crush the fennel seeds lightly in your palm to release their oils. Place everything in a cup and pour boiling water over it. Cover and steep for eight minutes.</p>
-        <p>Strain and sip slowly after your two largest meals of the day. Do not rush it — slow sipping is part of the remedy.</p>
-        <div class="tip-box"><strong>Why it works</strong>Fennel is one of the oldest remedies for trapped gas. Our grandmothers kept a jar of fennel seeds on the table for good reason.</div>
+  <!-- LETTER -->
+  <section class="section">
+    <div class="wrap-narrow">
+      <div class="letter">
+        <p>These remedies were not invented. They were remembered. They were passed down by people who had no pharmacy around the corner and no doctor on call, only the plants and foods around them and the wisdom of those who came before.</p>
+        <p>The ingredients are simple, and most are already in your kitchen. But be patient with them. Food-based remedies work the way the old ones always have: quietly and gently, a little every day.</p>
+        <p>Start with one or two recipes that speak to you. Make them part of your morning or evening. Then come back and try another. That is how healing habits are built.</p>
+        <p class="sign">With warmth, from our kitchen to yours</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="recipe-card">
-    <div class="recipe-number">4</div>
-    <h3>Apple Cider Vinegar Tonic</h3>
-    <p class="recipe-tagline">for low stomach acid and poor digestion</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp raw apple cider vinegar</li>
-          <li>1 tsp raw honey</li>
-          <li>¼ tsp ground ginger</li>
-          <li>8 oz warm water</li>
-          <li>Pinch of cayenne (optional)</li>
-        </ul>
+  <!-- HOW TO USE -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How to use this book</p>
+        <h2 class="h2">Four Simple Steps</h2>
       </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix all ingredients in a glass until the honey dissolves. Drink this fifteen minutes before your main meal of the day — not after. The timing matters.</p>
-        <div class="tip-box"><strong>Why it works</strong>Most bloating after meals comes from too little stomach acid, not too much. This tonic brings acid back to where it belongs before food arrives.</div>
+      <div class="how-grid">
+        <div class="how"><div class="how-num">1</div><h3>Choose your area</h3><p>Pick the chapter for what bothers you most, or follow the 7-day starter plan.</p></div>
+        <div class="how"><div class="how-num">2</div><h3>Gather ingredients</h3><p>Each recipe shows a picture of every ingredient. Tap them to tick them off.</p></div>
+        <div class="how"><div class="how-num">3</div><h3>Follow the steps</h3><p>Big, numbered steps. Tap each one as you finish it so you never lose your place.</p></div>
+        <div class="how"><div class="how-num">4</div><h3>Be consistent</h3><p>Save your favourites with ♥, mark recipes as made, and repeat daily for 2–3 weeks.</p></div>
+      </div>
+      <div class="safety">
+        <div class="safety-icon" aria-hidden="true">⚕️</div>
+        <div>
+          <h3>Please read: using these remedies safely</h3>
+          <p>These are traditional, food-based recipes for everyday wellbeing. They are not medical treatment and do not replace your doctor. If you are pregnant or breastfeeding, take prescription medicines, or have a medical condition, check with your doctor first, and always read the <b>Caution</b> box on each recipe. Never give honey to babies under one year old. Patch-test anything you put on your skin.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="recipe-card">
-    <div class="recipe-number">5</div>
-    <h3>Dandelion Root &amp; Lemon Flush</h3>
-    <p class="recipe-tagline">for water retention and a puffy middle</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp dried dandelion root</li>
-          <li>Juice of 1 full lemon</li>
-          <li>1 tsp raw honey</li>
-          <li>2 cups warm water</li>
-        </ul>
+  <!-- CHAPTERS -->
+  <section class="section" id="chapters">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Table of contents</p>
+        <h2 class="h2">Ten Chapters of Healing</h2>
+        <p>Tap a chapter to jump straight to its recipes.</p>
       </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Simmer the dandelion root in water for twelve minutes. Strain it, then stir in the lemon and honey while still warm. Drink one cup in the morning and one in the evening.</p>
-        <div class="tip-box"><strong>Why it works</strong>Dandelion root is a natural diuretic. The water your body is holding onto around your belly — this will move it.</div>
+      <div class="chapter-grid" id="chapter-grid"></div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section class="section section-alt" id="plan">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2 class="h2">Your 7-Day Starter Plan</h2>
+        <p>One morning, one daytime and one evening remedy for each day. Tap any recipe to open it.</p>
+      </div>
+      <div class="plan-grid" id="plan-grid"></div>
+    </div>
+  </section>
+
+  <!-- STAPLES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Your healing pantry</p>
+        <h2 class="h2">The Ingredients You'll Use Most</h2>
+        <p>Keep these at home and you can make most of the book. Tap one to see every recipe that uses it.</p>
+      </div>
+      <div class="staples" id="staples"></div>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section id="library">
+    <div class="filters">
+      <div class="wrap">
+        <div class="search-row">
+          <label class="search" id="search-box">
+            <span aria-hidden="true">🔍</span>
+            <input type="search" id="search" placeholder="Search: lemon, sleep, joints, tea…" autocomplete="off" aria-label="Search recipes">
+            <button type="button" class="clear" id="search-clear" aria-label="Clear search">✕</button>
+          </label>
+          <button type="button" class="fav-toggle" id="fav-only" aria-pressed="false"><span aria-hidden="true">♥</span><span class="t-label">Saved only</span></button>
+        </div>
+        <div class="chips" id="ch-chips" role="group" aria-label="Filter by chapter"></div>
+        <div class="chips" id="when-chips" role="group" aria-label="Filter by time of day" style="padding-top:6px"></div>
       </div>
     </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">6</div>
-    <h3>Turmeric Flat-Belly Broth</h3>
-    <p class="recipe-tagline">for inflammation hiding behind the belly button</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tsp turmeric powder</li>
-          <li>¼ tsp black pepper</li>
-          <li>½ tsp coconut oil</li>
-          <li>1 cup warm bone broth</li>
-          <li>Pinch of sea salt</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Warm the broth, then whisk in all ingredients. Drink as a warm soup once per day, ideally in the early afternoon when digestion is at its strongest.</p>
-        <div class="tip-box"><strong>Why it works</strong>Black pepper multiplies the power of turmeric by twenty times. Never take one without the other.</div>
-      </div>
+    <div class="wrap">
+      <p class="result-line" id="result-line"></p>
+      <div id="results"></div>
     </div>
-  </div>
+  </section>
 
-  <div class="recipe-card">
-    <div class="recipe-number">7</div>
-    <h3>Warm Lemon &amp; Cayenne Morning Shot</h3>
-    <p class="recipe-tagline">to fire up a slow metabolism first thing in the morning</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>Juice of 1 lemon</li>
-          <li>⅛ tsp cayenne pepper</li>
-          <li>1 tsp raw honey</li>
-          <li>4 oz warm (not hot) water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Combine everything and drink it in one slow pour — not in a hurry. Take this before your morning fiber drink. The order matters: cayenne first, fiber second.</p>
-        <div class="tip-box"><strong>Why it works</strong>Cayenne raises body temperature and forces the metabolism to work harder for the next three hours. Even a small amount does this.</div>
-      </div>
-    </div>
-  </div>
+</main>
 
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 2: LIVER ════════════════════════════════ -->
-<section id="liver">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Two</div>
-  <span class="chapter-emoji">💧</span>
-  <h2>Liver &amp; Kidney</h2>
-  <p>12 traditional flushes for cleansing the liver, dissolving small kidney stones, and clearing the heaviness behind the right ribs.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">8</div>
-    <h3>Classic Liver Flush Tea</h3>
-    <p class="recipe-tagline">for the heaviness behind the right rib</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp milk thistle seeds (crushed)</li>
-          <li>1 tsp dandelion root</li>
-          <li>½ tsp turmeric</li>
-          <li>2 cups boiling water</li>
-          <li>Lemon slice to serve</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Steep all herbs in boiling water for fifteen minutes with a lid on so the steam does not escape. Strain carefully and sip warm with a slice of lemon. Drink this every morning for three weeks without missing a day.</p>
-        <div class="tip-box"><strong>Why it works</strong>Milk thistle is silymarin — the single most studied liver herb in the world. Our people have used it for generations, long before any study was done.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">9</div>
-    <h3>Kidney Stone Dissolving Water</h3>
-    <p class="recipe-tagline">for the sharp pain and gravel in the kidneys</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>Juice of 2 lemons</li>
-          <li>2 tbsp raw apple cider vinegar</li>
-          <li>1 tbsp raw honey</li>
-          <li>32 oz clean water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix everything together in a large jar. Sip this throughout the entire day — do not gulp it all at once. Refill and repeat for seven days straight.</p>
-        <div class="tip-box"><strong>Why it works</strong>The citric acid in lemon binds to calcium stones and slowly breaks them apart. The vinegar helps the kidneys flush what the lemon loosens.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">10</div>
-    <h3>Beet &amp; Ginger Liver Tonic</h3>
-    <p class="recipe-tagline">for sluggish bile flow and fatty liver</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 medium beet, juiced or grated</li>
-          <li>1 inch fresh ginger, juiced</li>
-          <li>Juice of 1 lemon</li>
-          <li>1 tsp olive oil</li>
-          <li>Pinch of black pepper</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>If you have a juicer, run the beet and ginger through it. If not, grate both finely and squeeze through a clean cloth. Mix with lemon, olive oil, and pepper. Drink once in the morning on an empty stomach.</p>
-        <div class="tip-box"><strong>Why it works</strong>Beets contain betaine, which forces the liver to release stored fat. The olive oil triggers bile flow. Do not skip either one.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">11</div>
-    <h3>Parsley &amp; Watermelon Kidney Flush</h3>
-    <p class="recipe-tagline">for puffiness, dark urine, and kidney heaviness</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>Large handful fresh parsley</li>
-          <li>2 cups watermelon (cubed)</li>
-          <li>Juice of 1 lemon</li>
-          <li>1 cup cold water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Blend everything together until smooth. Drink one glass in the morning and one in the afternoon. Continue for five days, then rest for two before repeating.</p>
-        <div class="tip-box"><strong>Why it works</strong>Parsley is one of the most powerful kidney herbs there is. It was the first thing my mother gave anyone who complained of pain in the lower back.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">12</div>
-    <h3>Olive Oil &amp; Lemon Liver Shot</h3>
-    <p class="recipe-tagline">for a deep liver cleanse done once per week</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 tbsp cold-pressed olive oil</li>
-          <li>2 tbsp fresh lemon juice</li>
-          <li>1 clove raw garlic (optional)</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix the oil and lemon thoroughly. Drink it in one go — do not sip. Do this every Sunday morning before eating. Lie on your right side for twenty minutes afterward.</p>
-        <div class="tip-box"><strong>Why it works</strong>This is an old remedy. The olive oil forces the gallbladder to contract and push out bile. Many people feel the difference within the first week.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 3: SKIN ════════════════════════════════ -->
-<section id="skin">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Three</div>
-  <span class="chapter-emoji">✨</span>
-  <h2>Skin &amp; Beauty</h2>
-  <p>14 remedies for stretch marks, dark spots, sagging skin, and visible aging — all using ingredients you already have at home.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">13</div>
-    <h3>Rosehip &amp; Vitamin E Night Oil</h3>
-    <p class="recipe-tagline">for stretch marks and deep skin repair while you sleep</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 tbsp rosehip seed oil</li>
-          <li>1 vitamin E capsule (pierced)</li>
-          <li>3 drops lavender essential oil</li>
-          <li>2 drops frankincense oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix all oils together in a small dark glass bottle. Before bed, warm a few drops between your palms and massage slowly into the affected areas using circular motions for two full minutes.</p>
-        <div class="tip-box"><strong>Why it works</strong>Rosehip oil was what the women in our community used after childbirth. It does not make stretch marks disappear overnight — but in ninety days, you will not recognize the skin you are in.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">14</div>
-    <h3>Raw Honey &amp; Turmeric Dark Spot Mask</h3>
-    <p class="recipe-tagline">for age spots, sun damage, and uneven skin tone</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp raw honey</li>
-          <li>½ tsp turmeric powder</li>
-          <li>1 tsp lemon juice</li>
-          <li>½ tsp milk or yogurt</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix into a paste and apply to the dark spots or your entire face. Leave for twenty minutes, then rinse with cool water. Use three times a week. Expect yellow staining on your fingernails — wear gloves.</p>
-        <div class="tip-box"><strong>Why it works</strong>Turmeric inhibits melanin production. Lemon is a natural bleach. Together they fade dark spots faster than anything you will find in a pharmacy.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">15</div>
-    <h3>Egg White Firming Mask</h3>
-    <p class="recipe-tagline">for sagging skin around the jaw and neck</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 egg whites</li>
-          <li>1 tsp lemon juice</li>
-          <li>1 tsp raw honey</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Whisk the egg whites until slightly foamy. Add the lemon and honey. Apply to your face and neck with your fingers, working from the chin upward. Let it dry completely — about fifteen minutes — then rinse with cold water.</p>
-        <div class="tip-box"><strong>Why it works</strong>The egg white tightens the skin as it dries. It is temporary, yes — but done every day over months, the skin begins to remember the shape you are asking it to hold.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">16</div>
-    <h3>Collagen-Boosting Morning Drink</h3>
-    <p class="recipe-tagline">for skin that has lost its plumpness and bounce</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp collagen powder (or gelatin)</li>
-          <li>Juice of 1 orange</li>
-          <li>1 cup warm water</li>
-          <li>1 tsp raw honey</li>
-          <li>Pinch of vitamin C powder (optional)</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Dissolve the collagen in warm water first, then add the orange juice and honey. The vitamin C from the orange helps your body actually absorb and use the collagen you are drinking.</p>
-        <div class="tip-box"><strong>Why it works</strong>Collagen without vitamin C is like seeds without water. The body cannot build collagen without it. Drink the orange. Do not skip it.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">17</div>
-    <h3>Coffee Grounds Cellulite Scrub</h3>
-    <p class="recipe-tagline">for the dimpling on thighs and hips</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>½ cup used coffee grounds</li>
-          <li>3 tbsp coconut oil (melted)</li>
-          <li>1 tbsp brown sugar</li>
-          <li>Few drops of any citrus oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix everything together into a thick paste. In the shower, massage firmly onto the affected areas in circular motions for five minutes. Rinse well. Do this every shower for a month.</p>
-        <div class="tip-box"><strong>Why it works</strong>Caffeine in coffee draws fluid out of fat cells and temporarily tightens the skin above them. Consistent use over weeks produces lasting improvement in texture.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 4: JOINTS ════════════════════════════════ -->
-<section id="joints">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Four</div>
-  <span class="chapter-emoji">🦴</span>
-  <h2>Joints &amp; Pain</h2>
-  <p>10 anti-inflammatory recipes for stiff joints, sore knees, lower-back pain, and the morning aches that make you feel old before your time.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">18</div>
-    <h3>Golden Anti-Inflammatory Milk</h3>
-    <p class="recipe-tagline">for stiff knees and aching joints on cold mornings</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 cup whole milk (or oat milk)</li>
-          <li>1 tsp turmeric</li>
-          <li>¼ tsp black pepper</li>
-          <li>½ tsp cinnamon</li>
-          <li>1 tsp raw honey</li>
-          <li>½ tsp coconut oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Warm the milk on low heat — never boil. Whisk in all spices and the oil. Pour into a mug, stir in the honey, and drink slowly before bed. Do this every single night for thirty days without stopping.</p>
-        <div class="tip-box"><strong>Why it works</strong>This is our golden milk. Many of our older members stopped needing their pain medicine after three weeks of this nightly. Give it the full thirty days.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">19</div>
-    <h3>Ginger Root &amp; Cayenne Joint Rub</h3>
-    <p class="recipe-tagline">for pain you can point to with your finger</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 tbsp fresh grated ginger</li>
-          <li>¼ tsp cayenne powder</li>
-          <li>3 tbsp coconut oil</li>
-          <li>Few drops eucalyptus oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Melt the coconut oil, stir in the ginger and cayenne, then add the eucalyptus. Let it cool slightly until it thickens again. Rub a small amount directly onto painful joints morning and night. Wash hands thoroughly afterward and keep away from eyes.</p>
-        <div class="tip-box"><strong>Why it works</strong>Capsaicin from cayenne blocks the pain signal before it reaches the brain. This is not a folk tale — it is how the body works.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">20</div>
-    <h3>Bone Broth &amp; Collagen Daily Soup</h3>
-    <p class="recipe-tagline">for rebuilding what the years have worn down</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 cups homemade bone broth</li>
-          <li>1 tsp turmeric</li>
-          <li>1 tsp apple cider vinegar</li>
-          <li>Sea salt to taste</li>
-          <li>Fresh parsley to serve</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Warm the broth, stir in the turmeric and vinegar, and season. Drink as a warm cup of soup once per day. Homemade broth from boiled bones is best — it contains the most natural collagen and gelatin.</p>
-        <div class="tip-box"><strong>Why it works</strong>The gelatin in bone broth is the same material your cartilage is made of. You are literally feeding your joints what they are made of.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">21</div>
-    <h3>Epsom Salt &amp; Ginger Soak</h3>
-    <p class="recipe-tagline">for deep joint pain, swollen ankles, and tired legs</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 cups Epsom salt</li>
-          <li>1 tbsp ground ginger</li>
-          <li>Few drops peppermint oil</li>
-          <li>Warm bath water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Add everything to a warm (not scalding) bath. Soak for at least twenty minutes. For knee pain specifically, soak a cloth in the solution and wrap around the knee for the same time.</p>
-        <div class="tip-box"><strong>Why it works</strong>Magnesium in Epsom salt absorbs through the skin and relaxes the muscles pulling on painful joints. Do this three times a week, not once.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 5: SLEEP ════════════════════════════════ -->
-<section id="sleep">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Five</div>
-  <span class="chapter-emoji">😴</span>
-  <h2>Sleep &amp; Stress</h2>
-  <p>9 nighttime tonics and bedtime rituals to lower cortisol, calm the nervous system, and finally sleep through the night.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">22</div>
-    <h3>Warm Honey &amp; Nutmeg Sleep Tonic</h3>
-    <p class="recipe-tagline">for the mind that will not slow down at night</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 cup warm whole milk</li>
-          <li>1 tsp raw honey</li>
-          <li>⅛ tsp freshly grated nutmeg</li>
-          <li>Pinch of cardamom</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Warm the milk gently. Stir in the honey and spices. Drink this thirty minutes before you intend to be asleep — not in bed with a book, but actually thirty minutes before you want your eyes to close.</p>
-        <div class="tip-box"><strong>Why it works</strong>Nutmeg contains myristicin, a natural compound that acts on the same pathways as mild sedatives. Our grandmothers knew this. They just called it the bedtime cup.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">23</div>
-    <h3>Chamomile &amp; Passionflower Nightcap</h3>
-    <p class="recipe-tagline">for anxiety that turns into insomnia</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp dried chamomile</li>
-          <li>1 tsp dried passionflower</li>
-          <li>½ tsp dried lemon balm</li>
-          <li>2 cups boiling water</li>
-          <li>Raw honey to sweeten</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Steep all herbs for ten minutes, covered. Strain and sweeten. Drink at the same time each night — routine is part of the remedy. Your nervous system learns from repetition.</p>
-        <div class="tip-box"><strong>Why it works</strong>Passionflower raises GABA in the brain — the same chemical that sleep medicine tries to mimic. The plant does it gently and without side effects.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">24</div>
-    <h3>Tart Cherry &amp; Magnesium Evening Drink</h3>
-    <p class="recipe-tagline">for waking at 2 or 3 in the morning and not getting back</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>4 oz tart cherry juice (unsweetened)</li>
-          <li>200mg magnesium glycinate powder</li>
-          <li>4 oz warm water</li>
-          <li>Tiny pinch of sea salt</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix everything together. Drink with your evening meal, not at bedtime — this needs a couple of hours to work before sleep arrives.</p>
-        <div class="tip-box"><strong>Why it works</strong>Tart cherry is one of the only plant sources of natural melatonin. Combined with magnesium — which most people are deficient in — you have a sleep remedy that actually changes sleep architecture.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">25</div>
-    <h3>Ashwagandha Cortisol-Lowering Milk</h3>
-    <p class="recipe-tagline">for the stress that follows you to bed</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>½ tsp ashwagandha powder</li>
-          <li>1 cup warm milk</li>
-          <li>1 tsp honey</li>
-          <li>¼ tsp cinnamon</li>
-          <li>Pinch of black pepper</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Whisk all ingredients into warm milk. Drink nightly for at least eight weeks — ashwagandha is an adaptogen that works slowly by lowering your baseline cortisol, not by making you sleepy.</p>
-        <div class="tip-box"><strong>Why it works</strong>Cortisol is the hormone that wakes you up. If your cortisol is high at night, you cannot sleep well no matter what else you try. Ashwagandha lowers it. Give it time.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 6: LUNGS ════════════════════════════════ -->
-<section id="lungs">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Six</div>
-  <span class="chapter-emoji">🌬️</span>
-  <h2>Lungs &amp; Mucus</h2>
-  <p>8 recipes for thick morning mucus, lingering cough, sinus pressure, and reviving lungs that smoking, dust, or pollution have damaged.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">26</div>
-    <h3>Onion &amp; Honey Lung Syrup</h3>
-    <p class="recipe-tagline">for the deep cough that will not leave</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 large onion, thinly sliced</li>
-          <li>3 tbsp raw honey</li>
-          <li>Juice of 1 lemon</li>
-          <li>1 tsp grated ginger</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Layer the onion slices in a jar, alternating with honey. Add lemon and ginger. Close and let sit for eight hours or overnight. The onion will release its juice and mix with the honey into a thick syrup. Take one tablespoon three times a day.</p>
-        <div class="tip-box"><strong>Why it works</strong>My mother made this for every cough. I have never found anything in a pharmacy that works as quickly. The onion breaks up mucus from the inside.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">27</div>
-    <h3>Steam Tent with Eucalyptus &amp; Thyme</h3>
-    <p class="recipe-tagline">for blocked sinuses and pressure behind the face</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>Large bowl of very hot water</li>
-          <li>5 drops eucalyptus oil</li>
-          <li>3 drops peppermint oil</li>
-          <li>2 sprigs fresh thyme (or 1 tsp dried)</li>
-          <li>1 large towel</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Add everything to the hot water. Lean over the bowl with the towel draped over your head and the bowl to create a steam tent. Breathe deeply through your nose for ten minutes. Do this twice a day when you are congested.</p>
-        <div class="tip-box"><strong>Why it works</strong>Thyme contains thymol, which loosens mucus from the bronchial walls. This is not just steam — it is medicinal vapor. Do not rush it.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">28</div>
-    <h3>Mullein &amp; Licorice Root Lung Tea</h3>
-    <p class="recipe-tagline">for smoker's lungs, dusty lungs, and morning phlegm</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp dried mullein leaf</li>
-          <li>1 tsp dried licorice root</li>
-          <li>½ tsp ginger powder</li>
-          <li>2 cups boiling water</li>
-          <li>Raw honey to taste</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Steep for fifteen minutes, covered. Strain through a fine cloth — mullein leaves have tiny hairs that must be removed. Drink two cups per day for three weeks. This is not a quick remedy. It works over time.</p>
-        <div class="tip-box"><strong>Why it works</strong>Mullein has been used for lung conditions for centuries. People who have smoked for decades have told me their morning cough changed after three weeks of this tea.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 7: ENERGY ════════════════════════════════ -->
-<section id="energy">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Seven</div>
-  <span class="chapter-emoji">⚡</span>
-  <h2>Energy &amp; Fatigue</h2>
-  <p>11 remedies for chronic tiredness, afternoon crashes, brain fog, and that running-on-empty feeling that no amount of coffee fixes.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">29</div>
-    <h3>Iron-Boosting Blackstrap Tonic</h3>
-    <p class="recipe-tagline">for the fatigue that no amount of sleep fixes</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp blackstrap molasses</li>
-          <li>1 tbsp raw apple cider vinegar</li>
-          <li>Juice of half a lemon</li>
-          <li>8 oz warm water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Stir all ingredients together and drink every morning. Blackstrap molasses is rich in iron, B6, and magnesium — three nutrients that most tired people are missing without knowing it.</p>
-        <div class="tip-box"><strong>Why it works</strong>Iron-deficiency fatigue feels different from regular tiredness. You feel heavy in the limbs, cold, and no matter how much you sleep, you wake up tired. This is the remedy for that.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">30</div>
-    <h3>Rhodiola &amp; Maca Energy Elixir</h3>
-    <p class="recipe-tagline">for the afternoon crash and brain fog at 2pm</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>½ tsp maca root powder</li>
-          <li>¼ tsp rhodiola powder</li>
-          <li>1 cup warm water or cacao</li>
-          <li>1 tsp raw honey</li>
-          <li>Pinch of cinnamon</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Dissolve the powders into warm liquid, add honey and cinnamon. Drink at noon, before the afternoon crash hits — not during it. Think of it as prevention, not rescue.</p>
-        <div class="tip-box"><strong>Why it works</strong>Rhodiola was used by Russian soldiers to prevent mental fatigue on long campaigns. It is one of the most powerful adaptogens known. Maca sustains the physical energy that rhodiola lifts.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">31</div>
-    <h3>B12 &amp; Spirulina Green Shot</h3>
-    <p class="recipe-tagline">for that empty, flat feeling that starts before you even get out of bed</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tsp spirulina powder</li>
-          <li>Juice of 1 orange</li>
-          <li>Juice of half a lemon</li>
-          <li>1 tsp raw honey</li>
-          <li>2 oz cold water</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Blend or shake everything together in a small bottle. Drink in one go first thing in the morning. The taste is strong — follow it with a glass of plain water and a bite of food.</p>
-        <div class="tip-box"><strong>Why it works</strong>Spirulina contains more protein by weight than beef, more iron than spinach, and more B12 than most animal products. It is what I give to the people who are too tired to cook properly.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">32</div>
-    <h3>Coconut Oil &amp; MCT Brain Butter Coffee</h3>
-    <p class="recipe-tagline">for brain fog and slow thinking in the morning</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 cup black coffee</li>
-          <li>1 tbsp coconut oil or MCT oil</li>
-          <li>1 tbsp grass-fed butter</li>
-          <li>Pinch of cinnamon</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Blend all ingredients together in a blender for twenty seconds until creamy and frothy. Drink in place of your usual breakfast on days when your mind needs to work well.</p>
-        <div class="tip-box"><strong>Why it works</strong>The brain runs on fat first, then sugar. Giving it clean fat in the morning burns brighter and longer than any sugary breakfast. This is not a new idea — it is how we ate before sugar was everywhere.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 8: HORMONES ════════════════════════════════ -->
-<section id="hormones">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Eight</div>
-  <span class="chapter-emoji">💪</span>
-  <h2>Hormones &amp; Cortisol</h2>
-  <p>10 recipes specifically targeted at the hormone imbalances that drive weight gain, mood swings, and stubborn fat after 40.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">33</div>
-    <h3>Spearmint &amp; Licorice Hormone Tea</h3>
-    <p class="recipe-tagline">for the hormonal weight gain after 40 that will not budge</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tsp dried spearmint</li>
-          <li>½ tsp licorice root</li>
-          <li>½ tsp chaste tree berry (vitex)</li>
-          <li>2 cups boiling water</li>
-          <li>Raw honey to taste</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Steep for twelve minutes, strain, and sweeten lightly. Drink one cup in the morning and one in the evening. Give this at least six weeks — hormones are slow to change, and patience is required.</p>
-        <div class="tip-box"><strong>Why it works</strong>Vitex is the most important herb I know for women going through hormonal changes after forty. It works on the pituitary gland — the master switch for all hormones.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">34</div>
-    <h3>Seed Cycling Daily Routine</h3>
-    <p class="recipe-tagline">for mood swings, irregular cycles, and hormonal imbalance</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>Days 1–14: 1 tbsp ground flax + 1 tbsp pumpkin seeds</li>
-          <li>Days 15–28: 1 tbsp sesame seeds + 1 tbsp sunflower seeds</li>
-          <li>Add to smoothies, oatmeal, or yogurt daily</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Grind the flax and sesame fresh each day — pre-ground seeds lose their potency quickly. Add your daily seeds to whatever you eat at breakfast. No mixing the two phases. Do this for a full three months before judging the results.</p>
-        <div class="tip-box"><strong>Why it works</strong>Different seeds contain different lignans and fatty acids that naturally support estrogen and progesterone in the right phases of the month. This is one of the most powerful things a woman can do for her hormones, and it costs almost nothing.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">35</div>
-    <h3>Cortisol Reset Evening Ritual</h3>
-    <p class="recipe-tagline">for stress-driven belly fat and the wired-but-tired feeling</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>½ tsp ashwagandha</li>
-          <li>½ tsp holy basil (tulsi)</li>
-          <li>¼ tsp reishi mushroom powder</li>
-          <li>1 cup warm oat milk</li>
-          <li>1 tsp raw honey</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Whisk all powders into warm oat milk. Drink ninety minutes before bed, every night. The combination of these three adaptogens works at the adrenal level to slowly lower the stress hormone that is making your body hold onto fat.</p>
-        <div class="tip-box"><strong>Why it works</strong>Cortisol is not just a stress hormone — it is a fat-storage hormone. When it is high, your body will not release fat no matter what you eat or how much you exercise. These herbs lower it over time.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">36</div>
-    <h3>Maca &amp; Cacao Hormone-Balancing Drink</h3>
-    <p class="recipe-tagline">for low libido, low energy, and the flatness after 45</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tsp maca root powder</li>
-          <li>1 tbsp raw cacao powder</li>
-          <li>1 cup warm almond milk</li>
-          <li>1 tsp honey</li>
-          <li>Pinch of cayenne</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Blend or whisk until smooth. Drink in the late morning. Maca is most effective taken consistently for at least ninety days — do not stop after two weeks and decide it is not working.</p>
-        <div class="tip-box"><strong>Why it works</strong>Maca does not contain hormones. It teaches the body to produce its own hormones in the right amounts. That is why it takes time and why the effects last.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ════════════════════════════════ CHAPTER 9: TEETH ════════════════════════════════ -->
-<section id="teeth">
-<div class="chapter-header">
-  <div class="chapter-number">Chapter Nine</div>
-  <span class="chapter-emoji">🦷</span>
-  <h2>Teeth, Hair &amp; Nails</h2>
-  <p>11 ancient mixes for whitening teeth, regrowing thinning hair, strengthening brittle nails, and reversing the visible signs of aging from the outside in.</p>
-</div>
-<div class="recipes-container">
-
-  <div class="recipe-card">
-    <div class="recipe-number">37</div>
-    <h3>Activated Charcoal &amp; Coconut Teeth Polish</h3>
-    <p class="recipe-tagline">for stained, yellowed teeth without harsh chemicals</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>½ tsp activated charcoal powder</li>
-          <li>1 tbsp coconut oil</li>
-          <li>2 drops peppermint oil</li>
-          <li>Tiny pinch of baking soda</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix into a paste. Dip your toothbrush and brush gently for two minutes. Rinse very thoroughly — charcoal stains sinks. Use twice a week only. Daily use can be too abrasive.</p>
-        <div class="tip-box"><strong>Why it works</strong>Charcoal lifts stains by adsorption — it binds to the pigment on your teeth and pulls it away when you rinse. It is messy. It works.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">38</div>
-    <h3>Oil Pulling with Sesame &amp; Clove</h3>
-    <p class="recipe-tagline">for gum disease, bad breath, and a dirty mouth that looks clean</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp sesame oil (or coconut oil)</li>
-          <li>2 drops clove essential oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>First thing in the morning, before water, before anything, put the oil in your mouth. Pull and swish it between your teeth for twenty minutes — set a timer, it is longer than you think. Spit into a trash can, never the sink. Rinse with salt water.</p>
-        <div class="tip-box"><strong>Why it works</strong>Twenty minutes seems like a long time until your gums stop bleeding and your dentist asks what you changed. I have heard that story many times.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">39</div>
-    <h3>Rosemary &amp; Castor Oil Hair Growth Serum</h3>
-    <p class="recipe-tagline">for thinning edges, bald spots, and hair that falls too easily</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>3 tbsp castor oil</li>
-          <li>1 tbsp rosemary oil (infused)</li>
-          <li>5 drops peppermint essential oil</li>
-          <li>2 drops lavender oil</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix all oils in a small bottle. Before bed, part your hair in sections and use your fingertips to massage the oil into the scalp firmly for five full minutes — the massage is as important as the oil. Wrap with a silk scarf and leave overnight. Wash out in the morning. Do this three nights per week.</p>
-        <div class="tip-box"><strong>Why it works</strong>Rosemary oil was recently shown in a medical study to be as effective as minoxidil — the pharmaceutical hair growth treatment — with no side effects. Our people have used it for a hundred years.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">40</div>
-    <h3>Biotin &amp; Silica Nail Strengthening Drink</h3>
-    <p class="recipe-tagline">for nails that crack, peel, and break before they can grow</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 tbsp horsetail herb tea (dried)</li>
-          <li>1 tsp blackstrap molasses</li>
-          <li>Juice of half a lemon</li>
-          <li>1 cup hot water</li>
-          <li>Raw honey to taste</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Brew the horsetail as a strong tea for ten minutes. Stir in the molasses, lemon, and honey. Drink once a day. Horsetail is the richest plant source of silica — the mineral that nails are partly built from.</p>
-        <div class="tip-box"><strong>Why it works</strong>Most nail problems are mineral problems, not cosmetic problems. Paint and gels hide the issue. This addresses what is underneath.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">41</div>
-    <h3>Apple Cider Vinegar Hair Rinse</h3>
-    <p class="recipe-tagline">for dull, frizzy hair and an itchy, flaking scalp</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>2 tbsp raw apple cider vinegar</li>
-          <li>1 cup cool water</li>
-          <li>3 drops rosemary oil (optional)</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Mix together. After shampooing, pour slowly over your hair and scalp. Do not rinse it out — leave it in. The vinegar smell fades completely as your hair dries. Do this once or twice a week.</p>
-        <div class="tip-box"><strong>Why it works</strong>Shampoo is alkaline and opens the hair cuticle. Vinegar is acidic and closes it back down. Closed cuticles are shiny cuticles. This is all a hair gloss product is — at a tiny fraction of the cost.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="recipe-card">
-    <div class="recipe-number">42</div>
-    <h3>Onion Juice Scalp Treatment</h3>
-    <p class="recipe-tagline">for significant hair thinning and hairline recession</p>
-    <div class="recipe-body">
-      <div class="ingredients-box">
-        <h4>Ingredients</h4>
-        <ul>
-          <li>1 medium onion, juiced</li>
-          <li>1 tbsp raw honey</li>
-          <li>Few drops of lavender oil (to mask smell)</li>
-        </ul>
-      </div>
-      <div class="instructions">
-        <h4>Preparation</h4>
-        <p>Juice the onion using a juicer or grate and squeeze through cloth. Mix in honey and lavender. Apply to the scalp with a cotton ball. Leave for thirty minutes, then wash out thoroughly with shampoo. Do this three times a week for three months. The smell is real. So are the results.</p>
-        <div class="tip-box"><strong>Why it works</strong>This is the most potent hair remedy I know. It is also the most unpleasant to use. The people who complain about the smell for three months are the ones who end up with hair. The ones who give up after a week are not.</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="ornament">✦ ✦ ✦</div>
-  <h3>These remedies are older than any medicine.</h3>
-  <p>They ask only patience, consistency, and a willingness to trust what simple things can do when given enough time. Use them well. Share them freely.</p>
-  <br><br>
-  <p style="font-size:11px; opacity:0.35; letter-spacing:1px;">FAMILY RECIPE COLLECTION · FOR EDUCATIONAL PURPOSES ONLY · CONSULT YOUR PHYSICIAN FOR MEDICAL ADVICE</p>
+  <div class="wrap-narrow">
+    <h3>A note on health</h3>
+    <p>The information in this book is shared for educational purposes and is based on traditional and folk use of common foods and herbs. It is not intended to diagnose, treat, cure or prevent any disease and is not a substitute for professional medical advice. Always consult a qualified healthcare provider before making changes to your diet, especially if you are pregnant, nursing, taking medication or managing a health condition. Individual results vary.</p>
+    <p>Stop using any remedy that causes discomfort or an allergic reaction, and seek medical help for any symptom that is severe, sudden or does not improve.</p>
+    <p class="copy">© 2026 americashealthyrecipes.com · The Ancient Healing Recipe Book · For the personal use of the purchaser.</p>
+  </div>
 </footer>
 
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">↑</button>
+
+<!-- RECIPE READER -->
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <article class="sheet" id="sheet"></article>
+</div>
+
+<script src="icons.js"></script>
+<script src="data-1.js"></script>
+<script src="data-2.js"></script>
+<script src="data-3.js"></script>
+<script src="data-4.js"></script>
+<script>
+(function () {
+  const { chapters, recipes, plan } = window.BOOK;
+  const Art = window.BookArt;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  const chById = {};
+  chapters.forEach((c, i) => { c.num = i + 1; chById[c.id] = c; });
+
+  // order recipes by chapter and give each a book number
+  recipes.sort((a, b) => chapters.indexOf(chById[a.ch]) - chapters.indexOf(chById[b.ch]));
+  const byId = {};
+  recipes.forEach((r, i) => { r.n = i + 1; byId[r.id] = r; });
+
+  /* ───────── saved state (favourites, made) ───────── */
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem(k)) || []; } catch (e) { return []; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  let favs = new Set(store.get('ahb_fav'));
+  let made = new Set(store.get('ahb_made'));
+  const saveFavs = () => { store.set('ahb_fav', [...favs]); $('#saved-count').textContent = favs.size; };
+  const saveMade = () => store.set('ahb_made', [...made]);
+  saveFavs();
+
+  /* ───────── text size ───────── */
+  let size = 0;
+  try { size = parseInt(localStorage.getItem('ahb_size'), 10) || 0; } catch (e) {}
+  const applySize = () => {
+    document.documentElement.dataset.size = size;
+    try { localStorage.setItem('ahb_size', size); } catch (e) {}
+  };
+  applySize();
+  $('#size-up').addEventListener('click', () => { size = Math.min(3, size + 1); applySize(); });
+  $('#size-down').addEventListener('click', () => { size = Math.max(0, size - 1); applySize(); });
+
+  /* ───────── stats ───────── */
+  const ingUse = {};
+  recipes.forEach(r => new Set(r.ing.map(i => i[0])).forEach(k => { if (k !== 'water') ingUse[k] = (ingUse[k] || 0) + 1; }));
+  $('#stat-recipes').textContent = recipes.length;
+  $('#stat-ings').textContent = Object.keys(ingUse).length;
+
+  /* ───────── chapter grid ───────── */
+  $('#chapter-grid').innerHTML = chapters.map(c => {
+    const list = recipes.filter(r => r.ch === c.id);
+    const top = {};
+    list.forEach(r => r.ing.forEach(([k]) => { if (k !== 'water') top[k] = (top[k] || 0) + 1; }));
+    const icons = Object.entries(top).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => Art.icon(k)).join('');
+    return `<button type="button" class="chapter-card" data-jump="${c.id}" style="--c:${c.color};--t:${c.tint}">
+      <span class="cc-top"><span class="cc-icon" aria-hidden="true">${c.icon}</span><span class="cc-num">${c.id === 'pantry' ? 'Bonus' : 'Chapter ' + c.num}</span></span>
+      <span class="cc-name">${esc(c.name.replace('Bonus: ', ''))}</span>
+      <span class="cc-count">${list.length} recipes</span>
+      <span class="cc-icons" aria-hidden="true">${icons}</span>
+    </button>`;
+  }).join('');
+
+  document.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => {
+    state.ch = b.dataset.jump; state.q = ''; state.when = 'all'; state.fav = false;
+    syncControls(); render();
+    $('#library').scrollIntoView({ behavior: 'smooth' });
+  }));
+
+  /* ───────── 7-day plan ───────── */
+  const slot = (label, id) => {
+    const r = byId[id];
+    return r ? `<button type="button" class="plan-slot" data-open="${r.id}"><small>${label}</small>${esc(r.title)}</button>` : '';
+  };
+  $('#plan-grid').innerHTML = plan.map(d => `
+    <div class="plan-day">
+      <h3>Day ${d.day}</h3>
+      <div class="theme">${esc(d.theme)}</div>
+      ${slot('Morning', d.morning)}${slot('Daytime', d.day_)}${slot('Evening', d.evening)}
+    </div>`).join('');
+
+  /* ───────── pantry staples ───────── */
+  $('#staples').innerHTML = Object.entries(ingUse).sort((a, b) => b[1] - a[1]).slice(0, 18).map(([k, n]) =>
+    `<button type="button" class="staple" data-ing="${k}">${Art.icon(k)}<b>${esc(Art.label(k))}</b><span>in ${n} recipes</span></button>`
+  ).join('');
+
+  document.querySelectorAll('[data-ing]').forEach(b => b.addEventListener('click', () => {
+    state.q = Art.label(b.dataset.ing).toLowerCase(); state.ch = 'all'; state.when = 'all'; state.fav = false;
+    syncControls(); render();
+    $('#library').scrollIntoView({ behavior: 'smooth' });
+  }));
+
+  /* ───────── library filters ───────── */
+  const state = { q: '', ch: 'all', when: 'all', fav: false };
+  const WHENS = [['all', 'Any time of day'], ['Morning', '🌅 Morning'], ['Daytime', '☀️ Daytime'], ['Evening', '🌙 Evening'], ['meals', '🍽 With meals']];
+
+  $('#ch-chips').innerHTML = `<button type="button" class="chip" data-ch="all">All chapters</button>` +
+    chapters.map(c => `<button type="button" class="chip" data-ch="${c.id}">${c.icon} ${esc(c.name.replace('Bonus: ', ''))}</button>`).join('');
+  $('#when-chips').innerHTML = WHENS.map(([v, l]) => `<button type="button" class="chip when" data-when="${v}">${l}</button>`).join('');
+
+  function syncControls() {
+    $('#search').value = state.q;
+    $('#search-box').classList.toggle('has-text', !!state.q);
+    document.querySelectorAll('[data-ch]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ch === state.ch)));
+    document.querySelectorAll('[data-when]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.when === state.when)));
+    $('#fav-only').setAttribute('aria-pressed', String(state.fav));
+  }
+
+  document.querySelectorAll('#ch-chips [data-ch]').forEach(b => b.addEventListener('click', () => { state.ch = b.dataset.ch; syncControls(); render(); }));
+  document.querySelectorAll('[data-when]').forEach(b => b.addEventListener('click', () => { state.when = b.dataset.when; syncControls(); render(); }));
+  $('#fav-only').addEventListener('click', () => { state.fav = !state.fav; syncControls(); render(); });
+  $('#saved-btn').addEventListener('click', () => {
+    state.fav = true; state.ch = 'all'; state.q = ''; state.when = 'all';
+    syncControls(); render(); $('#library').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  let typing;
+  $('#search').addEventListener('input', e => {
+    clearTimeout(typing);
+    typing = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); $('#search-box').classList.toggle('has-text', !!state.q); render(); }, 150);
+  });
+  $('#search-clear').addEventListener('click', () => { state.q = ''; syncControls(); render(); $('#search').focus(); });
+
+  const haystack = r => (r.title + ' ' + r.tag + ' ' + r.origin + ' ' + r.type + ' ' + chById[r.ch].name + ' ' +
+    r.ing.map(i => i[1] + ' ' + Art.label(i[0])).join(' ')).toLowerCase();
+  recipes.forEach(r => { r._h = haystack(r); });
+
+  function matches(r) {
+    if (state.ch !== 'all' && r.ch !== state.ch) return false;
+    if (state.fav && !favs.has(r.id)) return false;
+    if (state.when === 'meals' && !/meal/i.test(r.when)) return false;
+    if (state.when !== 'all' && state.when !== 'meals' && !(r.when.includes(state.when) || r.when === 'Any time')) return false;
+    if (state.q && !state.q.split(/\s+/).every(w => r._h.includes(w))) return false;
+    return true;
+  }
+
+  /* ───────── recipe cards ───────── */
+  function card(r) {
+    const c = chById[r.ch];
+    return `<article class="rcard" data-open="${r.id}" tabindex="0" role="button" aria-label="Open ${esc(r.title)}" style="--c:${c.color};--t:${c.tint}">
+      <div class="rcard-art" data-art="${r.id}"></div>
+      <span class="rnum">No. ${r.n}</span>
+      <button type="button" class="heart" data-fav="${r.id}" aria-pressed="${favs.has(r.id)}" aria-label="Save ${esc(r.title)}">♥</button>
+      ${made.has(r.id) ? '<span class="made-badge">✓ Made</span>' : ''}
+      <div class="rcard-body">
+        <span class="rcard-ch">${esc(c.name.replace('Bonus: ', ''))}</span>
+        <h3 class="rcard-title">${esc(r.title)}</h3>
+        <p class="rcard-tag">${esc(r.tag)}</p>
+        <div class="rcard-meta">
+          <span class="meta-pill">⏱ ${esc(r.time)}</span>
+          <span class="meta-pill">${whenIcon(r.when)} ${esc(r.when)}</span>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function whenIcon(w) {
+    if (/Evening/.test(w)) return '🌙';
+    if (/Morning/.test(w)) return '🌅';
+    if (/meal/i.test(w)) return '🍽';
+    if (/Daytime/.test(w)) return '☀️';
+    return '🕒';
+  }
+
+  // draw the pictures only when cards scroll into view (keeps the page fast)
+  const artObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      el.innerHTML = Art.hero(byId[el.dataset.art]);
+      artObserver.unobserve(el);
+    });
+  }, { rootMargin: '400px' }) : null;
+
+  function render() {
+    const list = recipes.filter(matches);
+    const filtered = state.q || state.ch !== 'all' || state.when !== 'all' || state.fav;
+    $('#result-line').textContent = filtered
+      ? `Showing ${list.length} of ${recipes.length} recipes`
+      : `All ${recipes.length} recipes, chapter by chapter`;
+
+    if (!list.length) {
+      $('#results').innerHTML = `<div class="empty"><b>No recipes found</b>${state.fav ? 'Tap the ♥ on any recipe to save it here.' : 'Try a different word, or clear the filters.'}</div>`;
+      return;
+    }
+
+    let html = '';
+    chapters.forEach(c => {
+      const rs = list.filter(r => r.ch === c.id);
+      if (!rs.length) return;
+      html += `<div class="chapter-block" id="ch-${c.id}" style="--ch:${c.color};--ch-tint:${c.tint}">
+        <div class="chapter-banner">
+          <div class="banner-icon" aria-hidden="true">${c.icon}</div>
+          <div>
+            <div class="banner-num">${c.id === 'pantry' ? 'Bonus chapter' : 'Chapter ' + c.num} · ${recipes.filter(r => r.ch === c.id).length} recipes</div>
+            <h2 class="banner-title">${esc(c.name.replace('Bonus: ', ''))}</h2>
+            ${filtered ? '' : `<p class="banner-intro">${esc(c.intro)}</p>`}
+          </div>
+        </div>
+        <div class="recipe-grid">${rs.map(card).join('')}</div>
+      </div>`;
+    });
+    $('#results').innerHTML = html;
+
+    document.querySelectorAll('#results [data-art]').forEach(el => {
+      if (artObserver) artObserver.observe(el); else el.innerHTML = Art.hero(byId[el.dataset.art]);
+    });
+  }
+
+  /* ───────── card + plan clicks (delegated) ───────── */
+  document.addEventListener('click', e => {
+    const fav = e.target.closest('[data-fav]');
+    if (fav) {
+      e.stopPropagation();
+      toggleFav(fav.dataset.fav);
+      return;
+    }
+    const open = e.target.closest('[data-open]');
+    if (open && !e.target.closest('.reader')) openRecipe(open.dataset.open, true);
+  });
+
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.rcard')) {
+      e.preventDefault();
+      openRecipe(e.target.dataset.open, true);
+    }
+    if (e.key === 'Escape' && reader.classList.contains('open')) closeRecipe();
+  });
+
+  function toggleFav(id) {
+    favs.has(id) ? favs.delete(id) : favs.add(id);
+    saveFavs();
+    document.querySelectorAll(`[data-fav="${id}"]`).forEach(b => b.setAttribute('aria-pressed', String(favs.has(id))));
+    if (state.fav && !reader.classList.contains('open')) render();
+  }
+
+  /* ───────── recipe reader ───────── */
+  const reader = $('#reader');
+  const sheet = $('#sheet');
+  let current = null;
+  let pushed = false;
+  let lastFocus = null;
+
+  function sheetHTML(r) {
+    const c = chById[r.ch];
+    const idx = recipes.indexOf(r);
+    const prev = recipes[idx - 1], next = recipes[idx + 1];
+    return `
+      <div class="sheet-bar">
+        <button type="button" class="sbtn close" data-act="close">✕ <span>Close</span></button>
+        <div class="grp">
+          <button type="button" class="sbtn" data-fav="${r.id}" aria-pressed="${favs.has(r.id)}">♥ <span class="t-label">Save</span></button>
+          <button type="button" class="sbtn made" data-act="made" aria-pressed="${made.has(r.id)}">✓ <span class="t-label">${made.has(r.id) ? 'Made it' : 'Mark made'}</span></button>
+          <button type="button" class="sbtn" data-act="print">🖨 <span class="t-label">Print</span></button>
+        </div>
+      </div>
+      <div class="sheet-art">${Art.hero(r)}</div>
+      <div class="sheet-body">
+        <div class="sheet-ch">Recipe No. ${r.n} · ${esc(c.name.replace('Bonus: ', ''))}</div>
+        <h2 class="sheet-title" id="sheet-title">${esc(r.title)}</h2>
+        <p class="sheet-tag">${esc(r.tag)}</p>
+
+        <div class="facts">
+          <div class="fact"><small>⏱ Time</small><b>${esc(r.time)}</b></div>
+          <div class="fact"><small>🍽 Makes</small><b>${esc(r.yield)}</b></div>
+          <div class="fact"><small>${whenIcon(r.when)} Best time</small><b>${esc(r.when)}</b></div>
+          <div class="fact"><small>🔁 How often</small><b>${esc(r.often)}</b></div>
+          <div class="fact"><small>🌍 Tradition</small><b>${esc(r.origin)}</b></div>
+        </div>
+
+        <h3>Ingredients</h3>
+        <p class="hint">Tap each ingredient as you gather it.</p>
+        <ul class="ing-list">
+          ${r.ing.map(([k, text]) => `<li class="ing" tabindex="0" role="checkbox" aria-checked="false">
+            <span class="ing-pic">${Art.icon(k)}</span>
+            <span class="ing-text"><small>${esc(Art.label(k))}</small>${esc(text)}</span>
+            <span class="tick" aria-hidden="true">✓</span>
+          </li>`).join('')}
+        </ul>
+
+        <h3>How to Make It</h3>
+        <p class="hint">Tap a step when it is done.</p>
+        <ol class="steps">
+          ${r.steps.map(s => `<li class="step" tabindex="0"><p>${esc(s)}</p></li>`).join('')}
+        </ol>
+
+        <div class="note why"><div class="note-icon" aria-hidden="true">🌿</div><div><h4>Why it works</h4><p>${esc(r.why)}</p></div></div>
+        ${r.tip ? `<div class="note tip"><div class="note-icon" aria-hidden="true">💡</div><div><h4>Grandmother's tip</h4><p>${esc(r.tip)}</p></div></div>` : ''}
+        ${r.caution ? `<div class="note caution"><div class="note-icon" aria-hidden="true">⚠️</div><div><h4>Caution</h4><p>${esc(r.caution)}</p></div></div>` : ''}
+
+        <div class="sheet-nav">
+          ${prev ? `<button type="button" class="nav-card" data-go="${prev.id}"><small>← Previous</small><b>${esc(prev.title)}</b></button>` : '<span></span>'}
+          ${next ? `<button type="button" class="nav-card next" data-go="${next.id}"><small>Next →</small><b>${esc(next.title)}</b></button>` : ''}
+        </div>
+      </div>`;
+  }
+
+  function openRecipe(id, fromClick) {
+    const r = byId[id];
+    if (!r) return;
+    const c = chById[r.ch];
+    if (!reader.classList.contains('open')) lastFocus = document.activeElement;
+    current = r;
+    sheet.style.cssText = `--c:${c.color};--t:${c.tint};--ch:${c.color}`;
+    sheet.innerHTML = sheetHTML(r);
+    reader.classList.add('open');
+    document.body.classList.add('reader-open');
+    reader.scrollTop = 0;
+    sheet.querySelector('.close').focus({ preventScroll: true });
+    const hash = '#recipe-' + id;
+    if (location.hash !== hash) {
+      if (fromClick && !pushed) { history.pushState({ recipe: id }, '', hash); pushed = true; }
+      else history.replaceState({ recipe: id }, '', hash);
+    }
+  }
+
+  function closeRecipe(fromHistory) {
+    reader.classList.remove('open');
+    document.body.classList.remove('reader-open');
+    current = null;
+    if (!fromHistory) {
+      if (pushed) history.back();
+      else history.replaceState(null, '', location.pathname + location.search);
+    }
+    pushed = false;
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+    // refresh "made" badges on cards
+    render();
+  }
+
+  sheet.addEventListener('click', e => {
+    const act = e.target.closest('[data-act]');
+    const go = e.target.closest('[data-go]');
+    const ing = e.target.closest('.ing');
+    const step = e.target.closest('.step');
+    if (act) {
+      const a = act.dataset.act;
+      if (a === 'close') closeRecipe();
+      if (a === 'print') {
+        document.body.classList.add('printing');
+        window.print();
+        setTimeout(() => document.body.classList.remove('printing'), 500);
+      }
+      if (a === 'made') {
+        made.has(current.id) ? made.delete(current.id) : made.add(current.id);
+        saveMade();
+        act.setAttribute('aria-pressed', String(made.has(current.id)));
+        act.querySelector('.t-label').textContent = made.has(current.id) ? 'Made it' : 'Mark made';
+      }
+    } else if (go) {
+      openRecipe(go.dataset.go, false);
+    } else if (ing) {
+      ing.classList.toggle('done');
+      ing.setAttribute('aria-checked', String(ing.classList.contains('done')));
+    } else if (step) {
+      step.classList.toggle('done');
+    }
+  });
+
+  sheet.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.ing, .step')) {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+
+  reader.addEventListener('click', e => { if (e.target === reader) closeRecipe(); });
+
+  window.addEventListener('popstate', () => {
+    const m = location.hash.match(/^#recipe-(\w+)$/);
+    if (m && byId[m[1]]) openRecipe(m[1], false);
+    else if (reader.classList.contains('open')) { pushed = false; closeRecipe(true); }
+  });
+
+  /* ───────── back to top ───────── */
+  const toTop = $('#to-top');
+  window.addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 900), { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ───────── start ───────── */
+  syncControls();
+  render();
+  const start = location.hash.match(/^#recipe-(\w+)$/);
+  if (start && byId[start[1]]) openRecipe(start[1], false);
+})();
+</script>
 </body>
 </html>
