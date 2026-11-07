@@ -383,7 +383,9 @@
   }
 
   .slide-recipe svg { width: 58%; height: auto; }
-  .slide-recipe img { height: 70%; width: auto; max-width: 80%; object-fit: contain; border-radius: 6px; }
+  .slide-recipe { justify-content: flex-end; padding: 18px; }
+  .slide-recipe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide-recipe .slide-caption { position: relative; z-index: 1; }
 
   .slide-caption {
     background: rgba(255,255,255,0.92);
@@ -434,6 +436,7 @@
   .thumb .t-icon { font-size: 1.5rem; }
 
   .thumb img { width: 70%; height: auto; }
+  .thumb img.thumb-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 
   .thumb.active { border-color: var(--accent-dark); box-shadow: 0 0 0 2px var(--accent-pale); }
 
@@ -1005,7 +1008,7 @@
   }
 
   .scene-2 svg.cup { width: 64%; height: auto; position: relative; z-index: 2; }
-  .scene-2 img.cup { height: 86%; width: auto; max-width: 80%; object-fit: contain; position: relative; z-index: 2; border-radius: 6px; }
+  .scene-2 img.cup { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .scene-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); z-index: 0; }
 
   .eyebrow {
@@ -1110,7 +1113,9 @@
   }
 
   .carousel-slide svg { width: 52%; height: auto; }
-  .carousel-slide img { height: 74%; width: auto; max-width: 80%; object-fit: contain; border-radius: 6px; }
+  .carousel-slide { position: relative; justify-content: flex-end; overflow: hidden; }
+  .carousel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .carousel-slide .slide-caption { position: relative; z-index: 1; margin-bottom: 26px; }
 
   .swipe-pill {
     position: absolute;
@@ -1500,7 +1505,7 @@
           </div>
 
           <div class="slide slide-recipe">
-            <img src="assets/plate-lemon.jpg" alt="Botanical engraving of a lemon branch with a halved lemon" loading="lazy" decoding="async">
+            <img src="assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
             <div class="slide-caption">Inside: The ACV &amp; Lemon Morning Reset</div>
           </div>
         </div>
@@ -1510,7 +1515,7 @@
           <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
           <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
           <button class="thumb" type="button"><span class="t-icon">📱</span>Any Device</button>
-          <button class="thumb" type="button"><img src="assets/plate-lemon.jpg" alt="" loading="lazy">Recipe</button>
+          <button class="thumb" type="button"><img class="thumb-photo" src="assets/photo-lemons.jpg" alt="" loading="lazy">Recipe</button>
         </div>
       </div>
 
@@ -1622,15 +1627,15 @@
       <span class="swipe-pill">SWIPE</span>
       <div class="carousel-track">
         <div class="carousel-slide">
-          <img src="assets/plate-turmeric.jpg" alt="Botanical engraving of turmeric with its leaf and orange flowers" loading="lazy" decoding="async">
+          <img src="assets/photo-golden-milk.jpg" alt="A spoonful of ground turmeric over a bowl of warm milk" loading="lazy" decoding="async">
           <div class="slide-caption">Golden Turmeric Milk for Stiff Joints</div>
         </div>
         <div class="carousel-slide">
-          <img src="assets/plate-bay-laurel.jpg" alt="Botanical engraving of a bay laurel branch" loading="lazy" decoding="async">
+          <img src="assets/photo-bay-leaves.jpg" alt="Dried bay leaves laid out in a circle" loading="lazy" decoding="async">
           <div class="slide-caption">Bay Leaf Calming Tea</div>
         </div>
         <div class="carousel-slide">
-          <img src="assets/plate-lemon.jpg" alt="Botanical engraving of a lemon branch with a halved lemon" loading="lazy" decoding="async">
+          <img src="assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
           <div class="slide-caption">The ACV &amp; Lemon Morning Reset</div>
         </div>
       </div>
@@ -1693,7 +1698,7 @@
   <div class="wrap">
     <div class="feature-image">
       <div class="scene scene-2">
-        <img class="cup" src="assets/plate-chamomile.jpg" alt="Botanical engraving of chamomile" loading="lazy" decoding="async">
+        <img class="cup" src="assets/photo-turmeric-latte.jpg" alt="A warm cup of golden turmeric milk on a wooden table" loading="lazy" decoding="async">
       </div>
     </div>
 
@@ -1778,6 +1783,7 @@
 
     <div class="footer-bottom">
       <span class="secure">🔒 Secure checkout via Whop</span>
+      <p>Photos: <a href="https://commons.wikimedia.org/w/index.php?curid=97148960">lemons</a> by Ivar Leidus, <a href="https://commons.wikimedia.org/w/index.php?curid=109104591">golden milk</a> by Muralikrishna Musunuri and <a href="https://commons.wikimedia.org/w/index.php?curid=112848118">bay leaves</a> by Mauro Cateb (all <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); turmeric latte by Andy Li (CC0); apothecary shop, Detroit Publishing Co. (public domain). Via Wikimedia Commons.</p>
       <p>© 2026 americashealthyrecipes.com · All Rights Reserved</p>
     </div>
   </div>
