@@ -383,6 +383,7 @@
   }
 
   .slide-recipe svg { width: 58%; height: auto; }
+  .slide-recipe img { height: 70%; width: auto; max-width: 80%; object-fit: contain; border-radius: 6px; }
 
   .slide-caption {
     background: rgba(255,255,255,0.92);
@@ -1004,6 +1005,8 @@
   }
 
   .scene-2 svg.cup { width: 64%; height: auto; position: relative; z-index: 2; }
+  .scene-2 img.cup { height: 86%; width: auto; max-width: 80%; object-fit: contain; position: relative; z-index: 2; border-radius: 6px; }
+  .scene-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); z-index: 0; }
 
   .eyebrow {
     font-family: 'Inter', sans-serif;
@@ -1107,6 +1110,7 @@
   }
 
   .carousel-slide svg { width: 52%; height: auto; }
+  .carousel-slide img { height: 74%; width: auto; max-width: 80%; object-fit: contain; border-radius: 6px; }
 
   .swipe-pill {
     position: absolute;
@@ -1496,16 +1500,8 @@
           </div>
 
           <div class="slide slide-recipe">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <ellipse cx="100" cy="160" rx="60" ry="8" fill="#1d4428" opacity="0.25"/>
-              <circle cx="100" cy="100" r="55" fill="#e89028" stroke="#3a2510" stroke-width="2.5"/>
-              <path d="M100 45 Q105 35 115 32 Q118 40 110 48" fill="#5a8030" stroke="#3a2510" stroke-width="1.5"/>
-              <circle cx="80" cy="80" r="1.5" fill="#3a2510"/><circle cx="115" cy="75" r="1.5" fill="#3a2510"/>
-              <circle cx="95" cy="105" r="1.5" fill="#3a2510"/><circle cx="120" cy="115" r="1.5" fill="#3a2510"/>
-              <circle cx="75" cy="120" r="1.5" fill="#3a2510"/>
-              <path d="M155 100 Q175 90 180 70 Q175 60 165 65 Q155 75 160 85 Q155 95 145 90" fill="#e89028" stroke="#3a2510" stroke-width="2"/>
-            </svg>
-            <div class="slide-caption">Inside: The 30-Second Orange Peel Ritual</div>
+            <img src="assets/plate-lemon.jpg" alt="Botanical engraving of a lemon branch with a halved lemon" loading="lazy" decoding="async">
+            <div class="slide-caption">Inside: The ACV &amp; Lemon Morning Reset</div>
           </div>
         </div>
 
@@ -1514,7 +1510,7 @@
           <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
           <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
           <button class="thumb" type="button"><span class="t-icon">📱</span>Any Device</button>
-          <button class="thumb" type="button"><span class="t-icon">🍊</span>Recipe</button>
+          <button class="thumb" type="button"><img src="assets/plate-lemon.jpg" alt="" loading="lazy">Recipe</button>
         </div>
       </div>
 
@@ -1606,25 +1602,7 @@
     <div class="ornament">◆</div>
     <div class="feature-image">
       <div class="scene scene-1">
-        <svg class="herbs" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <g opacity="0.95">
-            <path d="M40 250 C 60 180, 30 120, 70 70" stroke="#3d6b3a" stroke-width="4" fill="none"/>
-            <ellipse cx="58" cy="120" rx="22" ry="9" fill="#5f8f4e" transform="rotate(-40 58 120)"/>
-            <ellipse cx="72" cy="160" rx="24" ry="9" fill="#4f7d42" transform="rotate(30 72 160)"/>
-            <ellipse cx="50" cy="200" rx="22" ry="8" fill="#6b9a57" transform="rotate(-30 50 200)"/>
-            <ellipse cx="74" cy="78" rx="18" ry="7" fill="#7fa66a" transform="rotate(-60 74 78)"/>
-          </g>
-          <g opacity="0.95">
-            <path d="M360 260 C 345 200, 375 150, 340 95" stroke="#3d6b3a" stroke-width="4" fill="none"/>
-            <ellipse cx="350" cy="140" rx="22" ry="9" fill="#5f8f4e" transform="rotate(40 350 140)"/>
-            <ellipse cx="336" cy="185" rx="24" ry="9" fill="#4f7d42" transform="rotate(-30 336 185)"/>
-            <ellipse cx="358" cy="225" rx="20" ry="8" fill="#6b9a57" transform="rotate(30 358 225)"/>
-          </g>
-          <circle cx="90" cy="285" r="22" fill="#f2c94c" stroke="#b08a1e" stroke-width="2"/>
-          <circle cx="90" cy="285" r="16" fill="#fbe7a1"/><path d="M90 285 L90 269 M90 285 L104 277 M90 285 L104 293 M90 285 L90 301 M90 285 L76 293 M90 285 L76 277" stroke="#e0b53a" stroke-width="1.6"/>
-          <circle cx="318" cy="292" r="18" fill="#e89028" stroke="#9c5a14" stroke-width="2"/>
-          <path d="M318 274 q4 -8 12 -9" stroke="#4f7d42" stroke-width="3" fill="none"/>
-        </svg>
+        <img class="scene-photo" src="assets/apothecary-shop-salem.jpg" alt="" loading="lazy" decoding="async">
         <img src="book_cover.png" alt="The Ancient Healing Recipe Book">
       </div>
     </div>
@@ -1644,34 +1622,15 @@
       <span class="swipe-pill">SWIPE</span>
       <div class="carousel-track">
         <div class="carousel-slide">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <ellipse cx="100" cy="160" rx="65" ry="6" fill="#1d4428" opacity="0.22"/>
-            <path d="M50 100 Q50 155 100 158 Q150 155 150 100 Q150 90 145 88 L55 88 Q50 90 50 100 Z" fill="#fef3d8" stroke="#3a2510" stroke-width="2.5"/>
-            <path d="M148 110 Q175 105 180 130 Q175 125 165 130" fill="#fef3d8" stroke="#3a2510" stroke-width="2"/>
-            <ellipse cx="100" cy="88" rx="40" ry="5" fill="#e0a43a" stroke="#3a2510" stroke-width="2"/>
-            <path d="M100 65 Q97 55 103 50 Q109 45 105 35" fill="none" stroke="#5a4a32" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-            <path d="M85 68 Q82 60 88 55 Q94 50 90 42" fill="none" stroke="#5a4a32" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
-          </svg>
+          <img src="assets/plate-turmeric.jpg" alt="Botanical engraving of turmeric with its leaf and orange flowers" loading="lazy" decoding="async">
           <div class="slide-caption">Golden Turmeric Milk for Stiff Joints</div>
         </div>
         <div class="carousel-slide">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <ellipse cx="100" cy="170" rx="60" ry="6" fill="#1d4428" opacity="0.22"/>
-            <ellipse cx="80" cy="80" rx="40" ry="14" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(-25 80 80)"/>
-            <ellipse cx="125" cy="70" rx="42" ry="15" fill="#6b8a55" stroke="#3a2510" stroke-width="1.8" transform="rotate(15 125 70)"/>
-            <ellipse cx="80" cy="140" rx="38" ry="13" fill="#5a8050" stroke="#3a2510" stroke-width="1.8" transform="rotate(45 80 140)"/>
-          </svg>
+          <img src="assets/plate-bay-laurel.jpg" alt="Botanical engraving of a bay laurel branch" loading="lazy" decoding="async">
           <div class="slide-caption">Bay Leaf Calming Tea</div>
         </div>
         <div class="carousel-slide">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <ellipse cx="100" cy="170" rx="55" ry="6" fill="#1d4428" opacity="0.22"/>
-            <path d="M75 50 L75 65 Q60 75 60 95 L60 165 Q60 175 70 175 L130 175 Q140 175 140 165 L140 95 Q140 75 125 65 L125 50 Z" fill="#c97a3c" stroke="#3a2510" stroke-width="2.5"/>
-            <rect x="80" y="40" width="40" height="14" rx="2" fill="#5a3a1a" stroke="#3a2510" stroke-width="2"/>
-            <rect x="65" y="105" width="70" height="50" fill="#fef3d8" stroke="#3a2510" stroke-width="1.5"/>
-            <text x="100" y="125" text-anchor="middle" font-family="Georgia" font-size="13" fill="#3a2510" font-weight="700">ACV</text>
-            <line x1="72" y1="138" x2="128" y2="138" stroke="#3a2510" stroke-width="0.8"/>
-          </svg>
+          <img src="assets/plate-lemon.jpg" alt="Botanical engraving of a lemon branch with a halved lemon" loading="lazy" decoding="async">
           <div class="slide-caption">The ACV &amp; Lemon Morning Reset</div>
         </div>
       </div>
@@ -1734,17 +1693,7 @@
   <div class="wrap">
     <div class="feature-image">
       <div class="scene scene-2">
-        <svg class="cup" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <ellipse cx="100" cy="150" rx="78" ry="10" fill="#6b4d1a" opacity="0.22"/>
-          <ellipse cx="100" cy="146" rx="70" ry="9" fill="#fffaf0" stroke="#3a2510" stroke-width="2"/>
-          <path d="M45 70 Q45 140 100 143 Q155 140 155 70 Z" fill="#fffaf0" stroke="#3a2510" stroke-width="2.5"/>
-          <path d="M153 85 Q182 82 184 105 Q182 126 150 120" fill="none" stroke="#3a2510" stroke-width="3"/>
-          <ellipse cx="100" cy="70" rx="55" ry="9" fill="#e7a93a" stroke="#3a2510" stroke-width="2"/>
-          <path d="M88 52 Q83 40 92 32 Q100 24 93 12" fill="none" stroke="#6b5a3a" stroke-width="2.2" stroke-linecap="round" opacity="0.6"/>
-          <path d="M112 50 Q107 40 115 33 Q122 26 116 16" fill="none" stroke="#6b5a3a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-          <ellipse cx="30" cy="150" rx="12" ry="6" fill="#c97a3c"/>
-          <ellipse cx="174" cy="152" rx="10" ry="5" fill="#5f8f4e" transform="rotate(-20 174 152)"/>
-        </svg>
+        <img class="cup" src="assets/plate-chamomile.jpg" alt="Botanical engraving of chamomile" loading="lazy" decoding="async">
       </div>
     </div>
 
