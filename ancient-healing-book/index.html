@@ -1558,7 +1558,7 @@
           <span aria-hidden="true">→</span>
         </a>
 
-        <div class="delivery-line">Order today and <strong>start reading in minutes</strong> · Sent to your email <span id="country-line"></span></div>
+        <div class="delivery-line">Order today and <strong>start reading in minutes</strong></div>
 
         <div class="guarantee-row">
           <div class="seal-sm"><b>60</b><small>DAYS</small></div>
@@ -1889,24 +1889,6 @@
     });
   });
 
-  // ===========================================================
-  // COUNTRY (delivery line) — ?country=US to test
-  // ===========================================================
-  (async function () {
-    const el = document.getElementById('country-line');
-    const set = name => { if (name) el.textContent = '· Available in ' + name; };
-
-    const param = new URLSearchParams(location.search).get('country');
-    if (param) { set(param); return; }
-
-    try {
-      const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
-      if (res.ok) {
-        const d = await res.json();
-        if (d.country_name) set(d.country_name);
-      }
-    } catch (e) { /* silent */ }
-  })();
 </script>
 
 </body>
