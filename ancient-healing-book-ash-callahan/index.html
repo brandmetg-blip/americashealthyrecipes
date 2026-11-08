@@ -505,10 +505,10 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: var(--accent);
+    background: #e53030;
     color: #fff;
     border-radius: 14px;
-    outline: 2px dashed rgba(255,255,255,0.45);
+    outline: 2px dotted rgba(255,255,255,0.75);
     outline-offset: -6px;
     padding: 14px 20px;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -523,7 +523,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-style: italic;
+    font-family: Georgia, serif;
     flex-shrink: 0;
   }
 
@@ -535,7 +538,8 @@
     font-size: 1rem;
   }
 
-  .sale-notice span { font-size: 1rem; }
+  .sale-notice span { font-size: 1rem; font-weight: 600; }
+  .sale-notice span b { font-weight: 800; }
 
   .offer-option {
     position: relative;
@@ -1557,8 +1561,8 @@
         <hr class="divider">
 
         <div class="sale-notice">
-          <span class="sale-notice-icon">🌿</span>
-          <div><strong>Black Friday Price</strong><span>Save 45% while the timer is running</span></div>
+          <span class="sale-notice-icon" aria-hidden="true">i</span>
+          <div><strong>Black Friday price ends soon</strong><span>Price goes back to $27 on: <b>November 30th, 2026</b></span></div>
         </div>
 
         <div class="offer-option">
