@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ash's Ancient Healing Recipe Book · Ash Callahan</title>
+<link rel="icon" href="../favico.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f8faf4;
+    --paper-alt: #eef4e7;
+    --card: #ffffff;
+    --ink: #1c2a20;
+    --ink-soft: #33463a;
+    --ink-mute: #56685b;
+    --accent: #2e6b3c;
+    --accent-dark: #1d4428;
+    --accent-deep: #142f1c;
+    --accent-light: #7fa66a;
+    --accent-pale: #e1edd3;
+    --gold: #b8892b;
+    --gold-light: #e6c56f;
+    --star: #2e8b57;
+    --border: rgba(29, 68, 40, 0.15);
+    --shadow: rgba(25, 55, 32, 0.12);
+    --cta-grad: linear-gradient(180deg, #2b5f36 0%, #1a3d23 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 19px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .wrap-wide {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .sans { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* ── TOP BARS ── */
+  .guarantee-bar {
+    background: var(--accent-pale);
+    color: var(--accent-dark);
+    text-align: center;
+    padding: 11px 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .guarantee-bar span { color: var(--gold); margin: 0 10px; }
+
+  .sale-bar {
+    background: var(--accent-deep);
+    color: #fff;
+    padding: 18px 20px;
+  }
+
+  .sale-bar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 28px;
+    flex-wrap: nowrap;
+  }
+
+  .sale-text { text-align: center; min-width: 0; }
+
+  .sale-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
+
+  .sale-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.88);
+    margin-top: 4px;
+  }
+
+  .timer {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .timer-unit { text-align: center; }
+
+  .timer-num {
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--gold-light);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .timer-label {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .timer-dot {
+    font-size: 2rem;
+    line-height: 1;
+    color: #fff;
+    padding-top: 2px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-dark);
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    text-align: left;
+    line-height: 1.05;
+  }
+
+  .logo-text small {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+  }
+
+  .logo-text strong {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+  }
+
+  /* ── PRODUCT ── */
+  .product {
+    padding: 28px 0 40px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  @media (min-width: 960px) {
+    .product-grid {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .gallery { position: sticky; top: 20px; }
+  }
+
+  /* gallery */
+  .gallery-main {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--accent-pale);
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide.active { opacity: 1; visibility: visible; }
+
+  .slide-cover {
+    background:
+      radial-gradient(circle at 65% 40%, rgba(255,255,255,0.75), transparent 55%),
+      linear-gradient(160deg, #dfecd0 0%, #b6d09d 100%);
+  }
+
+  .slide-cover img {
+    position: absolute;
+    right: 6%;
+    top: 7%;
+    height: 86%;
+    width: auto;
+    filter: drop-shadow(0 18px 26px rgba(20, 47, 28, 0.35));
+    transform: rotate(3deg);
+  }
+
+  .badges {
+    position: absolute;
+    left: 5%;
+    top: 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 2;
+  }
+
+  .badge {
+    width: 132px;
+    padding: 14px 10px;
+    border-radius: 14px;
+    background: linear-gradient(160deg, #24502f, #142f1c);
+    border: 2px solid var(--gold-light);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25), inset 0 0 0 4px rgba(230, 197, 111, 0.18);
+    color: #fff;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .badge-icon {
+    display: block;
+    font-size: 1.7rem;
+    margin-bottom: 4px;
+  }
+
+  .badge-big {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--gold-light);
+    font-size: 1.9rem;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .slide-panel {
+    background: linear-gradient(180deg, #fbfdf8, #eef4e7);
+    padding: 7% 8%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slide-panel h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .slide-list {
+    list-style: none;
+    columns: 2;
+    column-gap: 22px;
+    text-align: left;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  .slide-list li {
+    break-inside: avoid;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .slide-list li b { color: var(--accent); margin-right: 6px; }
+
+  .seal {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f6dc8f, #c8962e 55%, #8d6516);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #3a2a06;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2), inset 0 0 0 7px rgba(255,255,255,0.35), inset 0 0 0 9px rgba(120, 85, 15, 0.5);
+    margin: 0 auto 18px;
+    line-height: 1;
+  }
+
+  .seal-num { font-size: 3.4rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .seal-txt { font-size: 0.78rem; letter-spacing: 0.08em; line-height: 1.2; margin-top: 4px; text-align: center; }
+
+  .slide-panel p {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .devices {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    margin: 6px 0 20px;
+  }
+
+  .device {
+    background: #1c2a20;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  }
+
+  .device-screen {
+    background: #fff;
+    border-radius: 7px;
+    height: 100%;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .device-screen i {
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--accent-pale);
+  }
+
+  .device-screen i.h { background: var(--accent); width: 70%; height: 8px; }
+  .device-screen i.s { width: 60%; }
+
+  .tablet { width: 190px; height: 240px; }
+  .phone { width: 92px; height: 170px; border-radius: 16px; }
+
+  .slide-recipe {
+    background: linear-gradient(135deg, #e6f0da 0%, #b9d3a3 100%);
+    flex-direction: column;
+  }
+
+  .slide-recipe svg { width: 58%; height: auto; }
+  .slide-recipe { justify-content: flex-end; padding: 18px; }
+  .slide-recipe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide-recipe .slide-caption { position: relative; z-index: 1; }
+
+  .slide-caption {
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-dark);
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .gallery-main {
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab;
+  }
+
+  .thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: var(--accent-pale);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-align: center;
+    line-height: 1.15;
+    padding: 4px;
+  }
+
+  .thumb .t-icon { font-size: 1.5rem; }
+
+  .thumb img { width: 70%; height: auto; }
+  .thumb img.thumb-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+
+  .thumb.active { border-color: var(--accent-dark); box-shadow: 0 0 0 2px var(--accent-pale); }
+
+  /* info */
+  .rating-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .stars-inline { color: var(--star); letter-spacing: 0.08em; font-size: 1.1rem; }
+
+  .product-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.6vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--accent-dark);
+    margin-bottom: 16px;
+  }
+
+  .check-list {
+    list-style: none;
+    margin-bottom: 22px;
+  }
+
+  .check-list li {
+    position: relative;
+    padding: 6px 0 6px 42px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 4px 0 20px;
+  }
+
+  .sale-notice {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 14px;
+    outline: 2px dashed rgba(255,255,255,0.45);
+    outline-offset: -6px;
+    padding: 14px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 16px;
+  }
+
+  .sale-notice-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .sale-notice strong {
+    display: block;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+
+  .sale-notice span { font-size: 1rem; }
+
+  .offer-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--paper-alt);
+    border: 2.5px solid var(--accent-dark);
+    border-radius: 16px;
+    padding: 22px 20px;
+    margin: 18px 0 16px;
+  }
+
+  .offer-tag {
+    position: absolute;
+    top: -15px;
+    right: 22px;
+    background: var(--accent-dark);
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  .offer-thumb {
+    width: 72px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+  }
+
+  .offer-info { flex: 1; min-width: 0; }
+
+  .offer-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .offer-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+
+  .offer-prices { text-align: right; flex-shrink: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  .offer-now {
+    display: block;
+    font-weight: 900;
+    font-size: 1.85rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .offer-was {
+    display: block;
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    font-size: 1.05rem;
+    margin-top: 4px;
+  }
+
+  .offer-save {
+    display: block;
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 1.02rem;
+  }
+
+  /* included box */
+  .included {
+    border: 1.5px solid var(--accent-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--card);
+    margin-bottom: 22px;
+  }
+
+  .included-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--paper-alt);
+    border-bottom: 1.5px solid var(--accent-dark);
+    padding: 12px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .included-pill {
+    background: var(--accent-dark);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px 14px 14px;
+    text-align: center;
+  }
+
+  .gift-circle {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    background: var(--accent-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  .gift-circle::after {
+    content: "✓";
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+  }
+
+  .gift-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+
+  .included-foot {
+    border-top: 1px solid var(--border);
+    padding: 12px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  .included-foot b { color: var(--accent); }
+
+  /* main CTA */
+  .buy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 12px;
+    width: 100%;
+    background: var(--cta-grad);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 24px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(20, 47, 28, 0.32);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .buy-button:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(20, 47, 28, 0.38); }
+
+  .buy-button:focus-visible,
+  .cta-secondary:focus-visible,
+  .acc-q:focus-visible,
+  .thumb:focus-visible {
+    outline: 3px solid var(--gold-light);
+    outline-offset: 3px;
+  }
+
+  .price-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 30px;
+    padding: 4px 14px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .price-chip s { opacity: 0.7; font-weight: 600; font-size: 1.05rem; }
+
+  .delivery-line {
+    border-top: 1.5px dashed var(--border);
+    border-bottom: 1.5px dashed var(--border);
+    margin-top: 14px;
+    padding: 12px 6px;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+
+  .delivery-line strong { color: var(--accent-dark); }
+
+  .guarantee-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 6px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+
+  .seal-sm {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 35% 30%, #f6dc8f, #c8962e 55%, #8d6516);
+    color: #3a2a06;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 0 0 4px rgba(255,255,255,0.35);
+  }
+
+  .seal-sm b { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; }
+  .seal-sm small { font-size: 0.55rem; letter-spacing: 0.1em; font-weight: 900; }
+
+  /* featured review */
+  .feature-review {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    margin: 22px 0;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+
+  .tp-stars {
+    display: inline-flex;
+    gap: 3px;
+    margin-bottom: 12px;
+  }
+
+  .tp-stars span {
+    width: 28px;
+    height: 28px;
+    background: var(--star);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .review-text {
+    font-size: 1.12rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .reviewer-name { font-weight: 800; font-size: 1.08rem; }
+
+  .verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-pale);
+    border: 1px solid var(--border);
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* accordions */
+  .acc {
+    background: var(--card);
+    border-radius: 22px;
+    box-shadow: 0 3px 14px var(--shadow);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+
+  .acc-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: none;
+    border: none;
+    padding: 22px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .acc-icon {
+    font-size: 1.4rem;
+    width: 30px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .acc-q .chev {
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    border-right: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    transform: rotate(45deg) translateY(-4px);
+    transition: transform 0.2s ease;
+  }
+
+  .acc.open .chev { transform: rotate(-135deg) translateX(-4px); }
+
+  .acc-a {
+    display: none;
+    padding: 0 24px 22px 70px;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .acc.open .acc-a { display: block; }
+
+  /* FAQ variant */
+  .faq-card {
+    background: var(--card);
+    border: 1.5px solid var(--accent-light);
+    border-radius: 26px;
+    padding: 48px 22px 36px;
+  }
+
+  .faq-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4.6vw, 2.5rem);
+    text-align: center;
+    color: var(--accent-dark);
+    line-height: 1.2;
+  }
+
+  .title-rule {
+    width: 180px;
+    height: 3px;
+    margin: 14px auto 32px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .faq-card .acc {
+    border-radius: 14px;
+    border-left: 4px solid var(--accent-light);
+    box-shadow: 0 6px 0 var(--accent-pale), 0 8px 16px var(--shadow);
+    margin-bottom: 20px;
+  }
+
+  .faq-card .acc-a { padding-left: 24px; }
+
+  /* ── CONTENT SECTIONS ── */
+  .section { padding: 56px 0; }
+
+  .section.alt { background: var(--paper-alt); }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    color: var(--gold);
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: "";
+    width: 120px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .ornament::after { transform: scaleX(-1); }
+
+  .feature-image {
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px var(--shadow);
+  }
+
+  .scene {
+    position: relative;
+    aspect-ratio: 4 / 3.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scene-1 {
+    background:
+      radial-gradient(circle at 50% 75%, rgba(29, 68, 40, 0.18), transparent 45%),
+      linear-gradient(180deg, #e8f0de 0%, #c7dbb2 62%, #9fbd84 62%, #8eaf73 100%);
+  }
+
+  .scene-1 img {
+    position: relative;
+    height: 74%;
+    width: auto;
+    transform: rotate(-4deg) translateY(4%);
+    filter: drop-shadow(0 20px 22px rgba(20, 47, 28, 0.4));
+    z-index: 2;
+  }
+
+  .scene svg.herbs {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scene-2 {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 50%),
+      linear-gradient(160deg, #f4ecd6 0%, #e3d3a8 100%);
+  }
+
+  .scene-2 svg.cup { width: 64%; height: auto; position: relative; z-index: 2; }
+  .scene-2 img.cup { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .scene-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); z-index: 0; }
+
+  .eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--accent-dark);
+    margin-bottom: 18px;
+  }
+
+  .h2 .swoosh {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 Q 80 2 150 6 T 298 5' fill='none' stroke='%23b8892b' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 0.32em;
+    background-position: 0 100%;
+    padding-bottom: 0.12em;
+  }
+
+  .body-copy {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+
+  .check-list.gold-checks li::before {
+    background: var(--gold);
+  }
+
+  .check-list.gold-checks li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.12rem;
+    color: var(--ink);
+  }
+
+  .cta-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: calc(100% - 40px);
+    margin: 30px auto 12px;
+    background: var(--cta-grad);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 24px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 10px 22px rgba(20, 47, 28, 0.3);
+    transition: transform 0.15s ease;
+  }
+
+  .cta-secondary:hover { transform: translateY(-2px); }
+
+  .cta-note {
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+  }
+
+  /* recipe carousel */
+  .carousel {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    margin: 34px 0 30px;
+    box-shadow: 0 6px 20px var(--shadow);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 3.3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e6f0da 0%, #b9d3a3 100%);
+    padding: 20px;
+  }
+
+  .carousel-slide svg { width: 52%; height: auto; }
+  .carousel-slide { position: relative; justify-content: flex-end; overflow: hidden; }
+  .carousel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .carousel-slide .slide-caption { position: relative; z-index: 1; margin-bottom: 26px; }
+
+  .swipe-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(28, 42, 32, 0.75);
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 3;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+  }
+
+  .carousel-dots button {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.65);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .carousel-dots button.active { background: #fff; box-shadow: 0 0 0 2px var(--accent-dark); }
+
+  /* wave */
+  .wave { display: block; width: 100%; height: 70px; }
+
+  /* reviews */
+  .reviews {
+    background: #f1f4ee;
+    padding: 40px 0 56px;
+  }
+
+  .reviews-head { text-align: center; }
+
+  .reviews-eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-size: 0.95rem;
+  }
+
+  .reviews-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 2.6rem;
+    color: var(--accent-dark);
+    line-height: 1.2;
+    margin: 4px 0 10px;
+  }
+
+  .reviews-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  .reviews-score .tp-stars { margin: 0; }
+  .reviews-score .tp-stars span { width: 34px; height: 34px; font-size: 1.15rem; }
+
+  .reviews-hint {
+    margin-top: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-mute);
+  }
+
+  .review-scroller {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 26px 20px 10px;
+    max-width: 1140px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+  }
+
+  @media (min-width: 960px) {
+    .review-scroller {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: visible;
+    }
+    .reviews-hint { display: none; }
+  }
+
+  .review-card {
+    flex: 0 0 min(88%, 400px);
+    scroll-snap-align: start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .review-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .review-card .tp-stars span { width: 26px; height: 26px; font-size: 0.95rem; }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .review-meta .tp-stars { margin: 0; }
+
+  .review-card p {
+    font-size: 1.06rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .questions-cue {
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: 1.15rem;
+    color: var(--ink);
+    padding: 10px 0 0;
+  }
+
+  .questions-cue .chev-down {
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 10px auto 0;
+    border-right: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* disclosures + footer */
+  .disclosures {
+    background: #e3ead9;
+    padding: 50px 0 30px;
+  }
+
+  .disclosures h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .disclosures h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 26px 0 8px;
+  }
+
+  .disclosures p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    margin: 36px 0 26px;
+  }
+
+  .footer-logo .logo {
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px 22px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink-mute);
+  }
+
+  .footer-bottom .secure {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 18px; }
+    .guarantee-bar { font-size: 0.85rem; letter-spacing: 0.1em; }
+    .guarantee-bar span { margin: 0 6px; }
+    .sale-bar { padding: 12px 12px; }
+    .sale-bar-inner { justify-content: space-around; gap: 10px; }
+    .sale-title { font-size: 1.45rem; font-weight: 500; }
+    .sale-sub { font-size: 0.8rem; margin-top: 2px; }
+    .timer { gap: 8px; }
+    .timer-num { font-size: 1.7rem; font-weight: 400; }
+    .timer-label { font-size: 0.78rem; margin-top: 3px; }
+    .timer-dot { font-size: 1.6rem; }
+    .badge { width: 104px; padding: 10px 6px; font-size: 0.85rem; }
+    .badge-icon { font-size: 1.35rem; }
+    .badge-big { font-size: 1.55rem; }
+    .badges { gap: 8px; }
+    .slide-panel h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .slide-list { font-size: 0.86rem; column-gap: 14px; }
+    .slide-list li { padding: 3px 0; }
+    .seal { width: 130px; height: 130px; }
+    .seal-num { font-size: 2.6rem; }
+    .seal-txt { font-size: 0.62rem; }
+    .slide-panel p { font-size: 0.98rem; }
+    .tablet { width: 140px; height: 180px; }
+    .phone { width: 70px; height: 128px; }
+    .thumb { font-size: 0.66rem; border-radius: 10px; }
+    .thumb .t-icon { font-size: 1.2rem; }
+    .offer-option { gap: 12px; padding: 20px 14px; }
+    .offer-thumb { width: 54px; }
+    .offer-name { font-size: 1.12rem; }
+    .offer-desc { font-size: 0.92rem; }
+    .offer-now { font-size: 1.5rem; }
+    .included-head { padding: 10px 12px; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .included-pill { font-size: 0.72rem; padding: 3px 10px; }
+    .included-grid { gap: 4px; padding: 16px 6px 10px; }
+    .gift-circle { width: 50px; height: 50px; font-size: 1.3rem; border-width: 2px; margin-bottom: 6px; }
+    .gift-circle::after { width: 20px; height: 20px; font-size: 0.65rem; top: -5px; right: -5px; }
+    .gift-label { font-size: 0.74rem; }
+    .included-foot { font-size: 0.92rem; padding: 10px 12px; }
+    .buy-button { font-size: 1rem; padding: 20px 12px; gap: 8px; letter-spacing: 0.01em; }
+    .price-chip { padding: 3px 10px; gap: 6px; }
+    .price-chip s { font-size: 0.85rem; }
+  }
+
+  @media (max-width: 400px) {
+    .buy-button { font-size: 0.9rem; padding: 18px 10px; gap: 6px; letter-spacing: 0; }
+    .price-chip { padding: 3px 8px; gap: 5px; }
+    .price-chip s { font-size: 0.78rem; }
+    .included-head { font-size: 0.72rem; letter-spacing: 0.03em; padding: 10px; }
+    .included-pill { font-size: 0.66rem; padding: 3px 8px; }
+    .acc-q { font-size: 1.05rem; padding: 20px 18px; gap: 12px; }
+    .acc-a { padding: 0 18px 20px 18px; }
+    .faq-card { padding: 38px 14px 26px; border-radius: 20px; }
+    .cta-secondary { width: 100%; font-size: 1.08rem; }
+    .reviews-title { font-size: 2.2rem; }
+  }
+
+  /* ── Creator page ── */
+  .site-header.creator { padding: 18px 20px; }
+  .creator-link { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; text-align: left; }
+  .creator-avatar { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; flex-shrink: 0; box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--accent); }
+  .creator-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 30%; transform: scale(1.9); transform-origin: 52% 34%; }
+  .creator-text strong { display: block; font-size: 1.35rem; font-weight: 800; color: var(--ink); line-height: 1.15; }
+  .creator-text small { display: block; font-size: 0.92rem; color: var(--ink-mute); margin-top: 2px; }
+
+  .slide-creator { background: #1c2a20; padding: 0; }
+  .slide-creator .creator-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .slide-creator .creator-book { position: absolute; right: 4%; bottom: 3%; width: 28%; height: auto; transform: rotate(6deg); filter: drop-shadow(0 14px 18px rgba(0,0,0,0.45)); }
+  .slide-creator .creator-tag { position: absolute; left: 14px; top: 14px; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.95rem; padding: 6px 14px; border-radius: 30px; }
+
+  .creator-note { background: var(--paper-warm, #edf3e6); border-radius: 14px; padding: 16px 18px; margin: 0 0 20px; }
+  .creator-note p { font-size: 1.05rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .creator-note p + p { margin-top: 10px; }
+  .creator-note strong { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .creator-avatar { width: 54px; height: 54px; }
+    .creator-text strong { font-size: 1.2rem; }
+    .creator-text small { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GUARANTEE BAR -->
+<div class="guarantee-bar"><span>✦</span>60-Day Money Back Guarantee<span>✦</span></div>
+
+<!-- SALE BAR + COUNTDOWN -->
+<div class="sale-bar">
+  <div class="sale-bar-inner">
+    <div class="sale-text">
+      <div class="sale-title">FALL SALE</div>
+      <div class="sale-sub">Get It Today for 45% Off</div>
+    </div>
+    <div class="timer" aria-label="Sale countdown">
+      <div class="timer-unit"><span class="timer-num" id="t-h">01</span><span class="timer-label">Hrs</span></div>
+      <div class="timer-dot">.</div>
+      <div class="timer-unit"><span class="timer-num" id="t-m">59</span><span class="timer-label">Mins</span></div>
+      <div class="timer-dot">.</div>
+      <div class="timer-unit"><span class="timer-num" id="t-s">59</span><span class="timer-label">Secs</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header creator">
+  <a class="creator-link" href="#top">
+    <span class="creator-avatar"><img src="ash.webp" alt="Ash Callahan"></span>
+    <span class="creator-text"><strong>Ash Callahan</strong><small>Recipes + remedies from my kitchen · California</small></span>
+  </a>
+</header>
+
+<main id="top">
+
+<!-- PRODUCT -->
+<section class="product">
+  <div class="wrap-wide">
+    <div class="product-grid">
+
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="gallery-main" id="gallery">
+          <div class="slide slide-creator active">
+            <img class="creator-photo" src="ash.webp" alt="Ash Callahan">
+            <img class="creator-book" src="../ancient-healing-book/book_cover.png" alt="Ash's Ancient Healing Recipe Book cover">
+            <span class="creator-tag">Ash's recipe book</span>
+          </div>
+
+          <div class="slide slide-cover">
+            <div class="badges">
+              <div class="badge"><span class="badge-big">100+</span>Healing Recipes</div>
+              <div class="badge"><span class="badge-icon">🌿</span>Kitchen Ingredients</div>
+              <div class="badge"><span class="badge-icon">📱</span>Instant Download</div>
+            </div>
+            <img src="../ancient-healing-book/book_cover.png" alt="Ash's Ancient Healing Recipe Book cover">
+          </div>
+
+          <div class="slide slide-panel">
+            <h3>What's Inside the Book</h3>
+            <ul class="slide-list">
+              <li><b>15</b>Belly &amp; Bloat</li>
+              <li><b>12</b>Liver &amp; Kidney</li>
+              <li><b>14</b>Skin &amp; Beauty</li>
+              <li><b>10</b>Joints &amp; Pain</li>
+              <li><b>9</b>Sleep &amp; Stress</li>
+              <li><b>8</b>Lungs &amp; Mucus</li>
+              <li><b>11</b>Energy &amp; Fatigue</li>
+              <li><b>10</b>Hormones</li>
+              <li><b>11</b>Teeth, Hair &amp; Nails</li>
+            </ul>
+          </div>
+
+          <div class="slide slide-panel">
+            <div class="seal"><span class="seal-num">60</span><span class="seal-txt">DAY<br>GUARANTEE</span></div>
+            <h3>Try It Risk-Free</h3>
+            <p>If the recipes don't help you, email us within 60 days for a full refund. No questions asked.</p>
+          </div>
+
+          <div class="slide slide-recipe">
+            <img src="../ancient-healing-book/assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
+            <div class="slide-caption">Inside: The ACV &amp; Lemon Morning Reset</div>
+          </div>
+        </div>
+
+        <div class="thumbs" id="thumbs">
+          <button class="thumb active" type="button" aria-label="Ash with the book"><img class="thumb-photo" src="ash.webp" alt=""></button>
+          <button class="thumb" type="button" aria-label="Book cover"><img src="../ancient-healing-book/book_cover.png" alt=""></button>
+          <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
+          <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
+          <button class="thumb" type="button"><img class="thumb-photo" src="../ancient-healing-book/assets/photo-lemons.jpg" alt="" loading="lazy">Recipe</button>
+        </div>
+      </div>
+
+      <!-- Buy box -->
+      <div class="buy-box" id="buy">
+        <div class="rating-line"><span class="stars-inline">★★★★★</span> Rated 4.9 · Loved by 15,000+ readers</div>
+        <h1 class="product-title">Ash's Ancient Healing Recipe Book</h1>
+
+        <div class="creator-note">
+          <p><strong>Hey, it's Ash.</strong> I'm 37 and live in California, and people keep asking me what I actually eat and drink to stay on track. So I put it all in one place.</p>
+          <p>This is my collection of 106 old-school remedies and recipes, the simple stuff grandmothers made from what was already in the kitchen: lemon, ginger, turmeric, honey, cinnamon. Nothing fancy, nothing expensive, and most take five minutes.</p>
+        </div>
+
+        <ul class="check-list">
+          <li>For anyone who feels modern life wearing their body down</li>
+          <li>100+ time-tested remedies from kitchens around the world</li>
+          <li>Simple ingredients you already have at home</li>
+          <li>Organized by body area, so you find what you need fast</li>
+          <li>Instant digital download, read on any device</li>
+        </ul>
+
+        <hr class="divider">
+
+        <div class="sale-notice">
+          <span class="sale-notice-icon">🌿</span>
+          <div><strong>Fall Sale Price</strong><span>Save 45% while the timer is running</span></div>
+        </div>
+
+        <div class="offer-option">
+          <span class="offer-tag">FALL SALE</span>
+          <img class="offer-thumb" src="../ancient-healing-book/book_cover.png" alt="">
+          <div class="offer-info">
+            <div class="offer-name">Complete Book</div>
+            <div class="offer-desc">100+ recipes · Digital</div>
+          </div>
+          <div class="offer-prices">
+            <span class="offer-now">$14.95</span>
+            <span class="offer-was">$27.00</span>
+            <span class="offer-save">You Save $12.05</span>
+          </div>
+        </div>
+
+        <div class="included">
+          <div class="included-head"><span>🎁 Included With Order</span><span class="included-pill">4 of 4 Included</span></div>
+          <div class="included-grid">
+            <div><div class="gift-circle">📖</div><div class="gift-label">Full 100+ Recipe Book</div></div>
+            <div><div class="gift-circle">🖨️</div><div class="gift-label">Printable PDF</div></div>
+            <div><div class="gift-circle">📱</div><div class="gift-label">Read on Any Device</div></div>
+            <div><div class="gift-circle">♾️</div><div class="gift-label">Lifetime Access</div></div>
+          </div>
+          <div class="included-foot">🌿 Everything unlocks <b>the moment you order</b></div>
+        </div>
+
+        <a class="buy-button" href="https://whop.com/checkout/plan_KI5Rfa337gcMa">
+          Get Instant Access
+          <span class="price-chip"><s>$27.00</s> $14.95</span>
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <div class="delivery-line">Order today and <strong>start reading in minutes</strong> · Sent to your email <span id="country-line"></span></div>
+
+        <div class="guarantee-row">
+          <div class="seal-sm"><b>60</b><small>DAYS</small></div>
+          60-Day Money-Back Guarantee
+        </div>
+
+        <div class="feature-review">
+          <div class="tp-stars" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="review-text">"I never thought a simple recipe book could change so much. Two weeks in and my body felt completely different: lighter, calmer, more like me again."</p>
+          <div class="reviewer"><span class="reviewer-name">Maria S.</span><span class="verified">✓ Verified Reader</span></div>
+        </div>
+
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">✅</span>Is This Right For Me?<span class="chev"></span></button>
+          <div class="acc-a">If you're tired of bloating, stiff joints, restless nights or low energy, and you'd rather try gentle, food-based remedies before reaching for another pill, this book was written for you. Every recipe uses common kitchen ingredients and takes just a few minutes to make.</div>
+        </div>
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">🏡</span>Why Order Directly From Us?<span class="chev"></span></button>
+          <div class="acc-a">Ordering here gets you the complete, official edition at the Fall Sale price, with instant delivery and our full 60-day money-back guarantee. You pay once and keep the book forever. No subscription, no hidden charges.</div>
+        </div>
+        <div class="acc">
+          <button class="acc-q" type="button"><span class="acc-icon">📩</span>Delivery Information<span class="chev"></span></button>
+          <div class="acc-a">This is a digital book, so there's nothing to wait for. Right after your payment you'll get an email with your download link, and you can also open it straight away on the next page. It's a PDF that works on any phone, tablet or computer.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY THESE RECIPES WERE FORGOTTEN -->
+<section class="section">
+  <div class="wrap">
+    <div class="ornament">◆</div>
+    <div class="feature-image">
+      <div class="scene scene-1">
+        <img class="scene-photo" src="../ancient-healing-book/assets/apothecary-shop-salem.jpg" alt="" loading="lazy" decoding="async">
+        <img src="../ancient-healing-book/book_cover.png" alt="Ash's Ancient Healing Recipe Book">
+      </div>
+    </div>
+
+    <p class="eyebrow">Passed Down. Never Prescribed.</p>
+    <h2 class="h2">The Recipes Your Grandmother Knew, <span class="swoosh">That Modern Life Forgot</span></h2>
+    <p class="body-copy">Every culture used to know these remedies. The herbs that ease swollen ankles. The drink that flushes the kidneys. The tea that calms an inflamed gut. Then somewhere along the way we traded them for prescriptions and pills, and forgot what was already in our kitchen. I gathered 106 of them into this book, drawn from Chinese, Amish, Japanese, African and traditional Western healing, so you can rediscover what your grandmother already knew.</p>
+
+    <ul class="check-list gold-checks">
+      <li>Drawn from five healing traditions around the world</li>
+      <li>Used and passed down in family kitchens for generations</li>
+      <li>Made with lemons, ginger, turmeric, honey, garlic and other everyday staples</li>
+    </ul>
+
+    <!-- Recipe carousel -->
+    <div class="carousel" id="carousel">
+      <span class="swipe-pill">SWIPE</span>
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <img src="../ancient-healing-book/assets/photo-golden-milk.jpg" alt="A spoonful of ground turmeric over a bowl of warm milk" loading="lazy" decoding="async">
+          <div class="slide-caption">Golden Turmeric Milk for Stiff Joints</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="../ancient-healing-book/assets/photo-bay-leaves.jpg" alt="Dried bay leaves laid out in a circle" loading="lazy" decoding="async">
+          <div class="slide-caption">Bay Leaf Calming Tea</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="../ancient-healing-book/assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
+          <div class="slide-caption">The ACV &amp; Lemon Morning Reset</div>
+        </div>
+      </div>
+      <div class="carousel-dots"></div>
+    </div>
+
+    <p class="eyebrow">Used Every Day by 15,000+ Readers</p>
+    <h2 class="h2"><span class="swoosh">Why This Book?</span></h2>
+    <p class="body-copy">These recipes shouldn't be locked behind a $200 wellness program. The whole point of traditional healing is that it was shared freely, passed from one kitchen to the next. I gathered them into one organized, easy-to-follow book so you can start using them tonight.</p>
+
+    <ul class="check-list gold-checks">
+      <li>100+ recipes, each with a short ingredient list and simple steps</li>
+      <li>Organized into chapters by body area, from belly to joints to sleep</li>
+      <li>Nothing rare, nothing expensive: everything is at your local market</li>
+      <li>Read on any screen, zoom as large as you like, or print it out</li>
+    </ul>
+
+    <a class="cta-secondary" href="#buy">Get the Complete Book <span aria-hidden="true">↑</span></a>
+    <p class="cta-note">60-day money-back guarantee</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:var(--paper)">
+  <path d="M0 30 C 240 0, 480 0, 720 26 S 1200 60, 1440 22 L1440 70 L0 70 Z" fill="#cfe2c2"/>
+  <path d="M0 44 C 260 14, 500 16, 740 40 S 1200 68, 1440 38 L1440 70 L0 70 Z" fill="#f1f4ee"/>
+</svg>
+<section class="reviews">
+  <div class="reviews-head wrap">
+    <p class="reviews-eyebrow">Don't Take Our Word For It</p>
+    <p class="reviews-title">Excellent</p>
+    <div class="reviews-score">
+      <div class="tp-stars" aria-label="5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      Rated <strong>4.9</strong> / 5 by our readers
+    </div>
+    <p class="reviews-hint">Swipe or drag to read more →</p>
+  </div>
+
+  <div class="review-scroller">
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#2e6b3c">MS</div><strong>Maria S.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"I started with the bay leaf tea and the cinnamon morning water. By the second week, my pants were looser and my bloat was completely gone. I've recommended this to my whole family."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#8a6a2e">JL</div><strong>Jennifer L.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"I was skeptical at first because I'd tried so many things. But the turmeric milk for joint pain genuinely worked for me. I sleep through the night now for the first time in years."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-top"><div class="avatar" style="background:#4a6b8a">AP</div><strong>Anna P.</strong></div>
+      <div class="review-meta"><div class="tp-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><span class="verified">✓ Verified</span></div>
+      <p>"My grandmother used to make some of these recipes when I was a child. I had completely forgotten about them until I read this book. It's like a love letter to traditional healing."</p>
+    </article>
+  </div>
+</section>
+
+<!-- BEFORE YOU DECIDE -->
+<section class="section">
+  <div class="wrap">
+    <div class="feature-image">
+      <div class="scene scene-2">
+        <img class="cup" src="../ancient-healing-book/assets/photo-turmeric-latte.jpg" alt="A warm cup of golden turmeric milk on a wooden table" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <p class="eyebrow">Before You Decide</p>
+    <h2 class="h2">You Have Read Enough. <span class="swoosh">The Only Question Left Is When You Start.</span></h2>
+    <p class="body-copy">You already know what is in these pages. The only thing left is whether you try them. Think about the mornings you wake up stiff, the afternoons you run out of energy, the nights you lie awake. You don't need another expensive program to fix them. You need the simple recipes people relied on for generations, written down in one place. And at $14.95, the whole book costs less than a single bottle of supplements.</p>
+
+    <ul class="check-list gold-checks">
+      <li>Start tonight: the book arrives in your inbox within minutes</li>
+      <li>Print the recipes you use most and keep them in the kitchen</li>
+      <li>One payment of $14.95, no subscription, yours forever</li>
+      <li>60-day money-back guarantee, so the only risk is never trying them</li>
+    </ul>
+
+    <a class="cta-secondary" href="#buy">Yes, Send Me the Book <span aria-hidden="true">↑</span></a>
+    <p class="cta-note">Pay once. Keep it forever.</p>
+
+    <div class="questions-cue" style="margin-top:60px">Still have questions?<span class="chev-down"></span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <div class="faq-card">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="title-rule"></div>
+
+      <div class="acc"><button class="acc-q" type="button">How do I get the book after I pay?<span class="chev"></span></button>
+        <div class="acc-a">Right after your payment goes through, you'll receive an email with a download link. You can also open it directly on the next page. The book is a PDF you can read on your phone, tablet or computer, and print if you'd like a paper copy.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Is it easy to read?<span class="chev"></span></button>
+        <div class="acc-a">Yes. Each recipe has a short ingredient list and simple step-by-step instructions. Because it's a digital book, you can zoom the text as large as you like on any screen, or print the pages you use most.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Will these recipes work for me?<span class="chev"></span></button>
+        <div class="acc-a">These remedies have been used across cultures for generations. Most readers feel a real difference within the first 1–2 weeks. That said, every body is different, which is why we offer a 60-day full money-back guarantee.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Are the ingredients hard to find?<span class="chev"></span></button>
+        <div class="acc-a">No. Almost everything in the book uses ingredients you already have at home or can buy at any local market: lemons, ginger, turmeric, honey, garlic, cinnamon, bay leaves, apple cider vinegar. Nothing rare. Nothing expensive.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Is this safe to use alongside medications?<span class="chev"></span></button>
+        <div class="acc-a">These are food-based recipes using common kitchen ingredients. However, if you're on prescription medication or have a medical condition, please consult your doctor before starting any new dietary routine. The book is informational, not medical advice.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Do I need to buy anything else after this?<span class="chev"></span></button>
+        <div class="acc-a">No. This is a one-time payment for the complete book. No subscriptions, no upsells, no hidden charges. Pay $14.95 once, keep the book forever.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">60-Day Money-Back Guarantee<span class="chev"></span></button>
+        <div class="acc-a">Try the recipes for a full 60 days. If you're not happy for any reason, just reply to your order email and we'll refund every cent.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">Why is it priced so low?<span class="chev"></span></button>
+        <div class="acc-a">Because these recipes shouldn't be locked behind a $200 wellness program. Traditional healing was always shared freely. We just want to cover the cost of putting it into one organized book and getting it to the people who need it.</div></div>
+
+      <div class="acc"><button class="acc-q" type="button">I can't afford it<span class="chev"></span></button>
+        <div class="acc-a">We understand. That's exactly why the book is $14.95 instead of the price of a wellness program or a month of supplements. And with the 60-day guarantee, if it doesn't earn its place in your kitchen, you get your money back.</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- DISCLOSURES + FOOTER -->
+<footer class="disclosures">
+  <div class="wrap">
+    <h3>Health &amp; Product Disclosures</h3>
+    <p>Ash's Ancient Healing Recipe Book is a digital collection of traditional, food-based recipes offered for educational and personal use. It is not medical advice and is not intended to diagnose, treat, cure or prevent any disease. Please consult your doctor before making any dietary or lifestyle changes, especially if you are pregnant, nursing, taking medication or have a medical condition.</p>
+    <p>Individual results may vary and results are not guaranteed. Testimonials reflect the experiences of individual readers.</p>
+
+    <h4>Platform Disclaimers</h4>
+    <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    <p>This site is not a part of Google™ website or network of sites such as Youtube™ or any company owned by Google™ or Youtube™. Additionally this website is not endorsed by Google™ Youtube™ Inc. in any way. Google™ is a trademark for all their respective companies.</p>
+
+    <div class="footer-logo">
+      <a class="logo" href="#top" aria-label="Back to top">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#e1edd3"/>
+          <path d="M20 32 C 20 22, 12 18, 9 10 C 18 11, 23 17, 20 32 Z" fill="#2e6b3c"/>
+          <path d="M20 32 C 21 22, 27 17, 32 13 C 32 22, 26 27, 20 32 Z" fill="#7fa66a"/>
+        </svg>
+        <span class="logo-text"><small>America's</small><strong>Healthy Recipes</strong></span>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="secure">🔒 Secure checkout via Whop</span>
+      <p>Photos: <a href="https://commons.wikimedia.org/w/index.php?curid=97148960">lemons</a> by Ivar Leidus, <a href="https://commons.wikimedia.org/w/index.php?curid=109104591">golden milk</a> by Muralikrishna Musunuri and <a href="https://commons.wikimedia.org/w/index.php?curid=112848118">bay leaves</a> by Mauro Cateb (all <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); turmeric latte by Andy Li (CC0); apothecary shop, Detroit Publishing Co. (public domain). Via Wikimedia Commons.</p>
+      <p>© 2026 americashealthyrecipes.com · All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===========================================================
+  // COUNTDOWN (2 hours per visit, survives a page refresh)
+  // ===========================================================
+  (function () {
+    const KEY = 'ahr_sale_end';
+    const DURATION = 2 * 60 * 60 * 1000;
+    let end;
+    try { end = parseInt(sessionStorage.getItem(KEY), 10); } catch (e) {}
+    if (!end || end < Date.now()) {
+      end = Date.now() + DURATION;
+      try { sessionStorage.setItem(KEY, end); } catch (e) {}
+    }
+    const h = document.getElementById('t-h');
+    const m = document.getElementById('t-m');
+    const s = document.getElementById('t-s');
+    const pad = n => String(n).padStart(2, '0');
+
+    function tick() {
+      let left = Math.max(0, Math.floor((end - Date.now()) / 1000));
+      if (left === 0) {
+        end = Date.now() + DURATION;
+        try { sessionStorage.setItem(KEY, end); } catch (e) {}
+        left = DURATION / 1000;
+      }
+      h.textContent = pad(Math.floor(left / 3600));
+      m.textContent = pad(Math.floor((left % 3600) / 60));
+      s.textContent = pad(left % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ===========================================================
+  // PRODUCT GALLERY
+  // ===========================================================
+  (function () {
+    const gallery = document.getElementById('gallery');
+    const slides = gallery.querySelectorAll('.slide');
+    const thumbs = document.querySelectorAll('#thumbs .thumb');
+    let current = 0;
+
+    function show(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach((el, n) => el.classList.toggle('active', n === current));
+      thumbs.forEach((el, n) => el.classList.toggle('active', n === current));
+    }
+
+    thumbs.forEach((t, n) => t.addEventListener('click', () => show(n)));
+
+    // Swipe on touch screens, drag with the mouse on desktop
+    let startX = null;
+    gallery.addEventListener('pointerdown', e => { startX = e.clientX; });
+    gallery.addEventListener('pointerup', e => {
+      if (startX === null) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    gallery.addEventListener('pointercancel', () => { startX = null; });
+    gallery.addEventListener('dragstart', e => e.preventDefault());
+  })();
+
+  // ===========================================================
+  // RECIPE CAROUSEL
+  // ===========================================================
+  (function () {
+    const root = document.getElementById('carousel');
+    const track = root.querySelector('.carousel-track');
+    const slides = track.children;
+    const dotsWrap = root.querySelector('.carousel-dots');
+    let current = 0;
+
+    for (let i = 0; i < slides.length; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show recipe ' + (i + 1));
+      b.addEventListener('click', () => go(i));
+      dotsWrap.appendChild(b);
+    }
+
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsWrap.querySelectorAll('button').forEach((d, n) => d.classList.toggle('active', n === current));
+    }
+
+    let startX = null;
+    root.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+    setInterval(() => go(current + 1), 5000);
+  })();
+
+  // ===========================================================
+  // ACCORDIONS
+  // ===========================================================
+  document.querySelectorAll('.acc').forEach(acc => {
+    const btn = acc.querySelector('.acc-q');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const open = acc.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  // ===========================================================
+  // COUNTRY (delivery line) — ?country=US to test
+  // ===========================================================
+  (async function () {
+    const el = document.getElementById('country-line');
+    const set = name => { if (name) el.textContent = '· Available in ' + name; };
+
+    const param = new URLSearchParams(location.search).get('country');
+    if (param) { set(param); return; }
+
+    try {
+      const res = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+      if (res.ok) {
+        const d = await res.json();
+        if (d.country_name) set(d.country_name);
+      }
+    } catch (e) { /* silent */ }
+  })();
+</script>
+
+</body>
+</html>
