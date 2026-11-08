@@ -1456,6 +1456,8 @@
   }
   .scene-1 img.scene-full { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: none; filter: none; z-index: 1; }
   .carousel-slide img[src*="reader-"] { object-position: 50% 30%; }
+  .slide-photo { padding: 0; background: #e9efe2; }
+  .slide-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -1498,19 +1500,16 @@
       <!-- Gallery -->
       <div class="gallery">
         <div class="gallery-main" id="gallery">
-          <div class="slide slide-creator active">
-            <img class="creator-photo" src="ash.webp" alt="Ash Callahan">
-            <img class="creator-book" src="../ancient-healing-book/book-cover.webp" alt="Ash's Healthy Body Recipe Book cover">
-            <span class="creator-tag">Ash's recipe book</span>
+          <div class="slide slide-photo active">
+            <img src="ash-slide-book.jpg" alt="Ash Callahan holding Ash's Healthy Body Recipe Book: 100+ healthy recipes, kitchen ingredients, instant download" decoding="async">
           </div>
 
-          <div class="slide slide-cover">
-            <div class="badges">
-              <div class="badge"><span class="badge-big">100+</span>Healthy Recipes</div>
-              <div class="badge"><span class="badge-icon">🌿</span>Kitchen Ingredients</div>
-              <div class="badge"><span class="badge-icon">📱</span>Instant Download</div>
-            </div>
-            <img src="../ancient-healing-book/book-cover.webp" alt="Ash's Healthy Body Recipe Book cover">
+          <div class="slide slide-photo">
+            <img src="ash-slide-guarantee.jpg" alt="60-day money-back guarantee on Ash's Healthy Body Recipe Book" loading="lazy" decoding="async">
+          </div>
+
+          <div class="slide slide-photo">
+            <img src="ash-slide-review.jpg" alt="Five-star review from Amanda Kelly holding Ash's Healthy Body Recipe Book" loading="lazy" decoding="async">
           </div>
 
           <div class="slide slide-panel">
@@ -1529,23 +1528,21 @@
           </div>
 
           <div class="slide slide-panel">
-            <div class="seal"><span class="seal-num">60</span><span class="seal-txt">DAY<br>GUARANTEE</span></div>
-            <h3>Try It Risk-Free</h3>
-            <p>If the recipes don't help you, email us within 60 days for a full refund. No questions asked.</p>
-          </div>
-
-          <div class="slide slide-recipe">
-            <img src="../ancient-healing-book/assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
-            <div class="slide-caption">Inside: The ACV &amp; Lemon Morning Reset</div>
+            <h3>Read It on Any Device</h3>
+            <div class="devices" aria-hidden="true">
+              <div class="device tablet"><div class="device-screen"><i class="h"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div></div>
+              <div class="device phone"><div class="device-screen"><i class="h"></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div></div>
+            </div>
+            <p>Phone, tablet or computer. Zoom the text as large as you like, or print the recipes you use most.</p>
           </div>
         </div>
 
         <div class="thumbs" id="thumbs">
-          <button class="thumb active" type="button" aria-label="Ash with the book"><img class="thumb-photo" src="ash.webp" alt=""></button>
-          <button class="thumb" type="button" aria-label="Book cover"><img src="../ancient-healing-book/book-cover.webp" alt=""></button>
+          <button class="thumb active" type="button" aria-label="The book"><img class="thumb-photo" src="ash-slide-book.jpg" alt=""></button>
+          <button class="thumb" type="button" aria-label="Guarantee"><img class="thumb-photo" src="ash-slide-guarantee.jpg" alt=""></button>
+          <button class="thumb" type="button" aria-label="Review"><img class="thumb-photo" src="ash-slide-review.jpg" alt=""></button>
           <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
-          <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
-          <button class="thumb" type="button"><img class="thumb-photo" src="../ancient-healing-book/assets/photo-lemons.jpg" alt="" loading="lazy">Recipe</button>
+          <button class="thumb" type="button"><span class="t-icon">📱</span>Any Device</button>
         </div>
       </div>
 
@@ -1576,7 +1573,7 @@
 
         <div class="offer-option">
           <span class="offer-tag">BLACK FRIDAY</span>
-          <img class="offer-thumb" src="../ancient-healing-book/book-cover.webp" alt="">
+          <img class="offer-thumb" src="ash-cover.webp" alt="">
           <div class="offer-info">
             <div class="offer-name">Complete Book</div>
             <div class="offer-desc">100+ recipes · Digital</div>
@@ -1641,7 +1638,7 @@
     <div class="ornament">◆</div>
     <div class="feature-image">
       <div class="scene scene-1">
-        <img class="scene-full" src="../ancient-healing-book/assets/book-on-table.jpg" alt="Ash's Healthy Body Recipe Book on a wooden coffee table next to a cup of tea" loading="lazy" decoding="async">
+        <img class="scene-full" src="ash-book-on-table.jpg" alt="Ash's Healthy Body Recipe Book on a wooden coffee table next to a cup of tea" loading="lazy" decoding="async">
       </div>
     </div>
 
@@ -1660,13 +1657,13 @@
       <span class="swipe-pill">SWIPE</span>
       <div class="carousel-track">
         <div class="carousel-slide">
-          <img src="../ancient-healing-book/assets/reader-1.jpg" alt="A smiling man in a kitchen holding The Healthy Body Recipe Book" decoding="async">
+          <img src="ash-reader-1.jpg" alt="A smiling man in a kitchen holding Ash's Healthy Body Recipe Book" decoding="async">
         </div>
         <div class="carousel-slide">
-          <img src="../ancient-healing-book/assets/reader-2.jpg" alt="A smiling man with glasses holding The Healthy Body Recipe Book" decoding="async">
+          <img src="ash-reader-2.jpg" alt="A smiling man with glasses holding Ash's Healthy Body Recipe Book" decoding="async">
         </div>
         <div class="carousel-slide">
-          <img src="../ancient-healing-book/assets/reader-3.jpg" alt="A smiling woman in her kitchen holding The Healthy Body Recipe Book" decoding="async">
+          <img src="ash-reader-3.jpg" alt="A smiling woman in her kitchen holding Ash's Healthy Body Recipe Book" decoding="async">
         </div>
       </div>
       <div class="carousel-dots"></div>
@@ -1813,7 +1810,6 @@
 
     <div class="footer-bottom">
       <span class="secure">🔒 Secure checkout via Whop</span>
-      <p>Photos: <a href="https://commons.wikimedia.org/w/index.php?curid=97148960">lemons</a> by Ivar Leidus (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>). Via Wikimedia Commons.</p>
       <p>© 2026 americashealthyrecipes.com · All Rights Reserved</p>
     </div>
   </div>
