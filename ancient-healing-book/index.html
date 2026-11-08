@@ -1423,6 +1423,9 @@
     .cta-secondary { width: 100%; font-size: 1.08rem; }
     .reviews-title { font-size: 2.2rem; }
   }
+
+  .slide-photo { padding: 0; background: #e9efe2; }
+  .slide-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -1458,13 +1461,16 @@
       <!-- Gallery -->
       <div class="gallery">
         <div class="gallery-main" id="gallery">
-          <div class="slide slide-cover active">
-            <div class="badges">
-              <div class="badge"><span class="badge-big">100+</span>Healthy Recipes</div>
-              <div class="badge"><span class="badge-icon">🌿</span>Kitchen Ingredients</div>
-              <div class="badge"><span class="badge-icon">📱</span>Instant Download</div>
-            </div>
-            <img src="book_cover.png" alt="The Healthy Body Recipe Book cover">
+          <div class="slide slide-photo active">
+            <img src="assets/slide-book-woman.jpg" alt="A woman holding The Healthy Body Recipe Book: 100+ healthy recipes, kitchen ingredients, instant download" decoding="async">
+          </div>
+
+          <div class="slide slide-photo">
+            <img src="assets/slide-guarantee.jpg" alt="60-day money-back guarantee on The Healthy Body Recipe Book" loading="lazy" decoding="async">
+          </div>
+
+          <div class="slide slide-photo">
+            <img src="assets/slide-review.jpg" alt="Five-star review from Amanda Kelly holding The Healthy Body Recipe Book" loading="lazy" decoding="async">
           </div>
 
           <div class="slide slide-panel">
@@ -1483,12 +1489,6 @@
           </div>
 
           <div class="slide slide-panel">
-            <div class="seal"><span class="seal-num">60</span><span class="seal-txt">DAY<br>GUARANTEE</span></div>
-            <h3>Try It Risk-Free</h3>
-            <p>If the recipes don't help you, email us within 60 days for a full refund. No questions asked.</p>
-          </div>
-
-          <div class="slide slide-panel">
             <h3>Read It on Any Device</h3>
             <div class="devices" aria-hidden="true">
               <div class="device tablet"><div class="device-screen"><i class="h"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div></div>
@@ -1496,19 +1496,14 @@
             </div>
             <p>Phone, tablet or computer. Zoom the text as large as you like, or print the recipes you use most.</p>
           </div>
-
-          <div class="slide slide-recipe">
-            <img src="assets/photo-lemons.jpg" alt="A whole lemon and a halved lemon" loading="lazy" decoding="async">
-            <div class="slide-caption">Inside: The ACV &amp; Lemon Morning Reset</div>
-          </div>
         </div>
 
         <div class="thumbs" id="thumbs">
-          <button class="thumb active" type="button" aria-label="Book cover"><img src="book_cover.png" alt=""></button>
+          <button class="thumb active" type="button" aria-label="The book"><img class="thumb-photo" src="assets/slide-book-woman.jpg" alt=""></button>
+          <button class="thumb" type="button" aria-label="Guarantee"><img class="thumb-photo" src="assets/slide-guarantee.jpg" alt=""></button>
+          <button class="thumb" type="button" aria-label="Review"><img class="thumb-photo" src="assets/slide-review.jpg" alt=""></button>
           <button class="thumb" type="button"><span class="t-icon">📖</span>Inside</button>
-          <button class="thumb" type="button"><span class="t-icon">🛡️</span>60 Days</button>
           <button class="thumb" type="button"><span class="t-icon">📱</span>Any Device</button>
-          <button class="thumb" type="button"><img class="thumb-photo" src="assets/photo-lemons.jpg" alt="" loading="lazy">Recipe</button>
         </div>
       </div>
 
