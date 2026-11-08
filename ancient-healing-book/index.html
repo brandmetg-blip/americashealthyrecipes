@@ -542,6 +542,7 @@
   .sale-notice span b { font-weight: 800; }
 
   .offer-option {
+    padding-top: 28px !important;
     position: relative;
     display: flex;
     align-items: center;
@@ -600,19 +601,25 @@
     color: var(--ink);
   }
 
+  .offer-price-row { display: flex; align-items: baseline; justify-content: flex-end; gap: 8px; }
+
   .offer-was {
-    display: block;
     color: var(--ink-mute);
     text-decoration: line-through;
-    font-size: 1.05rem;
-    margin-top: 4px;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   .offer-save {
-    display: block;
-    color: var(--accent);
+    display: inline-block;
+    margin-top: 8px;
+    background: #dfeccf;
+    color: var(--accent-dark);
     font-weight: 800;
-    font-size: 1.02rem;
+    font-size: 0.88rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
   }
 
   /* included box */
@@ -1537,9 +1544,8 @@
             <div class="offer-desc">100+ recipes · Digital</div>
           </div>
           <div class="offer-prices">
-            <span class="offer-now">$14.95</span>
-            <span class="offer-was">$27.00</span>
-            <span class="offer-save">You Save $12.05</span>
+            <div class="offer-price-row"><span class="offer-was">$27.00</span><span class="offer-now">$14.95</span></div>
+            <span class="offer-save">You save $12.05</span>
           </div>
         </div>
 
